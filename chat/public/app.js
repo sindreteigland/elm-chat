@@ -22789,7 +22789,11 @@ var _user$project$Main$appBar = function (title) {
 						_1: {
 							ctor: '::',
 							_0: {ctor: '_Tuple2', _0: 'font-face', _1: 'Droid Sans Mono'},
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'margin', _1: '15px'},
+								_1: {ctor: '[]'}
+							}
 						}
 					},
 					{
@@ -22807,16 +22811,7 @@ var _user$project$Main$appBar = function (title) {
 							_1: {
 								ctor: '::',
 								_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$LeftMenuToggle),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$style(
-										{
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'margin', _1: '15px'},
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}
+								_1: {ctor: '[]'}
 							}
 						},
 						{ctor: '[]'}),

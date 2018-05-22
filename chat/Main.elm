@@ -678,7 +678,7 @@ inputField model =
 appBar title =
     div [ class [ ChatCss.ToolBar, ChatCss.ElevationBorder ], style [ ( "display", "flex" ) ] ]
         [ div
-            append (hover_
+            (hover_
                 [ ( "font-size", "20px" )
                 , ( "font-face", "Droid Sans Mono" )
                 , ("margin", "15px")
