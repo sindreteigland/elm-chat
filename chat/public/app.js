@@ -23392,14 +23392,18 @@ var _user$project$Main$messageArea = function (model) {
 											_0: {ctor: '_Tuple2', _0: 'type', _1: 'text'},
 											_1: {
 												ctor: '::',
-												_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '10px'},
+												_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '5px'},
 												_1: {
 													ctor: '::',
-													_0: {ctor: '_Tuple2', _0: 'padding-bottom', _1: '10px'},
+													_0: {ctor: '_Tuple2', _0: 'padding-bottom', _1: '5px'},
 													_1: {
 														ctor: '::',
 														_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '5px'},
-														_1: {ctor: '[]'}
+														_1: {
+															ctor: '::',
+															_0: {ctor: '_Tuple2', _0: 'font-size', _1: 'medium'},
+															_1: {ctor: '[]'}
+														}
 													}
 												}
 											}

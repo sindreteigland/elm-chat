@@ -419,7 +419,7 @@ messageArea model =
     div []
         [ div []
             [ div [ style [ ( "position", "relative" ), ( "display", "flex" ), ( "align-content", "stretch" ), ( "flex-direction", "column" ) ] ]
-                [ input [ style [ ( "type", "text" ), ( "padding-top", "10px" ), ( "padding-bottom", "10px" ), ( "border-radius", "5px" ) ], class [ ChatCss.Input ], placeholder "Say something...", onInput SetNewMessage, value model.newMessage.message ] []
+                [ input [ style [ ( "type", "text" ), ( "padding-top", "5px" ), ( "padding-bottom", "5px" ), ( "border-radius", "5px" ), ( "font-size", "medium" ) ], class [ ChatCss.Input ], placeholder "Say something...", onInput SetNewMessage, value model.newMessage.message ] []
                 ]
             ]
         ]
@@ -681,7 +681,7 @@ appBar title =
             (hover_
                 [ ( "font-size", "20px" )
                 , ( "font-face", "Droid Sans Mono" )
-                , ("margin", "15px")
+                , ( "margin", "15px" )
                 ]
                 [ ( "cursor", "", "pointer" ) ]
             )
