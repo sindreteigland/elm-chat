@@ -1,0 +1,196 @@
+.rainchatChatContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #212121;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    justify-content: space-between;
+}
+
+.rainchatToolBar {
+    background-color: #424242;
+    color: #fff;
+    font-size: large;
+    width: 100%;
+    border-radius: 2px 2px 0px 0px;
+    box-shadow: 0 0 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,0.24);
+    z-index: 2;
+}
+
+#Chat {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rainchatMessageContainer {
+    padding: 5px 10px 5px 10px;
+}
+
+.rainchatMyMessageContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.rainchatProfilePicture {
+    float: left;
+    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    border: 3px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #006cb7;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.rainchatUserName {
+    font-size: 10pt;
+}
+
+.rainchatSquare {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    border-radius: 2px;
+    margin-top: 7px;
+}
+
+.rainchatTheireSquare {
+    background-color: #2665D7;
+    margin-left: -8.5px;
+}
+
+.rainchatMySquare {
+    background-color: #9ac933;
+    right: 0px;
+    margin-right: -3px;
+}
+
+.rainchatMessage {
+    position: relative;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 5px;
+    display: inline-block;
+    max-width: 700px;
+}
+
+.rainchatGifMessage {
+    position: relative;
+    display: inline-block;
+}
+
+.rainchatTheireMessage {
+    background-color: #2665D7;
+    color: #fff;
+}
+
+.rainchatMyMessage {
+    background-color: #9ac933;
+    color: #000;
+}
+
+.rainchatMessageBody {
+    display: block;
+    overflow: auto;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    padding: 5px;
+    font-size: medium;
+    margin: 0px;
+}
+
+.rainchatInputContainer {
+    background-color: #303030;
+    color: #fff;
+    height: auto;
+    padding: 10px;
+    border-radius: 0px 0px 2px 2px;
+    box-shadow: 0 0 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,0.24);
+    border: 1px;
+    border-style: solid;
+    border-top-color: #3c3c3c;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+
+.rainchatInput {
+    border: 0px;
+    padding: 5px;
+    background-color: #303030;
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.rainchatMyPicture {
+    margin-top: 0px;
+}
+
+.rainchatInputField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.rainchatInputField > .rainchatUserName {
+    padding-left: 5px;
+}
+
+.rainchatMessageArea {
+    display: flex;
+    flex-direction: column;
+}
+
+.rainchatEmoteSection {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0px 0px 5px;
+    justify-content: space-between;
+}
+
+#Send {
+    margin-left: 15px;
+    margin-top: 14px;
+    width: 30px;
+}
+
+#SmileyEmote {
+    position: absolute;
+    top: -1px;
+    right: 15px;
+}
+
+.rainchatGif {
+    height: 100%;
+    width: 100%;
+    border-radius: 2px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.rainchatEmoteContainer {
+    font-size: xx-large;
+    margin: 0px;
+}
+
+.rainchatElevationBorder {
+    border: 1px;
+    border-style: solid;
+    border-top-color: rgba(255, 255, 255, 0.1);
+    border-right-color: transparent;
+    border-bottom-color: rgba(38, 50, 56, 0.2);
+    border-left-color: transparent;
+}
