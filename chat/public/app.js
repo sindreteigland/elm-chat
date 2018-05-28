@@ -18189,6 +18189,354 @@ var _rtfeldman$elm_css_helpers$Html_CssHelpers$Namespace = F4(
 		return {$class: a, classList: b, id: c, name: d};
 	});
 
+var _user$project$Data$gifs = {
+	ctor: '::',
+	_0: {prev: 'https://media.tenor.com/images/b01f155c74ee62a67c4a372072198f5a/tenor.gif', gif: 'https://media.tenor.com/images/9792ea789f6585fcda4222c5ceaf9a8d/tenor.gif'},
+	_1: {
+		ctor: '::',
+		_0: {prev: 'https://media.tenor.com/images/441e6bdcd42a9546d1f77062df007dfa/tenor.gif', gif: 'https://media.tenor.com/images/ed8cf447392c5e7e0cc16cbad2a0edce/tenor.gif'},
+		_1: {
+			ctor: '::',
+			_0: {prev: 'https://media.tenor.com/images/9146bdbe7d5570f655b4b4216c9139ce/tenor.gif', gif: 'https://media.tenor.com/images/da2c52f4d1cf4141b16d32d6fddbabc9/tenor.gif'},
+			_1: {
+				ctor: '::',
+				_0: {prev: 'https://media.tenor.com/images/589f2efe0f9a9f88f693d4785af604bd/tenor.gif', gif: 'https://media.tenor.com/images/6d413af92fe56d674e2deadc52ee7e35/tenor.gif'},
+				_1: {
+					ctor: '::',
+					_0: {prev: 'https://media.tenor.com/images/63d56523f490ff32f2bcd11fe48057a3/tenor.gif', gif: 'https://media.tenor.com/images/282e5c33d659a52ab6d3b553b6582640/tenor.gif'},
+					_1: {
+						ctor: '::',
+						_0: {prev: 'https://media.tenor.com/images/32c0d5729123e0a381dab5352bb2b696/tenor.gif', gif: 'https://media.tenor.com/images/bb6649204120d95457f75b1331ecbec6/tenor.gif'},
+						_1: {
+							ctor: '::',
+							_0: {prev: 'https://media.tenor.com/images/ee31e7e7b878b76e52ad5d74dec0ddb1/tenor.gif', gif: 'https://media.tenor.com/images/af11b46852d943529840397f9ab95cf3/tenor.gif'},
+							_1: {
+								ctor: '::',
+								_0: {prev: 'https://media.tenor.com/images/bf71e703ee2a9b4de8af5c8cff8af74d/tenor.gif', gif: 'https://media.tenor.com/images/efd15177767f3c6217338e318751d6b0/tenor.gif'},
+								_1: {
+									ctor: '::',
+									_0: {prev: 'https://media.tenor.com/images/eee25ace52af637d449b81fb1c7452ee/tenor.gif', gif: 'https://media.tenor.com/images/c103c6bcdaa5d98f0fee4e747b161c14/tenor.gif'},
+									_1: {
+										ctor: '::',
+										_0: {prev: 'https://media.tenor.com/images/cf6d2f93405d054907debe7d726feeb3/tenor.gif', gif: 'https://media.tenor.com/images/5305cf820f1d3665f5281ce473b92313/tenor.gif'},
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _user$project$Data$users = {
+	ctor: '::',
+	_0: {userId: 'user1', userName: 'Bob', color: '#25e075', picture: 'unnamed.png'},
+	_1: {
+		ctor: '::',
+		_0: {userId: 'user2', userName: 'David', color: '#D50000', picture: '486268_1433989646157_full.png'},
+		_1: {
+			ctor: '::',
+			_0: {userId: 'user3', userName: 'Jelly kid', color: '#673AB7', picture: 'b0ce1e9c577d40ee25fe3aeea4798561.jpg'},
+			_1: {
+				ctor: '::',
+				_0: {userId: 'user4', userName: 'Jim', color: '#2196F3', picture: '0.jpg'},
+				_1: {ctor: '[]'}
+			}
+		}
+	}
+};
+var _user$project$Data$disUsr = 'user3';
+var _user$project$Data$ChatMessage = F3(
+	function (a, b, c) {
+		return {userId: a, msgType: b, body: c};
+	});
+var _user$project$Data$Conversation = F7(
+	function (a, b, c, d, e, f, g) {
+		return {conversationId: a, conversationType: b, users: c, conversationName: d, picture: e, color: f, messages: g};
+	});
+var _user$project$Data$Model = F9(
+	function (a, b, c, d, e, f, g, h, i) {
+		return {newMessage: a, messages: b, conversations: c, phxSocket: d, userList: e, currentUser: f, keyboard: g, focusedChat: h, leftMenuOpen: i};
+	});
+var _user$project$Data$NewMessage = F2(
+	function (a, b) {
+		return {msgType: a, message: b};
+	});
+var _user$project$Data$User = F4(
+	function (a, b, c, d) {
+		return {userId: a, userName: b, color: c, picture: d};
+	});
+var _user$project$Data$Channel = {ctor: 'Channel'};
+var _user$project$Data$Group = {ctor: 'Group'};
+var _user$project$Data$Direct = {ctor: 'Direct'};
+var _user$project$Data$GifPicker = {ctor: 'GifPicker'};
+var _user$project$Data$EmojiPicker = {ctor: 'EmojiPicker'};
+var _user$project$Data$None = {ctor: 'None'};
+var _user$project$Data$Unknown = {ctor: 'Unknown'};
+var _user$project$Data$Gif = {ctor: 'Gif'};
+var _user$project$Data$Emotes = {ctor: 'Emotes'};
+var _user$project$Data$Text = {ctor: 'Text'};
+var _user$project$Data$messages = {
+	ctor: '::',
+	_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Hello!'},
+	_1: {
+		ctor: '::',
+		_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Lenge siden sist'},
+		_1: {
+			ctor: '::',
+			_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Har du noe sand jeg kan låne?'},
+			_1: {
+				ctor: '::',
+				_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Waaadup!'},
+				_1: {
+					ctor: '::',
+					_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Har 2 poser'},
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	}
+};
+var _user$project$Data$messages2 = {
+	ctor: '::',
+	_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Hei Bob'},
+	_1: {
+		ctor: '::',
+		_0: {userId: 'user1', msgType: _user$project$Data$Text, body: 'Hello!'},
+		_1: {
+			ctor: '::',
+			_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Kan det fikses?'},
+			_1: {
+				ctor: '::',
+				_0: {userId: 'user1', msgType: _user$project$Data$Text, body: 'Klart det kan!'},
+				_1: {
+					ctor: '::',
+					_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Noice!'},
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	}
+};
+var _user$project$Data$messages3 = {
+	ctor: '::',
+	_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Hei Jim, Lenge siden'},
+	_1: {
+		ctor: '::',
+		_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Hei du'},
+		_1: {
+			ctor: '::',
+			_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Har du lyst til å ta en båt tur?'},
+			_1: {
+				ctor: '::',
+				_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Nei'},
+				_1: {
+					ctor: '::',
+					_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Vi er ikke venner!'},
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	}
+};
+var _user$project$Data$messages4 = {
+	ctor: '::',
+	_0: {userId: 'user1', msgType: _user$project$Data$Text, body: 'Hello!'},
+	_1: {
+		ctor: '::',
+		_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Eyyy'},
+		_1: {
+			ctor: '::',
+			_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Waaadup!'},
+			_1: {
+				ctor: '::',
+				_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Hei 😄'},
+				_1: {
+					ctor: '::',
+					_0: {userId: 'user1', msgType: _user$project$Data$Text, body: 'Er det noe liv?'},
+					_1: {
+						ctor: '::',
+						_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Vi bare tester ut denne rå chatten, funker som et fly'},
+						_1: {
+							ctor: '::',
+							_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Sykt kult. er den skrevet i JQuery?'},
+							_1: {
+								ctor: '::',
+								_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Lol, har du slått deg. Dette er Elm baby!'},
+								_1: {
+									ctor: '::',
+									_0: {userId: 'user3', msgType: _user$project$Data$Gif, body: 'https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif'},
+									_1: {
+										ctor: '::',
+										_0: {userId: 'user4', msgType: _user$project$Data$Emotes, body: '😂😂😂'},
+										_1: {
+											ctor: '::',
+											_0: {userId: 'user3', msgType: _user$project$Data$Emotes, body: '👌👌👌👌👌'},
+											_1: {
+												ctor: '::',
+												_0: {userId: 'user4', msgType: _user$project$Data$Gif, body: 'https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif'},
+												_1: {
+													ctor: '::',
+													_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen'},
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _user$project$Data$conversations = {
+	ctor: '::',
+	_0: {
+		conversationId: '1',
+		conversationType: _user$project$Data$Direct,
+		color: '#D50000',
+		users: {
+			ctor: '::',
+			_0: {userId: 'user2', userName: 'David', color: '#D50000', picture: '486268_1433989646157_full.png'},
+			_1: {ctor: '[]'}
+		},
+		conversationName: 'David',
+		picture: '486268_1433989646157_full.png',
+		messages: _user$project$Data$messages
+	},
+	_1: {
+		ctor: '::',
+		_0: {
+			conversationId: '2',
+			conversationType: _user$project$Data$Direct,
+			color: '#25e075',
+			users: {
+				ctor: '::',
+				_0: {userId: 'user1', userName: 'Bob', color: '#25e075', picture: 'unnamed.png'},
+				_1: {ctor: '[]'}
+			},
+			conversationName: 'Bob',
+			picture: 'unnamed.png',
+			messages: _user$project$Data$messages2
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				conversationId: '3',
+				conversationType: _user$project$Data$Direct,
+				color: '#2196F3',
+				users: {
+					ctor: '::',
+					_0: {userId: 'user4', userName: 'Kim', color: '#2196F3', picture: '0.jpg'},
+					_1: {ctor: '[]'}
+				},
+				conversationName: 'Jim',
+				picture: '0.jpg',
+				messages: _user$project$Data$messages3
+			},
+			_1: {
+				ctor: '::',
+				_0: {conversationId: '4', conversationType: _user$project$Data$Group, color: '#673AB7', users: _user$project$Data$users, conversationName: 'The Boyz', picture: '0.jpg', messages: _user$project$Data$messages4},
+				_1: {ctor: '[]'}
+			}
+		}
+	}
+};
+var _user$project$Data$LeftMenuToggle = {ctor: 'LeftMenuToggle'};
+var _user$project$Data$ChangeChat = function (a) {
+	return {ctor: 'ChangeChat', _0: a};
+};
+var _user$project$Data$BackSpace = {ctor: 'BackSpace'};
+var _user$project$Data$GifClicked = function (a) {
+	return {ctor: 'GifClicked', _0: a};
+};
+var _user$project$Data$EmojiClicked = function (a) {
+	return {ctor: 'EmojiClicked', _0: a};
+};
+var _user$project$Data$ChatMessagesChanged = {ctor: 'ChatMessagesChanged'};
+var _user$project$Data$Keyboard = function (a) {
+	return {ctor: 'Keyboard', _0: a};
+};
+var _user$project$Data$ReciveChatMessage = function (a) {
+	return {ctor: 'ReciveChatMessage', _0: a};
+};
+var _user$project$Data$SendMessage = {ctor: 'SendMessage'};
+var _user$project$Data$PhoenixMsg = function (a) {
+	return {ctor: 'PhoenixMsg', _0: a};
+};
+var _user$project$Data$JoinChannel = {ctor: 'JoinChannel'};
+var _user$project$Data$SetNewMessage = function (a) {
+	return {ctor: 'SetNewMessage', _0: a};
+};
+
+var _user$project$Backdrop$showBackdrop = function (isOpen) {
+	return _elm_lang$core$Native_Utils.eq(isOpen, true) ? {
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'opacity', _1: '0.87'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'visibility', _1: 'visible'},
+			_1: {ctor: '[]'}
+		}
+	} : {
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'opacity', _1: '0'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'visibility', _1: 'hidden'},
+			_1: {ctor: '[]'}
+		}
+	};
+};
+var _user$project$Backdrop$backdrop = F2(
+	function (isOpen, onClickEvent) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					A2(
+						_elm_lang$core$List$append,
+						{
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'background-color', _1: 'black'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'opacity', _1: '0.87'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'transition', _1: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'},
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						},
+						_user$project$Backdrop$showBackdrop(isOpen))),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onClick(onClickEvent),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'});
+	});
+
 var _user$project$Chat_Css$contrastColor = function (rgbColor) {
 	var yiq = _elm_lang$core$Basics$toFloat(((rgbColor.red * 299) + (rgbColor.green * 587)) + (rgbColor.blue * 114)) / 1000;
 	return (_elm_lang$core$Native_Utils.cmp(yiq, 128) > -1) ? _rtfeldman$elm_css$Css$color(
@@ -21589,350 +21937,41 @@ var _user$project$Chat_Emoji$emojis = {
 	}
 };
 
-var _user$project$Data$gifs = {
-	ctor: '::',
-	_0: {prev: 'https://media.tenor.com/images/b01f155c74ee62a67c4a372072198f5a/tenor.gif', gif: 'https://media.tenor.com/images/9792ea789f6585fcda4222c5ceaf9a8d/tenor.gif'},
-	_1: {
-		ctor: '::',
-		_0: {prev: 'https://media.tenor.com/images/441e6bdcd42a9546d1f77062df007dfa/tenor.gif', gif: 'https://media.tenor.com/images/ed8cf447392c5e7e0cc16cbad2a0edce/tenor.gif'},
-		_1: {
-			ctor: '::',
-			_0: {prev: 'https://media.tenor.com/images/9146bdbe7d5570f655b4b4216c9139ce/tenor.gif', gif: 'https://media.tenor.com/images/da2c52f4d1cf4141b16d32d6fddbabc9/tenor.gif'},
-			_1: {
-				ctor: '::',
-				_0: {prev: 'https://media.tenor.com/images/589f2efe0f9a9f88f693d4785af604bd/tenor.gif', gif: 'https://media.tenor.com/images/6d413af92fe56d674e2deadc52ee7e35/tenor.gif'},
-				_1: {
-					ctor: '::',
-					_0: {prev: 'https://media.tenor.com/images/63d56523f490ff32f2bcd11fe48057a3/tenor.gif', gif: 'https://media.tenor.com/images/282e5c33d659a52ab6d3b553b6582640/tenor.gif'},
-					_1: {
-						ctor: '::',
-						_0: {prev: 'https://media.tenor.com/images/32c0d5729123e0a381dab5352bb2b696/tenor.gif', gif: 'https://media.tenor.com/images/bb6649204120d95457f75b1331ecbec6/tenor.gif'},
-						_1: {
-							ctor: '::',
-							_0: {prev: 'https://media.tenor.com/images/ee31e7e7b878b76e52ad5d74dec0ddb1/tenor.gif', gif: 'https://media.tenor.com/images/af11b46852d943529840397f9ab95cf3/tenor.gif'},
-							_1: {
-								ctor: '::',
-								_0: {prev: 'https://media.tenor.com/images/bf71e703ee2a9b4de8af5c8cff8af74d/tenor.gif', gif: 'https://media.tenor.com/images/efd15177767f3c6217338e318751d6b0/tenor.gif'},
-								_1: {
-									ctor: '::',
-									_0: {prev: 'https://media.tenor.com/images/eee25ace52af637d449b81fb1c7452ee/tenor.gif', gif: 'https://media.tenor.com/images/c103c6bcdaa5d98f0fee4e747b161c14/tenor.gif'},
-									_1: {
-										ctor: '::',
-										_0: {prev: 'https://media.tenor.com/images/cf6d2f93405d054907debe7d726feeb3/tenor.gif', gif: 'https://media.tenor.com/images/5305cf820f1d3665f5281ce473b92313/tenor.gif'},
-										_1: {ctor: '[]'}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-};
-var _user$project$Data$users = {
-	ctor: '::',
-	_0: {userId: 'user1', userName: 'Bob', color: '#25e075', picture: 'unnamed.png'},
-	_1: {
-		ctor: '::',
-		_0: {userId: 'user2', userName: 'David', color: '#D50000', picture: '486268_1433989646157_full.png'},
-		_1: {
-			ctor: '::',
-			_0: {userId: 'user3', userName: 'Jelly kid', color: '#673AB7', picture: 'b0ce1e9c577d40ee25fe3aeea4798561.jpg'},
-			_1: {
-				ctor: '::',
-				_0: {userId: 'user4', userName: 'Jim', color: '#2196F3', picture: '0.jpg'},
-				_1: {ctor: '[]'}
-			}
-		}
-	}
-};
-var _user$project$Data$disUsr = 'user3';
-var _user$project$Data$User = F4(
-	function (a, b, c, d) {
-		return {userId: a, userName: b, color: c, picture: d};
-	});
-var _user$project$Data$ChatMessage = F3(
-	function (a, b, c) {
-		return {userId: a, msgType: b, body: c};
-	});
-var _user$project$Data$Conversation = F7(
-	function (a, b, c, d, e, f, g) {
-		return {conversationId: a, conversationType: b, users: c, conversationName: d, picture: e, color: f, messages: g};
-	});
-var _user$project$Data$Unknown = {ctor: 'Unknown'};
-var _user$project$Data$Gif = {ctor: 'Gif'};
-var _user$project$Data$Emotes = {ctor: 'Emotes'};
-var _user$project$Data$Text = {ctor: 'Text'};
-var _user$project$Data$messages = {
-	ctor: '::',
-	_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Hello!'},
-	_1: {
-		ctor: '::',
-		_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Lenge siden sist'},
-		_1: {
-			ctor: '::',
-			_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Har du noe sand jeg kan låne?'},
-			_1: {
-				ctor: '::',
-				_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Waaadup!'},
-				_1: {
-					ctor: '::',
-					_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Har 2 poser'},
-					_1: {ctor: '[]'}
-				}
-			}
-		}
-	}
-};
-var _user$project$Data$messages2 = {
-	ctor: '::',
-	_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Hei Bob'},
-	_1: {
-		ctor: '::',
-		_0: {userId: 'user1', msgType: _user$project$Data$Text, body: 'Hello!'},
-		_1: {
-			ctor: '::',
-			_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Kan det fikses?'},
-			_1: {
-				ctor: '::',
-				_0: {userId: 'user1', msgType: _user$project$Data$Text, body: 'Klart det kan!'},
-				_1: {
-					ctor: '::',
-					_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Noice!'},
-					_1: {ctor: '[]'}
-				}
-			}
-		}
-	}
-};
-var _user$project$Data$messages3 = {
-	ctor: '::',
-	_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Hei Jim, Lenge siden'},
-	_1: {
-		ctor: '::',
-		_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Hei du'},
-		_1: {
-			ctor: '::',
-			_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Har du lyst til å ta en båt tur?'},
-			_1: {
-				ctor: '::',
-				_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Nei'},
-				_1: {
-					ctor: '::',
-					_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Vi er ikke venner!'},
-					_1: {ctor: '[]'}
-				}
-			}
-		}
-	}
-};
-var _user$project$Data$messages4 = {
-	ctor: '::',
-	_0: {userId: 'user1', msgType: _user$project$Data$Text, body: 'Hello!'},
-	_1: {
-		ctor: '::',
-		_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Eyyy'},
-		_1: {
-			ctor: '::',
-			_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Waaadup!'},
-			_1: {
-				ctor: '::',
-				_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Hei 😄'},
-				_1: {
-					ctor: '::',
-					_0: {userId: 'user1', msgType: _user$project$Data$Text, body: 'Er det noe liv?'},
-					_1: {
-						ctor: '::',
-						_0: {userId: 'user4', msgType: _user$project$Data$Text, body: 'Vi bare tester ut denne rå chatten, funker som et fly'},
-						_1: {
-							ctor: '::',
-							_0: {userId: 'user3', msgType: _user$project$Data$Text, body: 'Sykt kult. er den skrevet i JQuery?'},
-							_1: {
-								ctor: '::',
-								_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'Lol, har du slått deg. Dette er Elm baby!'},
-								_1: {
-									ctor: '::',
-									_0: {userId: 'user3', msgType: _user$project$Data$Gif, body: 'https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif'},
-									_1: {
-										ctor: '::',
-										_0: {userId: 'user4', msgType: _user$project$Data$Emotes, body: '😂😂😂'},
-										_1: {
-											ctor: '::',
-											_0: {userId: 'user3', msgType: _user$project$Data$Emotes, body: '👌👌👌👌👌'},
-											_1: {
-												ctor: '::',
-												_0: {userId: 'user4', msgType: _user$project$Data$Gif, body: 'https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif'},
-												_1: {
-													ctor: '::',
-													_0: {userId: 'user2', msgType: _user$project$Data$Text, body: 'hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen'},
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-};
-var _user$project$Data$Channel = {ctor: 'Channel'};
-var _user$project$Data$Group = {ctor: 'Group'};
-var _user$project$Data$Direct = {ctor: 'Direct'};
-var _user$project$Data$conversations = {
-	ctor: '::',
-	_0: {
-		conversationId: '1',
-		conversationType: _user$project$Data$Direct,
-		color: '#D50000',
-		users: {
-			ctor: '::',
-			_0: {userId: 'user2', userName: 'David', color: '#D50000', picture: '486268_1433989646157_full.png'},
-			_1: {ctor: '[]'}
-		},
-		conversationName: 'David',
-		picture: '486268_1433989646157_full.png',
-		messages: _user$project$Data$messages
-	},
-	_1: {
-		ctor: '::',
-		_0: {
-			conversationId: '2',
-			conversationType: _user$project$Data$Direct,
-			color: '#25e075',
-			users: {
-				ctor: '::',
-				_0: {userId: 'user1', userName: 'Bob', color: '#25e075', picture: 'unnamed.png'},
-				_1: {ctor: '[]'}
-			},
-			conversationName: 'Bob',
-			picture: 'unnamed.png',
-			messages: _user$project$Data$messages2
-		},
-		_1: {
-			ctor: '::',
-			_0: {
-				conversationId: '3',
-				conversationType: _user$project$Data$Direct,
-				color: '#2196F3',
-				users: {
-					ctor: '::',
-					_0: {userId: 'user4', userName: 'Kim', color: '#2196F3', picture: '0.jpg'},
-					_1: {ctor: '[]'}
-				},
-				conversationName: 'Jim',
-				picture: '0.jpg',
-				messages: _user$project$Data$messages3
-			},
-			_1: {
-				ctor: '::',
-				_0: {conversationId: '4', conversationType: _user$project$Data$Group, color: '#673AB7', users: _user$project$Data$users, conversationName: 'The Boyz', picture: '0.jpg', messages: _user$project$Data$messages4},
-				_1: {ctor: '[]'}
-			}
-		}
-	}
-};
-
-var _user$project$Main$join = function (msg) {
-	return A2(
-		_elm_lang$core$Task$perform,
-		_elm_lang$core$Basics$identity,
-		_elm_lang$core$Task$succeed(msg));
-};
-var _user$project$Main$showBackdrop = function (isOpen) {
-	return _elm_lang$core$Native_Utils.eq(isOpen, true) ? {
-		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'opacity', _1: '0.87'},
-		_1: {
-			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'visibility', _1: 'visible'},
-			_1: {ctor: '[]'}
-		}
-	} : {
-		ctor: '::',
-		_0: {ctor: '_Tuple2', _0: 'opacity', _1: '0'},
-		_1: {
-			ctor: '::',
-			_0: {ctor: '_Tuple2', _0: 'visibility', _1: 'hidden'},
-			_1: {ctor: '[]'}
-		}
-	};
-};
-var _user$project$Main$drawerPosition = function (isOpen) {
-	return _elm_lang$core$Native_Utils.eq(isOpen, true) ? {ctor: '_Tuple2', _0: 'left', _1: '0px'} : {ctor: '_Tuple2', _0: 'left', _1: '-250px'};
-};
-var _user$project$Main$members = A2(
-	_elm_lang$html$Html$div,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$style(
+var _user$project$ProfilePicture$_p0 = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('rainchat');
+var _user$project$ProfilePicture$id = _user$project$ProfilePicture$_p0.id;
+var _user$project$ProfilePicture$class = _user$project$ProfilePicture$_p0.$class;
+var _user$project$ProfilePicture$classList = _user$project$ProfilePicture$_p0.classList;
+var _user$project$ProfilePicture$profilePicture = F2(
+	function (color, picture) {
+		return A2(
+			_elm_lang$html$Html$img,
 			{
 				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#171717'},
+				_0: _user$project$ProfilePicture$class(
+					{
+						ctor: '::',
+						_0: _user$project$Chat_Css$ProfilePicture,
+						_1: {ctor: '[]'}
+					}),
 				_1: {
 					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'min-width', _1: '200px'},
+					_0: _elm_lang$html$Html_Attributes$src(picture),
 					_1: {
 						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'max-width', _1: '472px'},
-							_1: {
+						_0: _elm_lang$html$Html_Attributes$style(
+							{
 								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+								_0: {ctor: '_Tuple2', _0: 'border-color', _1: color},
 								_1: {ctor: '[]'}
-							}
-						}
+							}),
+						_1: {ctor: '[]'}
 					}
 				}
-			}),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html$text('Members/Images/options/other stuff that can be usefull wil go here... we will just see here!'),
-		_1: {ctor: '[]'}
+			},
+			{ctor: '[]'});
 	});
-var _user$project$Main$isFocused = F2(
-	function (focusId, currentId) {
-		return _elm_lang$core$Native_Utils.eq(focusId, currentId) ? {
-			ctor: '::',
-			_0: {ctor: '_Tuple3', _0: 'color', _1: 'white', _2: 'white'},
-			_1: {
-				ctor: '::',
-				_0: {ctor: '_Tuple3', _0: 'background-color', _1: '#404040', _2: '#404040'},
-				_1: {
-					ctor: '::',
-					_0: {ctor: '_Tuple3', _0: 'cursor', _1: '', _2: 'pointer'},
-					_1: {ctor: '[]'}
-				}
-			}
-		} : {
-			ctor: '::',
-			_0: {ctor: '_Tuple3', _0: 'color', _1: 'dimgrey', _2: 'white'},
-			_1: {
-				ctor: '::',
-				_0: {ctor: '_Tuple3', _0: 'background-color', _1: '', _2: '#252525'},
-				_1: {
-					ctor: '::',
-					_0: {ctor: '_Tuple3', _0: 'cursor', _1: '', _2: 'pointer'},
-					_1: {ctor: '[]'}
-				}
-			}
-		};
-	});
-var _user$project$Main$onDivChanged = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'DOMSubtreeModified',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _user$project$Main$getUser = F2(
+
+var _user$project$ChatContainer$getUser = F2(
 	function (users, message) {
 		var user = _elm_lang$core$List$head(
 			A2(
@@ -21956,133 +21995,22 @@ var _user$project$Main$getUser = F2(
 			return {userId: 'user1', userName: 'Bob', color: '#25e075', picture: 'unnamed.png'};
 		}
 	});
-var _user$project$Main$homeMadeRetardUrlParser = function (string) {
-	return A2(_elm_lang$core$String$contains, 'http', string);
+var _user$project$ChatContainer$onDivChanged = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'DOMSubtreeModified',
+		_elm_lang$core$Json_Decode$succeed(msg));
 };
-var _user$project$Main$isUrl = function (string) {
-	return _user$project$Main$homeMadeRetardUrlParser(string);
-};
-var _user$project$Main$urlRegex = _elm_lang$core$Regex$regex('/^(?:http(s)?:\\/\\/)?[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!\\$&\'\\(\\)\\*\\+,;=.]+$/gm');
-var _user$project$Main$isEmotes = function (string) {
-	return (_elm_lang$core$Native_Utils.cmp(
-		_elm_lang$core$List$length(
-			_elm_community$string_extra$String_Extra$toCodePoints(string)),
-		5) < 1) ? A2(
-		_elm_lang$core$List$all,
-		function (num) {
-			return _elm_lang$core$Native_Utils.cmp(num, 65533) > -1;
-		},
-		_elm_community$string_extra$String_Extra$toCodePoints(string)) : false;
-};
-var _user$project$Main$getMessageType = function (msg) {
-	var _p2 = _user$project$Main$isEmotes(msg);
-	if (_p2 === true) {
-		return _user$project$Data$Emotes;
-	} else {
-		var _p3 = A2(
-			_elm_lang$core$Debug$log,
-			'url me',
-			_user$project$Main$isUrl(msg));
-		if (_p3 === true) {
-			return _user$project$Data$Gif;
-		} else {
-			return _user$project$Data$Text;
-		}
-	}
-};
-var _user$project$Main$messageTypeDecoder = function (msgType) {
-	return _elm_lang$core$Json_Decode$succeed(
-		function () {
-			var _p4 = msgType;
-			switch (_p4) {
-				case 'Text':
-					return _user$project$Data$Text;
-				case 'Emotes':
-					return _user$project$Data$Emotes;
-				case 'Gif':
-					return _user$project$Data$Gif;
-				default:
-					return _user$project$Data$Unknown;
-			}
-		}());
-};
-var _user$project$Main$chatMessageDecoder = A2(
-	_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
-	A2(
-		_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
-		A2(
-			_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
-			_elm_lang$core$Json_Decode$succeed(_user$project$Data$ChatMessage),
-			A2(_elm_lang$core$Json_Decode$field, 'user', _elm_lang$core$Json_Decode$string)),
-		A2(
-			_elm_lang$core$Json_Decode$andThen,
-			_user$project$Main$messageTypeDecoder,
-			A2(_elm_lang$core$Json_Decode$field, 'messageType', _elm_lang$core$Json_Decode$string))),
-	A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
-var _user$project$Main$blankMessage = {msgType: _user$project$Data$Unknown, message: ''};
-var _user$project$Main$socketServer = 'ws://127.0.0.1:4000/socket/websocket';
-var _user$project$Main$_p5 = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('rainchat');
-var _user$project$Main$id = _user$project$Main$_p5.id;
-var _user$project$Main$class = _user$project$Main$_p5.$class;
-var _user$project$Main$classList = _user$project$Main$_p5.classList;
-var _user$project$Main$userProfile = function (user) {
-	return {
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$img,
-			{
-				ctor: '::',
-				_0: _user$project$Main$class(
-					{
-						ctor: '::',
-						_0: _user$project$Chat_Css$ProfilePicture,
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$src(user.picture),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$style(
-							{
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'border-color', _1: user.color},
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
-				}
-			},
-			{ctor: '[]'}),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$div,
-				{
-					ctor: '::',
-					_0: _user$project$Main$class(
-						{
-							ctor: '::',
-							_0: _user$project$Chat_Css$UserName,
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text(user.userName),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		}
-	};
-};
-var _user$project$Main$gifMessage = function (url) {
+var _user$project$ChatContainer$_p2 = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('rainchat');
+var _user$project$ChatContainer$id = _user$project$ChatContainer$_p2.id;
+var _user$project$ChatContainer$class = _user$project$ChatContainer$_p2.$class;
+var _user$project$ChatContainer$classList = _user$project$ChatContainer$_p2.classList;
+var _user$project$ChatContainer$gifMessage = function (url) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _user$project$Main$class(
+			_0: _user$project$ChatContainer$class(
 				{
 					ctor: '::',
 					_0: _user$project$Chat_Css$GifMessage,
@@ -22099,7 +22027,7 @@ var _user$project$Main$gifMessage = function (url) {
 					_0: _elm_lang$html$Html_Attributes$src(url),
 					_1: {
 						ctor: '::',
-						_0: _user$project$Main$class(
+						_0: _user$project$ChatContainer$class(
 							{
 								ctor: '::',
 								_0: _user$project$Chat_Css$Gif,
@@ -22112,15 +22040,15 @@ var _user$project$Main$gifMessage = function (url) {
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Main$myMessage = function (message) {
-	var _p6 = message.msgType;
-	switch (_p6.ctor) {
+var _user$project$ChatContainer$myMessage = function (message) {
+	var _p3 = message.msgType;
+	switch (_p3.ctor) {
 		case 'Text':
 			return A2(
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _user$project$Main$class(
+					_0: _user$project$ChatContainer$class(
 						{
 							ctor: '::',
 							_0: _user$project$Chat_Css$MessageContainer,
@@ -22138,7 +22066,7 @@ var _user$project$Main$myMessage = function (message) {
 						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _user$project$Main$class(
+							_0: _user$project$ChatContainer$class(
 								{
 									ctor: '::',
 									_0: _user$project$Chat_Css$Message,
@@ -22160,7 +22088,7 @@ var _user$project$Main$myMessage = function (message) {
 								_elm_lang$html$Html$div,
 								{
 									ctor: '::',
-									_0: _user$project$Main$class(
+									_0: _user$project$ChatContainer$class(
 										{
 											ctor: '::',
 											_0: _user$project$Chat_Css$Square,
@@ -22179,7 +22107,7 @@ var _user$project$Main$myMessage = function (message) {
 									_elm_lang$html$Html$div,
 									{
 										ctor: '::',
-										_0: _user$project$Main$class(
+										_0: _user$project$ChatContainer$class(
 											{
 												ctor: '::',
 												_0: _user$project$Chat_Css$MessageBody,
@@ -22202,7 +22130,7 @@ var _user$project$Main$myMessage = function (message) {
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _user$project$Main$class(
+					_0: _user$project$ChatContainer$class(
 						{
 							ctor: '::',
 							_0: _user$project$Chat_Css$MessageContainer,
@@ -22216,7 +22144,7 @@ var _user$project$Main$myMessage = function (message) {
 				},
 				{
 					ctor: '::',
-					_0: _user$project$Main$gifMessage(message.body),
+					_0: _user$project$ChatContainer$gifMessage(message.body),
 					_1: {ctor: '[]'}
 				});
 		case 'Emotes':
@@ -22224,7 +22152,7 @@ var _user$project$Main$myMessage = function (message) {
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _user$project$Main$class(
+					_0: _user$project$ChatContainer$class(
 						{
 							ctor: '::',
 							_0: _user$project$Chat_Css$MessageContainer,
@@ -22251,7 +22179,7 @@ var _user$project$Main$myMessage = function (message) {
 						_elm_lang$html$Html$p,
 						{
 							ctor: '::',
-							_0: _user$project$Main$class(
+							_0: _user$project$ChatContainer$class(
 								{
 									ctor: '::',
 									_0: _user$project$Chat_Css$EmoteContainer,
@@ -22270,45 +22198,16 @@ var _user$project$Main$myMessage = function (message) {
 			return _elm_lang$html$Html$text('');
 	}
 };
-var _user$project$Main$profilePicture = F2(
-	function (color, picture) {
-		return A2(
-			_elm_lang$html$Html$img,
-			{
-				ctor: '::',
-				_0: _user$project$Main$class(
-					{
-						ctor: '::',
-						_0: _user$project$Chat_Css$ProfilePicture,
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$src(picture),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$style(
-							{
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'border-color', _1: color},
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
-				}
-			},
-			{ctor: '[]'});
-	});
-var _user$project$Main$theireMessage = F2(
+var _user$project$ChatContainer$theireMessage = F2(
 	function (user, message) {
-		var _p7 = message.msgType;
-		switch (_p7.ctor) {
+		var _p4 = message.msgType;
+		switch (_p4.ctor) {
 			case 'Text':
 				return A2(
 					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _user$project$Main$class(
+						_0: _user$project$ChatContainer$class(
 							{
 								ctor: '::',
 								_0: _user$project$Chat_Css$MessageContainer,
@@ -22350,7 +22249,7 @@ var _user$project$Main$theireMessage = F2(
 									},
 									{
 										ctor: '::',
-										_0: A2(_user$project$Main$profilePicture, user.color, user.picture),
+										_0: A2(_user$project$ProfilePicture$profilePicture, user.color, user.picture),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
@@ -22377,7 +22276,7 @@ var _user$project$Main$theireMessage = F2(
 												_elm_lang$html$Html$div,
 												{
 													ctor: '::',
-													_0: _user$project$Main$class(
+													_0: _user$project$ChatContainer$class(
 														{
 															ctor: '::',
 															_0: _user$project$Chat_Css$UserName,
@@ -22396,7 +22295,7 @@ var _user$project$Main$theireMessage = F2(
 													_elm_lang$html$Html$div,
 													{
 														ctor: '::',
-														_0: _user$project$Main$class(
+														_0: _user$project$ChatContainer$class(
 															{
 																ctor: '::',
 																_0: _user$project$Chat_Css$Message,
@@ -22418,7 +22317,7 @@ var _user$project$Main$theireMessage = F2(
 															_elm_lang$html$Html$div,
 															{
 																ctor: '::',
-																_0: _user$project$Main$class(
+																_0: _user$project$ChatContainer$class(
 																	{
 																		ctor: '::',
 																		_0: _user$project$Chat_Css$Square,
@@ -22437,7 +22336,7 @@ var _user$project$Main$theireMessage = F2(
 																_elm_lang$html$Html$div,
 																{
 																	ctor: '::',
-																	_0: _user$project$Main$class(
+																	_0: _user$project$ChatContainer$class(
 																		{
 																			ctor: '::',
 																			_0: _user$project$Chat_Css$MessageBody,
@@ -22466,7 +22365,7 @@ var _user$project$Main$theireMessage = F2(
 					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _user$project$Main$class(
+						_0: _user$project$ChatContainer$class(
 							{
 								ctor: '::',
 								_0: _user$project$Chat_Css$MessageContainer,
@@ -22480,7 +22379,7 @@ var _user$project$Main$theireMessage = F2(
 							_elm_lang$html$Html$img,
 							{
 								ctor: '::',
-								_0: _user$project$Main$class(
+								_0: _user$project$ChatContainer$class(
 									{
 										ctor: '::',
 										_0: _user$project$Chat_Css$ProfilePicture,
@@ -22512,7 +22411,7 @@ var _user$project$Main$theireMessage = F2(
 								_elm_lang$html$Html$div,
 								{
 									ctor: '::',
-									_0: _user$project$Main$class(
+									_0: _user$project$ChatContainer$class(
 										{
 											ctor: '::',
 											_0: _user$project$Chat_Css$UserName,
@@ -22527,7 +22426,7 @@ var _user$project$Main$theireMessage = F2(
 								}),
 							_1: {
 								ctor: '::',
-								_0: _user$project$Main$gifMessage(message.body),
+								_0: _user$project$ChatContainer$gifMessage(message.body),
 								_1: {ctor: '[]'}
 							}
 						}
@@ -22537,7 +22436,7 @@ var _user$project$Main$theireMessage = F2(
 					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _user$project$Main$class(
+						_0: _user$project$ChatContainer$class(
 							{
 								ctor: '::',
 								_0: _user$project$Chat_Css$MessageContainer,
@@ -22551,7 +22450,7 @@ var _user$project$Main$theireMessage = F2(
 							_elm_lang$html$Html$img,
 							{
 								ctor: '::',
-								_0: _user$project$Main$class(
+								_0: _user$project$ChatContainer$class(
 									{
 										ctor: '::',
 										_0: _user$project$Chat_Css$ProfilePicture,
@@ -22579,7 +22478,7 @@ var _user$project$Main$theireMessage = F2(
 								_elm_lang$html$Html$div,
 								{
 									ctor: '::',
-									_0: _user$project$Main$class(
+									_0: _user$project$ChatContainer$class(
 										{
 											ctor: '::',
 											_0: _user$project$Chat_Css$UserName,
@@ -22598,7 +22497,7 @@ var _user$project$Main$theireMessage = F2(
 									_elm_lang$html$Html$p,
 									{
 										ctor: '::',
-										_0: _user$project$Main$class(
+										_0: _user$project$ChatContainer$class(
 											{
 												ctor: '::',
 												_0: _user$project$Chat_Css$EmoteContainer,
@@ -22619,567 +22518,35 @@ var _user$project$Main$theireMessage = F2(
 				return _elm_lang$html$Html$text('');
 		}
 	});
-var _user$project$Main$viewMessage = function (message) {
-	var user = A2(_user$project$Main$getUser, _user$project$Data$users, message);
-	return _elm_lang$core$Native_Utils.eq(user.userId, _user$project$Data$disUsr) ? _user$project$Main$myMessage(message) : A2(_user$project$Main$theireMessage, user, message);
+var _user$project$ChatContainer$viewMessage = function (message) {
+	var user = A2(_user$project$ChatContainer$getUser, _user$project$Data$users, message);
+	return _elm_lang$core$Native_Utils.eq(user.userId, _user$project$Data$disUsr) ? _user$project$ChatContainer$myMessage(message) : A2(_user$project$ChatContainer$theireMessage, user, message);
 };
-var _user$project$Main$profileContainer = function (model) {
+var _user$project$ChatContainer$chatView = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _user$project$Main$class(
+			_0: _user$project$ChatContainer$id(
 				{
 					ctor: '::',
-					_0: _user$project$Chat_Css$InputContainer,
-					_1: {
-						ctor: '::',
-						_0: _user$project$Chat_Css$ElevationBorder,
-						_1: {ctor: '[]'}
-					}
+					_0: _user$project$Chat_Css$Chat,
+					_1: {ctor: '[]'}
 				}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$style(
-					{
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'height', _1: '45px'},
-							_1: {ctor: '[]'}
-						}
-					}),
+				_0: _user$project$ChatContainer$onDivChanged(_user$project$Data$ChatMessagesChanged),
 				_1: {ctor: '[]'}
 			}
 		},
-		{
-			ctor: '::',
-			_0: A2(_user$project$Main$profilePicture, model.currentUser.color, model.currentUser.picture),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$div,
-					{
-						ctor: '::',
-						_0: _user$project$Main$class(
-							{
-								ctor: '::',
-								_0: _user$project$Chat_Css$InputField,
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$label,
-							{
-								ctor: '::',
-								_0: _user$project$Main$class(
-									{
-										ctor: '::',
-										_0: _user$project$Chat_Css$UserName,
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text(model.currentUser.userName),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			}
-		});
+		A2(_elm_lang$core$List$map, _user$project$ChatContainer$viewMessage, model.messages));
 };
-var _user$project$Main$scrollBottom = _elm_lang$core$Native_Platform.outgoingPort(
-	'scrollBottom',
-	function (v) {
-		return v;
-	});
-var _user$project$Main$Model = F9(
-	function (a, b, c, d, e, f, g, h, i) {
-		return {newMessage: a, messages: b, conversations: c, phxSocket: d, userList: e, currentUser: f, keyboard: g, focusedChat: h, leftMenuOpen: i};
-	});
-var _user$project$Main$NewMessage = F2(
-	function (a, b) {
-		return {msgType: a, message: b};
-	});
-var _user$project$Main$LeftMenuToggle = {ctor: 'LeftMenuToggle'};
-var _user$project$Main$backdrop = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				A2(
-					_elm_lang$core$List$append,
-					{
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-							_1: {
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'background-color', _1: 'black'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'opacity', _1: '0.87'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
-										_1: {
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'transition', _1: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'},
-											_1: {ctor: '[]'}
-										}
-									}
-								}
-							}
-						}
-					},
-					_user$project$Main$showBackdrop(model.leftMenuOpen))),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$LeftMenuToggle),
-				_1: {ctor: '[]'}
-			}
-		},
-		{ctor: '[]'});
-};
-var _user$project$Main$appBar = function (title) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$Main$class(
-				{
-					ctor: '::',
-					_0: _user$project$Chat_Css$ToolBar,
-					_1: {
-						ctor: '::',
-						_0: _user$project$Chat_Css$ElevationBorder,
-						_1: {ctor: '[]'}
-					}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$style(
-					{
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$div,
-				A2(
-					_identicalsnowflake$elm_dynamic_style$DynamicStyle$hover_,
-					{
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'font-size', _1: '20px'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'font-face', _1: 'Droid Sans Mono'},
-							_1: {
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'margin', _1: '15px'},
-								_1: {ctor: '[]'}
-							}
-						}
-					},
-					{
-						ctor: '::',
-						_0: {ctor: '_Tuple3', _0: 'cursor', _1: '', _2: 'pointer'},
-						_1: {ctor: '[]'}
-					}),
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$img,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$src('icons/baseline-menu.svg'),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$LeftMenuToggle),
-								_1: {ctor: '[]'}
-							}
-						},
-						{ctor: '[]'}),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$p,
-					{ctor: '[]'},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text(title),
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$ChangeChat = function (a) {
-	return {ctor: 'ChangeChat', _0: a};
-};
-var _user$project$Main$conversationListElement = F2(
-	function (focused, conversation) {
-		return A2(
-			_elm_lang$html$Html$div,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Events$onClick(
-					_user$project$Main$ChangeChat(conversation)),
-				_1: {ctor: '[]'}
-			},
-			{
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$div,
-					A2(
-						_identicalsnowflake$elm_dynamic_style$DynamicStyle$hover_,
-						{
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
-							_1: {
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'height', _1: '45px'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'row'},
-										_1: {
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'align-items', _1: 'center'},
-											_1: {
-												ctor: '::',
-												_0: {ctor: '_Tuple2', _0: 'margin-top', _1: '2px'},
-												_1: {
-													ctor: '::',
-													_0: {ctor: '_Tuple2', _0: 'margin-bottom', _1: '2px'},
-													_1: {
-														ctor: '::',
-														_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '2px'},
-														_1: {
-															ctor: '::',
-															_0: {ctor: '_Tuple2', _0: 'padding', _1: '2px'},
-															_1: {
-																ctor: '::',
-																_0: {ctor: '_Tuple2', _0: 'transition', _1: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'},
-																_1: {ctor: '[]'}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						},
-						A2(_user$project$Main$isFocused, focused.conversationId, conversation.conversationId)),
-					{
-						ctor: '::',
-						_0: A2(_user$project$Main$profilePicture, conversation.color, conversation.picture),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html$text(conversation.conversationName),
-							_1: {ctor: '[]'}
-						}
-					}),
-				_1: {ctor: '[]'}
-			});
-	});
-var _user$project$Main$conversationList = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column'},
-						_1: {ctor: '[]'}
-					}
-				}),
-			_1: {ctor: '[]'}
-		},
-		A2(
-			_elm_lang$core$List$map,
-			_user$project$Main$conversationListElement(model.focusedChat),
-			model.conversations));
-};
-var _user$project$Main$detailsContaier = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'color', _1: 'white'},
-							_1: {ctor: '[]'}
-						}
-					}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$p,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$style(
-						{
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'font-size', _1: 'small'},
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text('DIRECT MESSAGES'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _user$project$Main$conversationList(model),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$BackSpace = {ctor: 'BackSpace'};
-var _user$project$Main$verticalToolbar = A2(
-	_elm_lang$html$Html$div,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$style(
-			{
-				ctor: '::',
-				_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#2665D7'},
-				_1: {
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'width', _1: '50px'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
-							_1: {
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'box-shadow', _1: '0 0 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,0.24)'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'align-items', _1: 'center'},
-										_1: {
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'padding', _1: '5px'},
-											_1: {ctor: '[]'}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}),
-		_1: {
-			ctor: '::',
-			_0: _user$project$Main$class(
-				{
-					ctor: '::',
-					_0: _user$project$Chat_Css$ElevationBorder,
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		}
-	},
-	{
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$div,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$style(
-					{
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'font-size', _1: 'small'},
-						_1: {ctor: '[]'}
-					}),
-				_1: {ctor: '[]'}
-			},
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('name?'),
-				_1: {ctor: '[]'}
-			}),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$div,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$style(
-						{
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$img,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$src('icons/users-group.svg'),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$BackSpace),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$style(
-										{
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'width', _1: '25px'},
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}
-							}
-						},
-						{ctor: '[]'}),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$div,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$style(
-							{
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'font-size', _1: 'small'},
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text('0 online'),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$div,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$style(
-								{
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'width', _1: '40px'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'border', _1: 'white'},
-										_1: {
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'border-style', _1: 'solid'},
-											_1: {
-												ctor: '::',
-												_0: {ctor: '_Tuple2', _0: 'border-width', _1: '1px'},
-												_1: {
-													ctor: '::',
-													_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '30px'},
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									}
-								}),
-							_1: {ctor: '[]'}
-						},
-						{ctor: '[]'}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$div,
-							{ctor: '[]'},
-							{
-								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$img,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$src('icons/plus.svg'),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$BackSpace),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$style(
-													{
-														ctor: '::',
-														_0: {ctor: '_Tuple2', _0: 'width', _1: '35px'},
-														_1: {
-															ctor: '::',
-															_0: {ctor: '_Tuple2', _0: 'margin', _1: '2.5px'},
-															_1: {ctor: '[]'}
-														}
-													}),
-												_1: {ctor: '[]'}
-											}
-										}
-									},
-									{ctor: '[]'}),
-								_1: {ctor: '[]'}
-							}),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		}
-	});
-var _user$project$Main$GifClicked = function (a) {
-	return {ctor: 'GifClicked', _0: a};
-};
-var _user$project$Main$mapGifs = function (gif) {
+var _user$project$ChatContainer$mapGifs = function (gif) {
 	return A2(
 		_elm_lang$html$Html$img,
 		{
 			ctor: '::',
-			_0: _user$project$Main$class(
+			_0: _user$project$ChatContainer$class(
 				{
 					ctor: '::',
 					_0: 'previewGif',
@@ -23191,7 +22558,7 @@ var _user$project$Main$mapGifs = function (gif) {
 				_1: {
 					ctor: '::',
 					_0: _elm_lang$html$Html_Events$onClick(
-						_user$project$Main$GifClicked(gif.gif)),
+						_user$project$Data$GifClicked(gif.gif)),
 					_1: {ctor: '[]'}
 				}
 			}
@@ -23202,11 +22569,11 @@ var _user$project$Main$mapGifs = function (gif) {
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Main$gifPicker = A2(
+var _user$project$ChatContainer$gifPicker = A2(
 	_elm_lang$html$Html$div,
 	{
 		ctor: '::',
-		_0: _user$project$Main$id(
+		_0: _user$project$ChatContainer$id(
 			{
 				ctor: '::',
 				_0: 'gifPicker',
@@ -23214,138 +22581,77 @@ var _user$project$Main$gifPicker = A2(
 			}),
 		_1: {ctor: '[]'}
 	},
-	A2(_elm_lang$core$List$map, _user$project$Main$mapGifs, _user$project$Data$gifs));
-var _user$project$Main$EmojiClicked = function (a) {
-	return {ctor: 'EmojiClicked', _0: a};
-};
-var _user$project$Main$mapEmoji = function (_p8) {
-	var _p9 = _p8;
-	var _p10 = _p9._1;
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$Main$class(
-				{
-					ctor: '::',
-					_0: ' intercom-emoji-picker-emoji',
-					_1: {ctor: '[]'}
-				}),
-			_1: {
+	A2(_elm_lang$core$List$map, _user$project$ChatContainer$mapGifs, _user$project$Data$gifs));
+var _user$project$ChatContainer$none = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _user$project$ChatContainer$class(
+			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Events$onClick(
-					_user$project$Main$EmojiClicked(_p10)),
+				_0: _user$project$Chat_Css$EmoteSection,
 				_1: {ctor: '[]'}
-			}
-		},
-		{
+			}),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$img,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$src('ic_tag_faces_white_24px.svg'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onClick(
+						_user$project$Data$Keyboard(_user$project$Data$EmojiPicker)),
+					_1: {ctor: '[]'}
+				}
+			},
+			{ctor: '[]'}),
+		_1: {
 			ctor: '::',
-			_0: _elm_lang$html$Html$text(_p10),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Main$mapCategory = function (_p11) {
-	var _p12 = _p11;
-	var _p13 = _p12._1;
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$Main$class(
+			_0: A2(
+				_elm_lang$html$Html$img,
 				{
 					ctor: '::',
-					_0: ' intercom-emoji-picker-group-title',
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text(_p12._0),
+					_0: _elm_lang$html$Html_Attributes$src('ic_gif_white_24px.svg'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onClick(
+							_user$project$Data$Keyboard(_user$project$Data$GifPicker)),
+						_1: {ctor: '[]'}
+					}
+				},
+				{ctor: '[]'}),
 			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$div,
+					_elm_lang$html$Html$img,
 					{
 						ctor: '::',
-						_0: _user$project$Main$class(
+						_0: _user$project$ChatContainer$id(
 							{
 								ctor: '::',
-								_0: ' intercom-emoji-picker-group',
+								_0: _user$project$Chat_Css$Send,
 								_1: {ctor: '[]'}
 							}),
 						_1: {
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$style(
-								{
-									ctor: '::',
-									_0: {
-										ctor: '_Tuple2',
-										_0: 'width',
-										_1: A2(
-											_elm_lang$core$Basics_ops['++'],
-											_elm_lang$core$Basics$toString(
-												_elm_lang$core$Basics$ceiling(
-													_elm_lang$core$Basics$toFloat(
-														_elm_lang$core$List$length(_p13)) / 5) * 40),
-											'px')
-									},
-									_1: {ctor: '[]'}
-								}),
-							_1: {ctor: '[]'}
+							_0: _elm_lang$html$Html_Attributes$src('ic_send_white_24px.svg'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(_user$project$Data$BackSpace),
+								_1: {ctor: '[]'}
+							}
 						}
 					},
-					A2(_elm_lang$core$List$map, _user$project$Main$mapEmoji, _p13)),
+					{ctor: '[]'}),
 				_1: {ctor: '[]'}
 			}
-		});
-};
-var _user$project$Main$mapEmojiCategories = A2(_elm_lang$core$List$map, _user$project$Main$mapCategory, _user$project$Chat_Emoji$emojis);
-var _user$project$Main$ChatMessagesChanged = {ctor: 'ChatMessagesChanged'};
-var _user$project$Main$chatView = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$Main$id(
-				{
-					ctor: '::',
-					_0: _user$project$Chat_Css$Chat,
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _user$project$Main$onDivChanged(_user$project$Main$ChatMessagesChanged),
-				_1: {ctor: '[]'}
-			}
-		},
-		A2(_elm_lang$core$List$map, _user$project$Main$viewMessage, model.messages));
-};
-var _user$project$Main$Keyboard = function (a) {
-	return {ctor: 'Keyboard', _0: a};
-};
-var _user$project$Main$ReciveChatMessage = function (a) {
-	return {ctor: 'ReciveChatMessage', _0: a};
-};
-var _user$project$Main$initPhxSocket = A4(
-	_fbonetti$elm_phoenix_socket$Phoenix_Socket$on,
-	'new:msg',
-	'room:lobby',
-	_user$project$Main$ReciveChatMessage,
-	_fbonetti$elm_phoenix_socket$Phoenix_Socket$withDebug(
-		_fbonetti$elm_phoenix_socket$Phoenix_Socket$init(_user$project$Main$socketServer)));
-var _user$project$Main$SendMessage = {ctor: 'SendMessage'};
-var _user$project$Main$PhoenixMsg = function (a) {
-	return {ctor: 'PhoenixMsg', _0: a};
-};
-var _user$project$Main$subscriptions = function (model) {
-	return A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$listen, model.phxSocket, _user$project$Main$PhoenixMsg);
-};
-var _user$project$Main$JoinChannel = {ctor: 'JoinChannel'};
-var _user$project$Main$SetNewMessage = function (a) {
-	return {ctor: 'SetNewMessage', _0: a};
-};
-var _user$project$Main$messageArea = function (model) {
+		}
+	});
+var _user$project$ChatContainer$messageArea = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
@@ -23410,7 +22716,7 @@ var _user$project$Main$messageArea = function (model) {
 										}),
 									_1: {
 										ctor: '::',
-										_0: _user$project$Main$class(
+										_0: _user$project$ChatContainer$class(
 											{
 												ctor: '::',
 												_0: _user$project$Chat_Css$Input,
@@ -23421,7 +22727,7 @@ var _user$project$Main$messageArea = function (model) {
 											_0: _elm_lang$html$Html_Attributes$placeholder('Say something...'),
 											_1: {
 												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetNewMessage),
+												_0: _elm_lang$html$Html_Events$onInput(_user$project$Data$SetNewMessage),
 												_1: {
 													ctor: '::',
 													_0: _elm_lang$html$Html_Attributes$value(model.newMessage.message),
@@ -23439,361 +22745,12 @@ var _user$project$Main$messageArea = function (model) {
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Main$searchArea = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$div,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$div,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$style(
-								{
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
-										_1: {
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'align-content', _1: 'stretch'},
-											_1: {
-												ctor: '::',
-												_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column'},
-												_1: {ctor: '[]'}
-											}
-										}
-									}
-								}),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$input,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$style(
-										{
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'type', _1: 'text'},
-											_1: {
-												ctor: '::',
-												_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '10px'},
-												_1: {
-													ctor: '::',
-													_0: {ctor: '_Tuple2', _0: 'padding-bottom', _1: '10px'},
-													_1: {
-														ctor: '::',
-														_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '5px'},
-														_1: {ctor: '[]'}
-													}
-												}
-											}
-										}),
-									_1: {
-										ctor: '::',
-										_0: _user$project$Main$class(
-											{
-												ctor: '::',
-												_0: _user$project$Chat_Css$Input,
-												_1: {ctor: '[]'}
-											}),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$placeholder('Find or start a conversation'),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$SetNewMessage),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$value(model.newMessage.message),
-													_1: {ctor: '[]'}
-												}
-											}
-										}
-									}
-								},
-								{ctor: '[]'}),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Main$searchField = function (model) {
+var _user$project$ChatContainer$expresionGroups = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'padding-bottom', _1: '5px'},
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _user$project$Main$onDivChanged(_user$project$Main$ChatMessagesChanged),
-				_1: {ctor: '[]'}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$form,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Events$onSubmit(_user$project$Main$SendMessage),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$div,
-						{
-							ctor: '::',
-							_0: _user$project$Main$class(
-								{
-									ctor: '::',
-									_0: _user$project$Chat_Css$MessageArea,
-									_1: {ctor: '[]'}
-								}),
-							_1: {ctor: '[]'}
-						},
-						{
-							ctor: '::',
-							_0: _user$project$Main$searchArea(model),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Main$details = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#171717'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column'},
-							_1: {
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'min-width', _1: '250px'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'max-width', _1: '420px'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-										_1: {ctor: '[]'}
-									}
-								}
-							}
-						}
-					}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$div,
-				{
-					ctor: '::',
-					_0: _user$project$Main$class(
-						{
-							ctor: '::',
-							_0: _user$project$Chat_Css$ElevationBorder,
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$style(
-							{
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '8px'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'padding-bottom', _1: '4px'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'padding-left', _1: '15px'},
-										_1: {
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'padding-right', _1: '15px'},
-											_1: {ctor: '[]'}
-										}
-									}
-								}
-							}),
-						_1: {ctor: '[]'}
-					}
-				},
-				{
-					ctor: '::',
-					_0: _user$project$Main$searchField(model),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: _user$project$Main$detailsContaier(model),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$drawer = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
-							_1: {
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'transition', _1: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'},
-								_1: {
-									ctor: '::',
-									_0: _user$project$Main$drawerPosition(model.leftMenuOpen),
-									_1: {ctor: '[]'}
-								}
-							}
-						}
-					}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _user$project$Main$details(model),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Main$leftMenu = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
-				{
-					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'z-index', _1: '10'},
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _user$project$Main$backdrop(model),
-			_1: {
-				ctor: '::',
-				_0: _user$project$Main$drawer(model),
-				_1: {ctor: '[]'}
-			}
-		});
-};
-var _user$project$Main$GifPicker = {ctor: 'GifPicker'};
-var _user$project$Main$EmojiPicker = {ctor: 'EmojiPicker'};
-var _user$project$Main$none = A2(
-	_elm_lang$html$Html$div,
-	{
-		ctor: '::',
-		_0: _user$project$Main$class(
-			{
-				ctor: '::',
-				_0: _user$project$Chat_Css$EmoteSection,
-				_1: {ctor: '[]'}
-			}),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$img,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$src('ic_tag_faces_white_24px.svg'),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Events$onClick(
-						_user$project$Main$Keyboard(_user$project$Main$EmojiPicker)),
-					_1: {ctor: '[]'}
-				}
-			},
-			{ctor: '[]'}),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$img,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$src('ic_gif_white_24px.svg'),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Events$onClick(
-							_user$project$Main$Keyboard(_user$project$Main$GifPicker)),
-						_1: {ctor: '[]'}
-					}
-				},
-				{ctor: '[]'}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$img,
-					{
-						ctor: '::',
-						_0: _user$project$Main$id(
-							{
-								ctor: '::',
-								_0: _user$project$Chat_Css$Send,
-								_1: {ctor: '[]'}
-							}),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$src('ic_send_white_24px.svg'),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$BackSpace),
-								_1: {ctor: '[]'}
-							}
-						}
-					},
-					{ctor: '[]'}),
-				_1: {ctor: '[]'}
-			}
-		}
-	});
-var _user$project$Main$expresionGroups = function (model) {
-	return A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$Main$id(
+			_0: _user$project$ChatContainer$id(
 				{
 					ctor: '::',
 					_0: 'btn-group',
@@ -23808,7 +22765,7 @@ var _user$project$Main$expresionGroups = function (model) {
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html_Events$onClick(
-						_user$project$Main$Keyboard(_user$project$Main$GifPicker)),
+						_user$project$Data$Keyboard(_user$project$Data$GifPicker)),
 					_1: {ctor: '[]'}
 				},
 				{
@@ -23823,7 +22780,7 @@ var _user$project$Main$expresionGroups = function (model) {
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html_Events$onClick(
-							_user$project$Main$Keyboard(_user$project$Main$EmojiPicker)),
+							_user$project$Data$Keyboard(_user$project$Data$EmojiPicker)),
 						_1: {ctor: '[]'}
 					},
 					{
@@ -23835,215 +22792,90 @@ var _user$project$Main$expresionGroups = function (model) {
 			}
 		});
 };
-var _user$project$Main$None = {ctor: 'None'};
-var _user$project$Main$initialModel = {
-	newMessage: _user$project$Main$blankMessage,
-	messages: _user$project$Data$messages4,
-	conversations: _user$project$Data$conversations,
-	phxSocket: _user$project$Main$initPhxSocket,
-	userList: _user$project$Data$users,
-	currentUser: {userId: 'user3', userName: 'Jelly kid', color: '#673AB7', picture: 'b0ce1e9c577d40ee25fe3aeea4798561.jpg'},
-	keyboard: _user$project$Main$None,
-	focusedChat: {conversationId: '4', conversationType: _user$project$Data$Group, color: '#673AB7', users: _user$project$Data$users, conversationName: 'The Boyz', picture: '0.jpg', messages: _user$project$Data$messages4},
-	leftMenuOpen: false
+var _user$project$ChatContainer$mapEmoji = function (_p5) {
+	var _p6 = _p5;
+	var _p7 = _p6._1;
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$ChatContainer$class(
+				{
+					ctor: '::',
+					_0: ' intercom-emoji-picker-emoji',
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(
+					_user$project$Data$EmojiClicked(_p7)),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(_p7),
+			_1: {ctor: '[]'}
+		});
 };
-var _user$project$Main$init = {
-	ctor: '_Tuple2',
-	_0: _user$project$Main$initialModel,
-	_1: _user$project$Main$join(_user$project$Main$JoinChannel)
-};
-var _user$project$Main$update = F2(
-	function (msg, model) {
-		update:
-		while (true) {
-			var _p14 = A2(_elm_lang$core$Debug$log, 'hei', msg);
-			switch (_p14.ctor) {
-				case 'SetNewMessage':
-					return A2(
-						_elm_lang$core$Platform_Cmd_ops['!'],
-						_elm_lang$core$Native_Utils.update(
-							model,
-							{
-								newMessage: {msgType: model.newMessage.msgType, message: _p14._0}
-							}),
-						{ctor: '[]'});
-				case 'JoinChannel':
-					var channel = _fbonetti$elm_phoenix_socket$Phoenix_Channel$init('room:lobby');
-					var _p15 = A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$join, channel, model.phxSocket);
-					var phxSocket = _p15._0;
-					var phxCmd = _p15._1;
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{phxSocket: phxSocket}),
-						_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Main$PhoenixMsg, phxCmd)
-					};
-				case 'PhoenixMsg':
-					var _p16 = A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$update, _p14._0, model.phxSocket);
-					var phxSocket = _p16._0;
-					var phxCmd = _p16._1;
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{phxSocket: phxSocket}),
-						_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Main$PhoenixMsg, phxCmd)
-					};
-				case 'SendMessage':
-					var _p17 = _elm_community$string_extra$String_Extra$isBlank(model.newMessage.message);
-					if (_p17 === true) {
-						return {
-							ctor: '_Tuple2',
-							_0: _elm_lang$core$Native_Utils.update(
-								model,
-								{newMessage: _user$project$Main$blankMessage}),
-							_1: _elm_lang$core$Platform_Cmd$none
-						};
-					} else {
-						var payload = _elm_lang$core$Json_Encode$object(
+var _user$project$ChatContainer$mapCategory = function (_p8) {
+	var _p9 = _p8;
+	var _p10 = _p9._1;
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$ChatContainer$class(
+				{
+					ctor: '::',
+					_0: ' intercom-emoji-picker-group-title',
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(_p9._0),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _user$project$ChatContainer$class(
 							{
 								ctor: '::',
-								_0: {
-									ctor: '_Tuple2',
-									_0: 'user',
-									_1: _elm_lang$core$Json_Encode$string(model.currentUser.userId)
-								},
-								_1: {
+								_0: ' intercom-emoji-picker-group',
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$style(
+								{
 									ctor: '::',
 									_0: {
 										ctor: '_Tuple2',
-										_0: 'messageType',
-										_1: _elm_lang$core$Json_Encode$string(
+										_0: 'width',
+										_1: A2(
+											_elm_lang$core$Basics_ops['++'],
 											_elm_lang$core$Basics$toString(
-												_user$project$Main$getMessageType(model.newMessage.message)))
+												_elm_lang$core$Basics$ceiling(
+													_elm_lang$core$Basics$toFloat(
+														_elm_lang$core$List$length(_p10)) / 5) * 40),
+											'px')
 									},
-									_1: {
-										ctor: '::',
-										_0: {
-											ctor: '_Tuple2',
-											_0: 'body',
-											_1: _elm_lang$core$Json_Encode$string(model.newMessage.message)
-										},
-										_1: {ctor: '[]'}
-									}
-								}
-							});
-						var push_ = A2(
-							_fbonetti$elm_phoenix_socket$Phoenix_Push$withPayload,
-							A2(_elm_lang$core$Debug$log, 'das paylopad', payload),
-							A2(_fbonetti$elm_phoenix_socket$Phoenix_Push$init, 'new:msg', 'room:lobby'));
-						var _p18 = A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$push, push_, model.phxSocket);
-						var phxSocket = _p18._0;
-						var phxCmd = _p18._1;
-						return {
-							ctor: '_Tuple2',
-							_0: _elm_lang$core$Native_Utils.update(
-								model,
-								{newMessage: _user$project$Main$blankMessage, phxSocket: phxSocket, keyboard: _user$project$Main$None}),
-							_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Main$PhoenixMsg, phxCmd)
-						};
-					}
-				case 'ReciveChatMessage':
-					var _p19 = A2(_elm_lang$core$Json_Decode$decodeValue, _user$project$Main$chatMessageDecoder, _p14._0);
-					if (_p19.ctor === 'Ok') {
-						return A2(
-							_elm_lang$core$Platform_Cmd_ops['!'],
-							_elm_lang$core$Native_Utils.update(
-								model,
-								{
-									messages: A2(
-										_elm_lang$core$List$append,
-										model.messages,
-										{
-											ctor: '::',
-											_0: _p19._0,
-											_1: {ctor: '[]'}
-										})
+									_1: {ctor: '[]'}
 								}),
-							{ctor: '[]'});
-					} else {
-						var noe = A2(_elm_lang$core$Debug$log, 'msg error', _p19._0);
-						return A2(
-							_elm_lang$core$Platform_Cmd_ops['!'],
-							model,
-							{ctor: '[]'});
-					}
-				case 'ChatMessagesChanged':
-					return {
-						ctor: '_Tuple2',
-						_0: model,
-						_1: _user$project$Main$scrollBottom('wee')
-					};
-				case 'Keyboard':
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{keyboard: _p14._0}),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				case 'EmojiClicked':
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{
-								newMessage: {
-									msgType: model.newMessage.msgType,
-									message: A2(_elm_lang$core$Basics_ops['++'], model.newMessage.message, _p14._0)
-								}
-							}),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				case 'GifClicked':
-					var _v11 = _user$project$Main$SendMessage,
-						_v12 = _elm_lang$core$Native_Utils.update(
-						model,
-						{
-							newMessage: {msgType: _user$project$Data$Gif, message: _p14._0}
-						});
-					msg = _v11;
-					model = _v12;
-					continue update;
-				case 'BackSpace':
-					var shave = _elm_community$string_extra$String_Extra$fromCodePoints(
-						_elm_lang$core$List$reverse(
-							A2(
-								_elm_lang$core$List$drop,
-								1,
-								_elm_lang$core$List$reverse(
-									_elm_community$string_extra$String_Extra$toCodePoints(model.newMessage.message)))));
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{
-								newMessage: {msgType: model.newMessage.msgType, message: shave}
-							}),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				case 'ChangeChat':
-					var _p20 = _p14._0;
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{focusedChat: _p20, leftMenuOpen: false, messages: _p20.messages}),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				default:
-					return {
-						ctor: '_Tuple2',
-						_0: _elm_lang$core$Native_Utils.update(
-							model,
-							{leftMenuOpen: !model.leftMenuOpen}),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
+							_1: {ctor: '[]'}
+						}
+					},
+					A2(_elm_lang$core$List$map, _user$project$ChatContainer$mapEmoji, _p10)),
+				_1: {ctor: '[]'}
 			}
-		}
-	});
-var _user$project$Main$emojiPicker = A2(
+		});
+};
+var _user$project$ChatContainer$mapEmojiCategories = A2(_elm_lang$core$List$map, _user$project$ChatContainer$mapCategory, _user$project$Chat_Emoji$emojis);
+var _user$project$ChatContainer$emojiPicker = A2(
 	_elm_lang$html$Html$div,
 	{ctor: '[]'},
 	{
@@ -24052,7 +22884,7 @@ var _user$project$Main$emojiPicker = A2(
 			_elm_lang$html$Html$div,
 			{
 				ctor: '::',
-				_0: _user$project$Main$id(
+				_0: _user$project$ChatContainer$id(
 					{
 						ctor: '::',
 						_0: 'emojiPanel',
@@ -24060,14 +22892,14 @@ var _user$project$Main$emojiPicker = A2(
 					}),
 				_1: {ctor: '[]'}
 			},
-			_user$project$Main$mapEmojiCategories),
+			_user$project$ChatContainer$mapEmojiCategories),
 		_1: {
 			ctor: '::',
 			_0: A2(
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _user$project$Main$class(
+					_0: _user$project$ChatContainer$class(
 						{
 							ctor: '::',
 							_0: _user$project$Chat_Css$EmoteSection,
@@ -24085,7 +22917,7 @@ var _user$project$Main$emojiPicker = A2(
 							_1: {
 								ctor: '::',
 								_0: _elm_lang$html$Html_Events$onClick(
-									_user$project$Main$Keyboard(_user$project$Main$None)),
+									_user$project$Data$Keyboard(_user$project$Data$None)),
 								_1: {ctor: '[]'}
 							}
 						},
@@ -24159,7 +22991,7 @@ var _user$project$Main$emojiPicker = A2(
 														_0: _elm_lang$html$Html_Attributes$src('ic_backspace_white_24px.svg'),
 														_1: {
 															ctor: '::',
-															_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$BackSpace),
+															_0: _elm_lang$html$Html_Events$onClick(_user$project$Data$BackSpace),
 															_1: {ctor: '[]'}
 														}
 													},
@@ -24176,25 +23008,25 @@ var _user$project$Main$emojiPicker = A2(
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$Main$inputLayout = function (model) {
-	var _p21 = model.keyboard;
-	switch (_p21.ctor) {
+var _user$project$ChatContainer$inputLayout = function (model) {
+	var _p11 = model.keyboard;
+	switch (_p11.ctor) {
 		case 'None':
 			return {
 				ctor: '::',
-				_0: _user$project$Main$messageArea(model),
+				_0: _user$project$ChatContainer$messageArea(model),
 				_1: {ctor: '[]'}
 			};
 		case 'EmojiPicker':
 			return {
 				ctor: '::',
-				_0: _user$project$Main$messageArea(model),
+				_0: _user$project$ChatContainer$messageArea(model),
 				_1: {
 					ctor: '::',
-					_0: _user$project$Main$expresionGroups(model),
+					_0: _user$project$ChatContainer$expresionGroups(model),
 					_1: {
 						ctor: '::',
-						_0: _user$project$Main$emojiPicker,
+						_0: _user$project$ChatContainer$emojiPicker,
 						_1: {ctor: '[]'}
 					}
 				}
@@ -24202,20 +23034,20 @@ var _user$project$Main$inputLayout = function (model) {
 		default:
 			return {
 				ctor: '::',
-				_0: _user$project$Main$gifPicker,
+				_0: _user$project$ChatContainer$gifPicker,
 				_1: {
 					ctor: '::',
-					_0: _user$project$Main$messageArea(model),
+					_0: _user$project$ChatContainer$messageArea(model),
 					_1: {
 						ctor: '::',
-						_0: _user$project$Main$expresionGroups(model),
+						_0: _user$project$ChatContainer$expresionGroups(model),
 						_1: {ctor: '[]'}
 					}
 				}
 			};
 	}
 };
-var _user$project$Main$inputField = function (model) {
+var _user$project$ChatContainer$inputField = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -24228,7 +23060,7 @@ var _user$project$Main$inputField = function (model) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _user$project$Main$class(
+				_0: _user$project$ChatContainer$class(
 					{
 						ctor: '::',
 						_0: _user$project$Chat_Css$ElevationBorder,
@@ -24236,7 +23068,7 @@ var _user$project$Main$inputField = function (model) {
 					}),
 				_1: {
 					ctor: '::',
-					_0: _user$project$Main$onDivChanged(_user$project$Main$ChatMessagesChanged),
+					_0: _user$project$ChatContainer$onDivChanged(_user$project$Data$ChatMessagesChanged),
 					_1: {ctor: '[]'}
 				}
 			}
@@ -24247,7 +23079,7 @@ var _user$project$Main$inputField = function (model) {
 				_elm_lang$html$Html$form,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Events$onSubmit(_user$project$Main$SendMessage),
+					_0: _elm_lang$html$Html_Events$onSubmit(_user$project$Data$SendMessage),
 					_1: {ctor: '[]'}
 				},
 				{
@@ -24256,7 +23088,7 @@ var _user$project$Main$inputField = function (model) {
 						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _user$project$Main$class(
+							_0: _user$project$ChatContainer$class(
 								{
 									ctor: '::',
 									_0: _user$project$Chat_Css$MessageArea,
@@ -24264,18 +23096,18 @@ var _user$project$Main$inputField = function (model) {
 								}),
 							_1: {ctor: '[]'}
 						},
-						_user$project$Main$inputLayout(model)),
+						_user$project$ChatContainer$inputLayout(model)),
 					_1: {ctor: '[]'}
 				}),
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Main$chatContainer = function (model) {
+var _user$project$ChatContainer$chatContainer = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _user$project$Main$class(
+			_0: _user$project$ChatContainer$class(
 				{
 					ctor: '::',
 					_0: _user$project$Chat_Css$ChatContainer,
@@ -24311,14 +23143,645 @@ var _user$project$Main$chatContainer = function (model) {
 				},
 				{
 					ctor: '::',
-					_0: _user$project$Main$chatView(model),
+					_0: _user$project$ChatContainer$chatView(model),
 					_1: {
 						ctor: '::',
-						_0: _user$project$Main$inputField(model),
+						_0: _user$project$ChatContainer$inputField(model),
 						_1: {ctor: '[]'}
 					}
 				}),
 			_1: {ctor: '[]'}
+		});
+};
+
+var _user$project$Drawer$isFocused = F2(
+	function (focusId, currentId) {
+		return _elm_lang$core$Native_Utils.eq(focusId, currentId) ? {
+			ctor: '::',
+			_0: {ctor: '_Tuple3', _0: 'color', _1: 'white', _2: 'white'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple3', _0: 'background-color', _1: '#404040', _2: '#404040'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple3', _0: 'cursor', _1: '', _2: 'pointer'},
+					_1: {ctor: '[]'}
+				}
+			}
+		} : {
+			ctor: '::',
+			_0: {ctor: '_Tuple3', _0: 'color', _1: 'dimgrey', _2: 'white'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple3', _0: 'background-color', _1: '', _2: '#252525'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple3', _0: 'cursor', _1: '', _2: 'pointer'},
+					_1: {ctor: '[]'}
+				}
+			}
+		};
+	});
+var _user$project$Drawer$conversationListElement = F2(
+	function (focused, conversation) {
+		return A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(
+					_user$project$Data$ChangeChat(conversation)),
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					A2(
+						_identicalsnowflake$elm_dynamic_style$DynamicStyle$hover_,
+						{
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'height', _1: '45px'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'row'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'align-items', _1: 'center'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'margin-top', _1: '2px'},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'margin-bottom', _1: '2px'},
+													_1: {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '2px'},
+														_1: {
+															ctor: '::',
+															_0: {ctor: '_Tuple2', _0: 'padding', _1: '2px'},
+															_1: {
+																ctor: '::',
+																_0: {ctor: '_Tuple2', _0: 'transition', _1: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'},
+																_1: {ctor: '[]'}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						A2(_user$project$Drawer$isFocused, focused.conversationId, conversation.conversationId)),
+					{
+						ctor: '::',
+						_0: A2(_user$project$ProfilePicture$profilePicture, conversation.color, conversation.picture),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(conversation.conversationName),
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			});
+	});
+var _user$project$Drawer$conversationList = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column'},
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		A2(
+			_elm_lang$core$List$map,
+			_user$project$Drawer$conversationListElement(model.focusedChat),
+			model.conversations));
+};
+var _user$project$Drawer$detailsContaier = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'margin', _1: '10px'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'color', _1: 'white'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$p,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(
+						{
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'font-size', _1: 'small'},
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('DIRECT MESSAGES'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Drawer$conversationList(model),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Drawer$drawerPosition = function (isOpen) {
+	return _elm_lang$core$Native_Utils.eq(isOpen, true) ? {ctor: '_Tuple2', _0: 'left', _1: '0px'} : {ctor: '_Tuple2', _0: 'left', _1: '-250px'};
+};
+var _user$project$Drawer$_p0 = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('rainchat');
+var _user$project$Drawer$id = _user$project$Drawer$_p0.id;
+var _user$project$Drawer$class = _user$project$Drawer$_p0.$class;
+var _user$project$Drawer$classList = _user$project$Drawer$_p0.classList;
+var _user$project$Drawer$searchArea = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$style(
+								{
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'align-content', _1: 'stretch'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column'},
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$input,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$style(
+										{
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'type', _1: 'text'},
+											_1: {
+												ctor: '::',
+												_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '10px'},
+												_1: {
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: 'padding-bottom', _1: '10px'},
+													_1: {
+														ctor: '::',
+														_0: {ctor: '_Tuple2', _0: 'border-radius', _1: '5px'},
+														_1: {ctor: '[]'}
+													}
+												}
+											}
+										}),
+									_1: {
+										ctor: '::',
+										_0: _user$project$Drawer$class(
+											{
+												ctor: '::',
+												_0: _user$project$Chat_Css$Input,
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$placeholder('Find or start a conversation'),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onInput(_user$project$Data$SetNewMessage),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$value(model.newMessage.message),
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									}
+								},
+								{ctor: '[]'}),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Drawer$searchField = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'padding-bottom', _1: '5px'},
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$form,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onSubmit(_user$project$Data$SendMessage),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _user$project$Drawer$class(
+								{
+									ctor: '::',
+									_0: _user$project$Chat_Css$MessageArea,
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _user$project$Drawer$searchArea(model),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Drawer$details = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'background-color', _1: '#171717'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'flex-direction', _1: 'column'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'min-width', _1: '250px'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'max-width', _1: '420px'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$Drawer$class(
+						{
+							ctor: '::',
+							_0: _user$project$Chat_Css$ElevationBorder,
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$style(
+							{
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'padding-top', _1: '8px'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'padding-bottom', _1: '4px'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'padding-left', _1: '15px'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'padding-right', _1: '15px'},
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}),
+						_1: {ctor: '[]'}
+					}
+				},
+				{
+					ctor: '::',
+					_0: _user$project$Drawer$searchField(model),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Drawer$detailsContaier(model),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Drawer$drawer = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'height', _1: '100%'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'transition', _1: 'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms'},
+								_1: {
+									ctor: '::',
+									_0: _user$project$Drawer$drawerPosition(model.leftMenuOpen),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _user$project$Drawer$details(model),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Drawer$leftMenu = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'z-index', _1: '10'},
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(_user$project$Backdrop$backdrop, model.leftMenuOpen, _user$project$Data$LeftMenuToggle),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Drawer$drawer(model),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+
+var _user$project$Main$messageTypeDecoder = function (msgType) {
+	return _elm_lang$core$Json_Decode$succeed(
+		function () {
+			var _p0 = msgType;
+			switch (_p0) {
+				case 'Text':
+					return _user$project$Data$Text;
+				case 'Emotes':
+					return _user$project$Data$Emotes;
+				case 'Gif':
+					return _user$project$Data$Gif;
+				default:
+					return _user$project$Data$Unknown;
+			}
+		}());
+};
+var _user$project$Main$chatMessageDecoder = A2(
+	_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+	A2(
+		_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+		A2(
+			_elm_community$json_extra$Json_Decode_Extra_ops['|:'],
+			_elm_lang$core$Json_Decode$succeed(_user$project$Data$ChatMessage),
+			A2(_elm_lang$core$Json_Decode$field, 'user', _elm_lang$core$Json_Decode$string)),
+		A2(
+			_elm_lang$core$Json_Decode$andThen,
+			_user$project$Main$messageTypeDecoder,
+			A2(_elm_lang$core$Json_Decode$field, 'messageType', _elm_lang$core$Json_Decode$string))),
+	A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string));
+var _user$project$Main$urlRegex = _elm_lang$core$Regex$regex('/^(?:http(s)?:\\/\\/)?[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!\\$&\'\\(\\)\\*\\+,;=.]+$/gm');
+var _user$project$Main$homeMadeRetardUrlParser = function (string) {
+	return A2(_elm_lang$core$String$contains, 'http', string);
+};
+var _user$project$Main$isUrl = function (string) {
+	return _user$project$Main$homeMadeRetardUrlParser(string);
+};
+var _user$project$Main$isEmotes = function (string) {
+	return (_elm_lang$core$Native_Utils.cmp(
+		_elm_lang$core$List$length(
+			_elm_community$string_extra$String_Extra$toCodePoints(string)),
+		5) < 1) ? A2(
+		_elm_lang$core$List$all,
+		function (num) {
+			return _elm_lang$core$Native_Utils.cmp(num, 65533) > -1;
+		},
+		_elm_community$string_extra$String_Extra$toCodePoints(string)) : false;
+};
+var _user$project$Main$getMessageType = function (msg) {
+	var _p1 = _user$project$Main$isEmotes(msg);
+	if (_p1 === true) {
+		return _user$project$Data$Emotes;
+	} else {
+		var _p2 = A2(
+			_elm_lang$core$Debug$log,
+			'url me',
+			_user$project$Main$isUrl(msg));
+		if (_p2 === true) {
+			return _user$project$Data$Gif;
+		} else {
+			return _user$project$Data$Text;
+		}
+	}
+};
+var _user$project$Main$subscriptions = function (model) {
+	return A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$listen, model.phxSocket, _user$project$Data$PhoenixMsg);
+};
+var _user$project$Main$join = function (msg) {
+	return A2(
+		_elm_lang$core$Task$perform,
+		_elm_lang$core$Basics$identity,
+		_elm_lang$core$Task$succeed(msg));
+};
+var _user$project$Main$blankMessage = {msgType: _user$project$Data$Unknown, message: ''};
+var _user$project$Main$socketServer = 'ws://127.0.0.1:4000/socket/websocket';
+var _user$project$Main$initPhxSocket = A4(
+	_fbonetti$elm_phoenix_socket$Phoenix_Socket$on,
+	'new:msg',
+	'room:lobby',
+	_user$project$Data$ReciveChatMessage,
+	_fbonetti$elm_phoenix_socket$Phoenix_Socket$withDebug(
+		_fbonetti$elm_phoenix_socket$Phoenix_Socket$init(_user$project$Main$socketServer)));
+var _user$project$Main$initialModel = {
+	newMessage: _user$project$Main$blankMessage,
+	messages: _user$project$Data$messages4,
+	conversations: _user$project$Data$conversations,
+	phxSocket: _user$project$Main$initPhxSocket,
+	userList: _user$project$Data$users,
+	currentUser: {userId: 'user3', userName: 'Jelly kid', color: '#673AB7', picture: 'b0ce1e9c577d40ee25fe3aeea4798561.jpg'},
+	keyboard: _user$project$Data$None,
+	focusedChat: {conversationId: '4', conversationType: _user$project$Data$Group, color: '#673AB7', users: _user$project$Data$users, conversationName: 'The Boyz', picture: '0.jpg', messages: _user$project$Data$messages4},
+	leftMenuOpen: false
+};
+var _user$project$Main$init = {
+	ctor: '_Tuple2',
+	_0: _user$project$Main$initialModel,
+	_1: _user$project$Main$join(_user$project$Data$JoinChannel)
+};
+var _user$project$Main$_p3 = _rtfeldman$elm_css_helpers$Html_CssHelpers$withNamespace('rainchat');
+var _user$project$Main$id = _user$project$Main$_p3.id;
+var _user$project$Main$class = _user$project$Main$_p3.$class;
+var _user$project$Main$classList = _user$project$Main$_p3.classList;
+var _user$project$Main$appBar = function (title) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$Main$class(
+				{
+					ctor: '::',
+					_0: _user$project$Chat_Css$ToolBar,
+					_1: {
+						ctor: '::',
+						_0: _user$project$Chat_Css$ElevationBorder,
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'display', _1: 'flex'},
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				A2(
+					_identicalsnowflake$elm_dynamic_style$DynamicStyle$hover_,
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'font-size', _1: '20px'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'font-face', _1: 'Droid Sans Mono'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'margin', _1: '15px'},
+								_1: {ctor: '[]'}
+							}
+						}
+					},
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple3', _0: 'cursor', _1: '', _2: 'pointer'},
+						_1: {ctor: '[]'}
+					}),
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$img,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$src('icons/baseline-menu.svg'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(_user$project$Data$LeftMenuToggle),
+								_1: {ctor: '[]'}
+							}
+						},
+						{ctor: '[]'}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$p,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(title),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
 		});
 };
 var _user$project$Main$mainView = function (model) {
@@ -24365,7 +23828,7 @@ var _user$project$Main$mainView = function (model) {
 					},
 					{
 						ctor: '::',
-						_0: _user$project$Main$chatContainer(model),
+						_0: _user$project$ChatContainer$chatContainer(model),
 						_1: {ctor: '[]'}
 					}),
 				_1: {ctor: '[]'}
@@ -24395,7 +23858,7 @@ var _user$project$Main$view = function (model) {
 		},
 		{
 			ctor: '::',
-			_0: _user$project$Main$leftMenu(model),
+			_0: _user$project$Drawer$leftMenu(model),
 			_1: {
 				ctor: '::',
 				_0: _user$project$Main$mainView(model),
@@ -24403,6 +23866,202 @@ var _user$project$Main$view = function (model) {
 			}
 		});
 };
+var _user$project$Main$scrollBottom = _elm_lang$core$Native_Platform.outgoingPort(
+	'scrollBottom',
+	function (v) {
+		return v;
+	});
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		update:
+		while (true) {
+			var _p4 = A2(_elm_lang$core$Debug$log, 'Debug log: ', msg);
+			switch (_p4.ctor) {
+				case 'SetNewMessage':
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						_elm_lang$core$Native_Utils.update(
+							model,
+							{
+								newMessage: {msgType: model.newMessage.msgType, message: _p4._0}
+							}),
+						{ctor: '[]'});
+				case 'JoinChannel':
+					var channel = _fbonetti$elm_phoenix_socket$Phoenix_Channel$init('room:lobby');
+					var _p5 = A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$join, channel, model.phxSocket);
+					var phxSocket = _p5._0;
+					var phxCmd = _p5._1;
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{phxSocket: phxSocket}),
+						_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Data$PhoenixMsg, phxCmd)
+					};
+				case 'PhoenixMsg':
+					var _p6 = A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$update, _p4._0, model.phxSocket);
+					var phxSocket = _p6._0;
+					var phxCmd = _p6._1;
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{phxSocket: phxSocket}),
+						_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Data$PhoenixMsg, phxCmd)
+					};
+				case 'SendMessage':
+					var _p7 = _elm_community$string_extra$String_Extra$isBlank(model.newMessage.message);
+					if (_p7 === true) {
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								model,
+								{newMessage: _user$project$Main$blankMessage}),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					} else {
+						var payload = _elm_lang$core$Json_Encode$object(
+							{
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'user',
+									_1: _elm_lang$core$Json_Encode$string(model.currentUser.userId)
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'messageType',
+										_1: _elm_lang$core$Json_Encode$string(
+											_elm_lang$core$Basics$toString(
+												_user$project$Main$getMessageType(model.newMessage.message)))
+									},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '_Tuple2',
+											_0: 'body',
+											_1: _elm_lang$core$Json_Encode$string(model.newMessage.message)
+										},
+										_1: {ctor: '[]'}
+									}
+								}
+							});
+						var push_ = A2(
+							_fbonetti$elm_phoenix_socket$Phoenix_Push$withPayload,
+							A2(_elm_lang$core$Debug$log, 'das paylopad', payload),
+							A2(_fbonetti$elm_phoenix_socket$Phoenix_Push$init, 'new:msg', 'room:lobby'));
+						var _p8 = A2(_fbonetti$elm_phoenix_socket$Phoenix_Socket$push, push_, model.phxSocket);
+						var phxSocket = _p8._0;
+						var phxCmd = _p8._1;
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								model,
+								{newMessage: _user$project$Main$blankMessage, phxSocket: phxSocket, keyboard: _user$project$Data$None}),
+							_1: A2(_elm_lang$core$Platform_Cmd$map, _user$project$Data$PhoenixMsg, phxCmd)
+						};
+					}
+				case 'ReciveChatMessage':
+					var _p9 = A2(_elm_lang$core$Json_Decode$decodeValue, _user$project$Main$chatMessageDecoder, _p4._0);
+					if (_p9.ctor === 'Ok') {
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							_elm_lang$core$Native_Utils.update(
+								model,
+								{
+									messages: A2(
+										_elm_lang$core$List$append,
+										model.messages,
+										{
+											ctor: '::',
+											_0: _p9._0,
+											_1: {ctor: '[]'}
+										})
+								}),
+							{ctor: '[]'});
+					} else {
+						var noe = A2(_elm_lang$core$Debug$log, 'msg error', _p9._0);
+						return A2(
+							_elm_lang$core$Platform_Cmd_ops['!'],
+							model,
+							{ctor: '[]'});
+					}
+				case 'ChatMessagesChanged':
+					return {
+						ctor: '_Tuple2',
+						_0: model,
+						_1: _user$project$Main$scrollBottom('wee')
+					};
+				case 'Keyboard':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{keyboard: _p4._0}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'EmojiClicked':
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								newMessage: {
+									msgType: model.newMessage.msgType,
+									message: A2(_elm_lang$core$Basics_ops['++'], model.newMessage.message, _p4._0)
+								}
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'GifClicked':
+					var _v6 = _user$project$Data$SendMessage,
+						_v7 = _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							newMessage: {msgType: _user$project$Data$Gif, message: _p4._0}
+						});
+					msg = _v6;
+					model = _v7;
+					continue update;
+				case 'BackSpace':
+					var shave = _elm_community$string_extra$String_Extra$fromCodePoints(
+						_elm_lang$core$List$reverse(
+							A2(
+								_elm_lang$core$List$drop,
+								1,
+								_elm_lang$core$List$reverse(
+									_elm_community$string_extra$String_Extra$toCodePoints(model.newMessage.message)))));
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								newMessage: {msgType: model.newMessage.msgType, message: shave}
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				case 'ChangeChat':
+					var _p10 = _p4._0;
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{focusedChat: _p10, leftMenuOpen: false, messages: _p10.messages}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				default:
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{leftMenuOpen: !model.leftMenuOpen}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+			}
+		}
+	});
 var _user$project$Main$main = _elm_lang$html$Html$program(
 	{init: _user$project$Main$init, update: _user$project$Main$update, view: _user$project$Main$view, subscriptions: _user$project$Main$subscriptions})();
 

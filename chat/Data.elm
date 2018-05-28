@@ -1,19 +1,19 @@
 module Data exposing (..)
 
-
-type alias User =
-    { userId : String
-    , userName : String
-    , color : String
-    , picture : String
-    }
+import Json.Encode as JE
+import Phoenix.Socket
 
 
-type alias ChatMessage =
-    { userId : String
-    , msgType : MessageType
-    , body : String
-    }
+type ConversatinonType
+    = Direct
+    | Group
+    | Channel
+
+
+type KeyboardType
+    = None
+    | EmojiPicker
+    | GifPicker
 
 
 type MessageType
@@ -23,10 +23,26 @@ type MessageType
     | Unknown
 
 
-type ConversatinonType
-    = Direct
-    | Group
-    | Channel
+type Msg
+    = SetNewMessage String
+    | JoinChannel
+    | PhoenixMsg (Phoenix.Socket.Msg Msg)
+    | SendMessage
+    | ReciveChatMessage JE.Value
+    | Keyboard KeyboardType
+    | ChatMessagesChanged
+    | EmojiClicked String
+    | GifClicked String
+    | BackSpace
+    | ChangeChat Conversation
+    | LeftMenuToggle
+
+
+type alias ChatMessage =
+    { userId : String
+    , msgType : MessageType
+    , body : String
+    }
 
 
 type alias Conversation =
@@ -37,6 +53,33 @@ type alias Conversation =
     , picture : String
     , color : String
     , messages : List ChatMessage
+    }
+
+
+type alias Model =
+    { newMessage : NewMessage
+    , messages : List ChatMessage
+    , conversations : List Conversation
+    , phxSocket : Phoenix.Socket.Socket Msg
+    , userList : List User
+    , currentUser : User
+    , keyboard : KeyboardType
+    , focusedChat : Conversation
+    , leftMenuOpen : Bool
+    }
+
+
+type alias NewMessage =
+    { msgType : MessageType
+    , message : String
+    }
+
+
+type alias User =
+    { userId : String
+    , userName : String
+    , color : String
+    , picture : String
     }
 
 
