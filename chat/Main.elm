@@ -110,7 +110,7 @@ update msg model =
         JoinChannel ->
             let
                 channel =
-                    Phoenix.Channel.init "room:lobby"
+                    Phoenix.Channel.init "room:4"
 
                 ( phxSocket, phxCmd ) =
                     Phoenix.Socket.join channel model.phxSocket

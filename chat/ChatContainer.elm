@@ -112,7 +112,14 @@ theireMessage user message =
 
         Gif ->
             div [ class [ ChatCss.MessageContainer ] ]
-                [ img [ class [ ChatCss.ProfilePicture ], src user.picture, style [ ( "border-color", user.color ), ( "margin-top", "15px" ) ] ] [] --TODO switch to "real" profile pic
+                [ img
+                    [ class [ ChatCss.ProfilePicture ]
+                    , src user.picture
+                    , style [ ( "border-color", user.color ), ( "margin-top", "15px" ) ]
+                    ]
+                    []
+
+                --TODO switch to "real" profile pic
                 , div [ class [ ChatCss.UserName ] ] [ text <| user.userName ]
                 , gifMessage message.body
                 ]
