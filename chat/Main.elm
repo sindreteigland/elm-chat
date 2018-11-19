@@ -1,40 +1,24 @@
 port module Main exposing (appBar, blankMessage, chatMessageDecoder, getMessageType, homeMadeRetardUrlParser, init, initialModel, isEmotes, isUrl, join, main, mainView, messageTypeDecoder, scrollBottom, socketServer, update, view)
 
--- My Stuff
-
--- import Chat.Css as ChatCss
 import Browser
 import Chat.Emoji exposing (..)
-import ChatContainer exposing (..)
 import Data exposing (..)
---import Drawer exposing (..)
--- import DynamicStyle exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (class, id, placeholder, src, style, value)
--- import Html.CssHelpers
 import Html.Events exposing (on, onClick, onInput, onSubmit)
 import Json.Decode as JD exposing (Decoder, field, float, int, maybe, string, succeed)
 import Json.Decode.Extra exposing (..)
 import Json.Encode as JE
 import List exposing (append)
 import List.Extra exposing (find)
--- import Phoenix.Channel
--- import Phoenix.Push
--- import Phoenix.Socket
---import Regex exposing (contains, regex)
 import String.Extra exposing (fromCodePoints, isBlank, toCodePoints)
 import Task exposing (..)
-
-
--- { id, class, classList } =
---     Html.CssHelpers.withNamespace "rainchat"
 
 
 type alias Model =
     { newMessage : NewMessage
     , messages : List ChatMessage
     , conversations : List Conversation
-    -- , phxSocket : Phoenix.Socket.Socket Msg
     , userList : List User
     , currentUser : User
     , keyboard : KeyboardType
@@ -48,7 +32,6 @@ initialModel =
     { newMessage = blankMessage
     , messages = messages4
     , conversations = conversations
-    --, phxSocket = initPhxSocket
     , userList = users
     , currentUser = { userId = "user3", userName = "Jelly kid", color = "#673AB7", picture = "b0ce1e9c577d40ee25fe3aeea4798561.jpg" }
     , keyboard = None
@@ -64,15 +47,15 @@ initialModel =
     , leftMenuOpen = False
     }
 
-init : (Model, Cmd Msg)
-init =
+
+init : () -> ( Model, Cmd Msg )
+init _ =
     ( initialModel, Cmd.none )
 
 
 type Msg
     = SetNewMessage String
     | JoinChannel
-    -- | PhoenixMsg (Phoenix.Socket.Msg Msg)
     | SendMessage
     | ReciveChatMessage JE.Value
     | Keyboard KeyboardType
@@ -84,7 +67,6 @@ type Msg
     | LeftMenuToggle
 
 
-
 socketServer : String
 socketServer =
     "ws://127.0.0.1:4000/socket/websocket"
@@ -93,19 +75,8 @@ socketServer =
 blankMessage =
     { msgType = Unknown, message = "" }
 
---WEBSOCKET INIT
--- initPhxSocket : Phoenix.Socket.Socket Msg
--- initPhxSocket =
---     Phoenix.Socket.init socketServer
---         |> Phoenix.Socket.withDebug
---         |> Phoenix.Socket.on "new:msg" "room:lobby" ReciveChatMessage
 
-
-
--- TODO: maybe change this way of trigging the join-channel thingy
-
-
-join : Msg -> Cmd msg
+join : Msg -> Cmd Msg
 join msg =
     Task.succeed msg
         |> Task.perform identity
@@ -115,26 +86,19 @@ port scrollBottom : String -> Cmd msg
 
 
 
+-- fjern main, skal eksponere subscriptions, Model, Msg og update
+
+
 main =
-    Browser.sandbox
+    Browser.element
         { init = init
         , update = update
         , view = view
+        , subscriptions = \_ -> Sub.none
         }
 
 
--- main =
---     Html.program
---         { init = init
---         , update = update
---         , view = view
---         --, subscriptions = subscriptions
---         }
-
-
---subscriptions : Model -> Sub Ms
-
-
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case Debug.log "Debug log: " msg of
         SetNewMessage string ->
@@ -143,26 +107,7 @@ update msg model =
             )
 
         JoinChannel ->
-            -- let
-            --     channel =
-            --         Phoenix.Channel.init "room:4"
-
-            --     ( phxSocket, phxCmd ) =
-            --         Phoenix.Socket.join channel model.phxSocket
-            -- in
-            -- ( { model | phxSocket = phxSocket }
-            -- , Cmd.map PhoenixMsg phxCmd
-            -- )
-            (model, Cmd.none)
-
-        -- PhoenixMsg msg ->
-        --     let
-        --         ( phxSocket, phxCmd ) =
-        --             Phoenix.Socket.update msg model.phxSocket
-        --     in
-        --     ( { model | phxSocket = phxSocket }
-        --     , Cmd.map PhoenixMsg phxCmd
-        --     )
+            ( model, Cmd.none )
 
         SendMessage ->
             case isBlank model.newMessage.message of
@@ -171,43 +116,18 @@ update msg model =
 
                 False ->
                     let
-                        payload = "json payload here"
-                        -- payload =
-                        --     --TODO include messagetype to send with the payload
-                        --     JE.object [ ( "user", JE.string model.currentUser.userId ), ( "messageType", JE.string <| string <| getMessageType model.newMessage.message ), ( "body", JE.string model.newMessage.message ) ]
-
-                        -- push_ =
-                        --     Phoenix.Push.init "new:msg" "room:lobby"
-                        --         |> Phoenix.Push.withPayload (Debug.log "das paylopad" payload)
-
-                        -- ( phxSocket, phxCmd ) =
-                        --     Phoenix.Socket.push push_ model.phxSocket
+                        payload =
+                            "json payload here"
                     in
                     ( { model
                         | newMessage = blankMessage
-                        --, phxSocket = phxSocket
                         , keyboard = None
                       }
                     , Cmd.none
                     )
 
         ReciveChatMessage raw ->
-           --TODO: Decode insane json data from socket yoooo
-            -- case JD.decodeValue chatMessageDecoder raw of
-            --     Ok chatMessage ->
-            --         ( { model | messages = append model.messages [ chatMessage ] }
-            --         , Cmd.none
-            --         )
-
-            --     Err error ->
-            --         let
-            --             noe =
-            --                 Debug.log "msg error" error
-            --         in
-            --         ( model
-            --         , Cmd.none
-            --         )
-            (model, Cmd.none)
+            ( model, Cmd.none )
 
         ChatMessagesChanged ->
             ( model, scrollBottom "wee" )
@@ -234,7 +154,8 @@ update msg model =
             ( { model | newMessage = { msgType = model.newMessage.msgType, message = shave } }, Cmd.none )
 
         ChangeChat conversation ->
-            ( { model | focusedChat = conversation, leftMenuOpen = False, messages = conversation.messages }, Cmd.none )
+            (model, Cmd.none)
+--            ( { model | focusedChat = conversation, leftMenuOpen = False, messages = conversation.messages }, Cmd.none )
 
         LeftMenuToggle ->
             ( { model | leftMenuOpen = not model.leftMenuOpen }, Cmd.none )
@@ -272,23 +193,8 @@ homeMadeRetardUrlParser string =
     String.contains "http" string
 
 
-
---TODO Doesn't work, need to make a GODLIKE regex
-
-
--- urlRegex =
---     regex "/^(?:http(s)?:\\/\\/)?[\\w.-]+(?:\\.[\\w\\.-]+)+[\\w\\-\\._~:/?#[\\]@!\\$&'\\(\\)\\*\\+,;=.]+$/gm"
-
-
---chatMessageDecoder : JD.Decoder ChatMessage
 chatMessageDecoder =
     "json"
-    -- JD.succeed ChatMessage
-    --     |: field "user" JD.string
-    --     |: (field "messageType" JD.string
-    --             |> JD.andThen messageTypeDecoder
-    --        )
-    --     |: field "body" JD.string
 
 
 messageTypeDecoder msgType =
@@ -307,12 +213,198 @@ messageTypeDecoder msgType =
                 Unknown
 
 
-view model msg =
+
+-- FROM CHATCONTAINER
+
+
+profilePicture color picture =
+    img [ class "rainchatProfilePicture", src picture, style "border-color" color ] []
+
+
+chatContainer : Model -> Html Msg
+chatContainer model =
+    div [ class "rainchatChatContainer" ]
+        [ div [ style "display" "flex", style "width" "100%", style "height" "100%", style "flex-direction" "column" ]
+            [ chatView model
+            , inputField model
+            ]
+        ]
+
+
+
+-- ChatCss.Chat doesnt exist anymore?
+
+
+chatView model =
+    div [ id "1", onDivChanged ChatMessagesChanged ]
+        (List.map viewMessage model.messages
+         --|> List.reverse
+        )
+
+
+onDivChanged msg =
+    on "DOMSubtreeModified" (JD.succeed msg)
+
+
+viewMessage message =
+    let
+        user =
+            getUser users message
+    in
+    if user.userId == disUsr then
+        --TODO use a real user and not this
+        myMessage message
+
+    else
+        theireMessage user message
+
+
+getUser : List User -> ChatMessage -> User
+getUser users message =
+    let
+        user =
+            users
+                |> List.filter (.userId >> (==) message.userId)
+                |> List.head
+    in
+    case user of
+        Just u ->
+            u
+
+        Nothing ->
+            { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+
+
+myMessage : ChatMessage -> Html msg
+myMessage message =
+    case message.msgType of
+        Text ->
+            div [ class "rainchatMessageContainer rainchatMyMessageContainer" ]
+                [ div [ class "rainchatMessage rainchatMyMessage rainchatElevationBorder" ]
+                    [ div [ class "rainchatSquare rainchatMySquare" ] []
+                    , div [ class "rainchatMessageBody" ] [ text message.body ]
+                    ]
+                ]
+
+        Gif ->
+            div [ class "rainchatMessageContainer rainchatMyMessageContainer" ]
+                [ gifMessage message.body
+                ]
+
+        Emotes ->
+            div [ class "rainchatMessageContainer rainchatMyMessageContainer", style "font-size" "xx-large" ]
+                [ p [ class "rainchatEmoteContainer" ] [ text message.body ]
+                ]
+
+        Unknown ->
+            Html.text ""
+
+
+
+--TODO Refactor shiet
+
+
+theireMessage : User -> ChatMessage -> Html msg
+theireMessage user message =
+    case message.msgType of
+        Text ->
+            div [ class "rainchatMessageContainer" ]
+                [ div [ style "display" "flex", style "flex-direction" "row" ]
+                    [ div [ style "margin-top" "15px" ] [ profilePicture user.color user.picture ]
+                    , div [ style "display" "flex", style "flex-direction" "column" ]
+                        [ div [ class "rainchatUserName" ] [ text <| user.userName ]
+                        , div [ class "rainchatMessage rainchatTheireMessage rainchatElevationBorder" ]
+                            [ div [ class "rainchatSquare rainchatTheireSquare" ] []
+                            , div [ class "rainchatMessageBody" ] [ text message.body ]
+                            ]
+                        ]
+                    ]
+                ]
+
+        Gif ->
+            div [ class "rainchatMessageContainer" ]
+                [ img
+                    [ class "rainchatProfilePicture"
+                    , src user.picture
+                    , style "border-color" user.color
+                    , style "margin-top" "15px"
+                    ]
+                    []
+
+                --TODO switch to "real" profile pic
+                , div [ class "rainchatUserName" ] [ text <| user.userName ]
+                , gifMessage message.body
+                ]
+
+        Emotes ->
+            div [ class "rainchatMessageContainer" ]
+                [ img [ class "rainchatProfilePicture", src user.picture, style "border-color" user.color ] [] --TODO switch to "real" profile pic
+                , div [ class "rainchatUserName" ] [ text <| user.userName ]
+                , p [ class "rainchatEmoteContainer" ] [ text message.body ]
+                ]
+
+        Unknown ->
+            Html.text ""
+
+
+gifMessage url =
+    div [ class "rainchatGifMessage" ]
+        [ img [ src url, class "rainchatGif" ] []
+        ]
+
+
+mapGifs gif gifClicked =
+    img [ class "previewGif", src gif.prev, onClick <| gifClicked gif.gif ] [ text "no gif for u" ]
+
+
+inputField : Model -> Html Msg
+inputField model =
+    div [ style "padding" "12px", class "rainchatElevationBorder", onDivChanged ChatMessagesChanged ]
+        [ form [ onSubmit SendMessage ]
+            [ div [ class "rainchatMessageArea" ]
+                [ messageArea model ]
+            ]
+        ]
+
+
+none =
+    div [ class "rainchatEmoteSection" ]
+        [ img [ src "ic_tag_faces_white_24px.svg", onClick <| Keyboard EmojiPicker ] []
+        , img [ src "ic_gif_white_24px.svg", onClick <| Keyboard GifPicker ] []
+        , img [ id "rainchatSend", src "ic_send_white_24px.svg", onClick BackSpace ] []
+        ]
+
+
+messageArea : Model -> Html Msg
+messageArea model =
+    div []
+        [ div []
+            [ div [ style "position" "relative", style "display" "flex", style "align-content" "stretch", style "flex-direction" "column" ]
+                [ input
+                    [ style "type" "text"
+                    , style "padding-top" "5px"
+                    , style "padding-bottom" "5px"
+                    , style "border-radius" "5px"
+                    , style "font-size" "medium"
+                    , class "rainchatInput"
+                    , placeholder "Say something..."
+                    , onInput SetNewMessage
+                    , value model.newMessage.message
+                    ]
+                    []
+                ]
+            ]
+        ]
+
+
+
+-- /FROM CHATCOINTER
+
+
+view : Model -> Html Msg
+view model =
     div [ style "display" "flex", style "width" "100%", style "justify-content" "center" ]
-        [ --backdrop
-          -- drawer model
-          --leftMenu model --TODO Make drawer the "master" element
-         mainView model
+        [ mainView model
         ]
 
 
@@ -320,7 +412,7 @@ mainView model =
     div [ style "display" "flex", style "flex-direction" "column", style "width" "100%" ]
         [ appBar model.focusedChat.conversationName
         , div [ style "display" "flex", style "height" "100%" ]
-            [ chatContainer model 
+            [ chatContainer model
 
             --, members
             ]
@@ -329,9 +421,8 @@ mainView model =
 
 appBar title =
     div [ class "rainChatToolBar rainChatElevationBorder", style "display" "flex" ]
-        [ 
-            --TODO: include sick hover style
-            div
+        [ --TODO: include sick hover style
+          div
             -- (hover_
             --     [ ( "font-size", "20px" )
             --     , ( "font-face", "Droid Sans Mono" )
@@ -343,47 +434,3 @@ appBar title =
             [ img [ src "icons/baseline-menu.svg", onClick <| LeftMenuToggle ] [] ]
         , p [] [ text title ]
         ]
-
-
-
--- members =
---     div
---         [ style
---             [ ( "background-color", "#171717" )
---             , ( "min-width", "200px" )
---             , ( "padding", "10px" )
---             , ( "max-width", "472px" )
---             , ( "height", "100%" )
---             ]
---         ]
---         [ text "Members/Images/options/other stuff that can be usefull wil go here... we will just see here!" ]
--- verticalToolbar =
---     div
---         [ style
---             [ ( "background-color", "#2665D7" )
---             , ( "width", "50px" )
---             , ( "height", "100%" )
---             , ( "display", "flex" )
---             , ( "flex-direction", "column" )
---             , ( "box-shadow", "0 0 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,0.24)" )
---             , ( "align-items", "center" )
---             , ( "padding", "5px" )
---             ]
---         , class [ "rainChatElevationBorder ]
---         ]
---         [ div [ style [ ( "font-size", "small" ) ] ] [ text "name?" ]
---         , div [ style [ ( "text-align", "center" ) ] ] [ img [ src "icons/users-group.svg", onClick BackSpace, style [ ( "width", "25px" ) ] ] [] ]
---         , div [ style [ ( "font-size", "small" ) ] ] [ text "0 online" ]
---         , div
---             [ style
---                 [ ( "width", "40px" )
---                 , ( "border", "white" )
---                 , ( "border-style", "solid" )
---                 , ( "border-width", "1px" )
---                 , ( "border-radius", "30px" )
---                 ]
---             ]
---             []
---         , div [] [ img [ src "icons/plus.svg", onClick BackSpace, style [ ( "width", "35px" ), ( "margin", "2.5px" ) ] ] [] ]
---         --, div [] [ img [ src "icons/plus.svg", onClick BackSpace, style [ ( "width", "45px" ), ( "margin", "2.5px" ) ] ] [] ]
---         ]

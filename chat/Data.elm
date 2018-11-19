@@ -32,10 +32,10 @@ type alias ChatMessage =
 type alias Conversation =
     { conversationId : String
     , conversationType : ConversatinonType
+    , color : String
     , users : List User
     , conversationName : String
     , picture : String
-    , color : String
     , messages : List ChatMessage
     }
 
