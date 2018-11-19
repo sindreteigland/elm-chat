@@ -1,32 +1,36 @@
-module ChatContainer exposing (..)
+module ChatContainer exposing (chatContainer, chatView, getUser, gifMessage, gifPicker, inputField, mapGifs, messageArea, myMessage, none, onDivChanged, theireMessage, viewMessage)
 
-import Chat.Css as ChatCss
+-- import Chat.Css as ChatCss
 import Chat.Emoji exposing (..)
+import Data exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (class, id, placeholder, src, style, value)
-import Html.CssHelpers
+-- import Html.CssHelpers
 import Html.Events exposing (on, onClick, onInput, onSubmit)
 import Json.Decode as JD exposing (Decoder, field, float, int, maybe, string, succeed)
-import Data exposing (..)
-import ProfilePicture exposing (..)
+-- import ProfilePicture exposing (..)
 
 
-{ id, class, classList } =
-    Html.CssHelpers.withNamespace "rainchat"
+-- { id, class, classList } =
+--     Html.CssHelpers.withNamespace "rainchat"
 
+
+profilePicture color picture =
+    img [ class "rainchatProfilePicture" , src picture, style "border-color" color ] []
 
 chatContainer model =
-    div [ class [ ChatCss.ChatContainer ] ]
-        [ div [ style [ ( "display", "flex" ), ( "width", "100%" ), ( "height", "100%" ), ( "flex-direction", "column" ) ] ]
+    div [ class "rainchatChatContainer" ]
+        [ div [ style "display" "flex", style "width" "100%", style "height" "100%", style "flex-direction" "column" ]
             [ chatView model
             , inputField model
             ]
         ]
 
 
-chatView model =
-    div [ id [ ChatCss.Chat ], onDivChanged ChatMessagesChanged ]
-        (List.map viewMessage model.messages
+chatView : List ChatMessage -> msg -> Html msg
+chatView messages chatMessageChanged =
+    div [ id "rainchatChat", onDivChanged chatMessageChanged ]
+        (List.map viewMessage messages
          --|> List.reverse
         )
 
@@ -35,17 +39,17 @@ onDivChanged msg =
     on "DOMSubtreeModified" (JD.succeed msg)
 
 
-viewMessage : ChatMessage -> Html Msg
 viewMessage message =
     let
         user =
             getUser users message
     in
-        if user.userId == disUsr then
-            --TODO use a real user and not this
-            myMessage message
-        else
-            theireMessage user message
+    if user.userId == disUsr then
+        --TODO use a real user and not this
+        myMessage message
+
+    else
+        theireMessage user message
 
 
 getUser : List User -> ChatMessage -> User
@@ -56,33 +60,33 @@ getUser users message =
                 |> List.filter (.userId >> (==) message.userId)
                 |> List.head
     in
-        case user of
-            Just user ->
-                user
+    case user of
+        Just u ->
+            u
 
-            Nothing ->
-                { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+        Nothing ->
+            { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
 
 
-myMessage : ChatMessage -> Html Msg
+myMessage : ChatMessage -> Html msg
 myMessage message =
     case message.msgType of
         Text ->
-            div [ class [ ChatCss.MessageContainer, ChatCss.MyMessageContainer ] ]
-                [ div [ class [ ChatCss.Message, ChatCss.MyMessage, ChatCss.ElevationBorder ] ]
-                    [ div [ class [ ChatCss.Square, ChatCss.MySquare ] ] []
-                    , div [ class [ ChatCss.MessageBody ] ] [ text message.body ]
+            div [ class "rainchatMessageContainer rainchatMyMessageContainer" ]
+                [ div [ class "rainchatMessage rainchatMyMessage rainchatElevationBorder"  ]
+                    [ div [ class "rainchatSquare rainchatMySquare" ] []
+                    , div [ class "rainchatMessageBody" ] [ text message.body ]
                     ]
                 ]
 
         Gif ->
-            div [ class [ ChatCss.MessageContainer, ChatCss.MyMessageContainer ] ]
+            div [ class "rainchatMessageContainer rainchatMyMessageContainer" ]
                 [ gifMessage message.body
                 ]
 
         Emotes ->
-            div [ class [ ChatCss.MessageContainer, ChatCss.MyMessageContainer ], style [ ( "font-size", "xx-large" ) ] ]
-                [ p [ class [ ChatCss.EmoteContainer ] ] [ text message.body ]
+            div [ class "rainchatMessageContainer rainchatMyMessageContainer", style "font-size" "xx-large" ]
+                [ p [ class "rainchatEmoteContainer" ] [ text message.body ]
                 ]
 
         Unknown ->
@@ -93,42 +97,43 @@ myMessage message =
 --TODO Refactor shiet
 
 
-theireMessage : User -> ChatMessage -> Html Msg
+theireMessage : User -> ChatMessage -> Html msg
 theireMessage user message =
     case message.msgType of
         Text ->
-            div [ class [ ChatCss.MessageContainer ] ]
-                [ div [ style [ ( "display", "flex" ), ( "flex-direction", "row" ) ] ]
-                    [ div [ style [ ( "margin-top", "15px" ) ] ] [ profilePicture user.color user.picture ]
-                    , div [ style [ ( "display", "flex" ), ( "flex-direction", "column" ) ] ]
-                        [ div [ class [ ChatCss.UserName ] ] [ text <| user.userName ]
-                        , div [ class [ ChatCss.Message, ChatCss.TheireMessage, ChatCss.ElevationBorder ] ]
-                            [ div [ class [ ChatCss.Square, ChatCss.TheireSquare ] ] []
-                            , div [ class [ ChatCss.MessageBody ] ] [ text message.body ]
+            div [ class  "rainchatMessageContainer"  ]
+                [ div [ style "display" "flex", style "flex-direction" "row" ]
+                    [ div [ style "margin-top" "15px" ] [ profilePicture user.color user.picture ]
+                    , div [ style "display" "flex", style "flex-direction" "column" ]
+                        [ div [ class  "rainchatUserName" ] [ text <| user.userName ]
+                        , div [ class  "rainchatMessage rainchatTheireMessage rainchatElevationBorder" ]
+                            [ div [ class "rainchatSquare rainchatTheireSquare"  ] []
+                            , div [ class "rainchatMessageBody" ] [ text message.body ]
                             ]
                         ]
                     ]
                 ]
 
         Gif ->
-            div [ class [ ChatCss.MessageContainer ] ]
+            div [ class "rainchatMessageContainer"  ]
                 [ img
-                    [ class [ ChatCss.ProfilePicture ]
+                    [ class "rainchatProfilePicture"
                     , src user.picture
-                    , style [ ( "border-color", user.color ), ( "margin-top", "15px" ) ]
+                    , style "border-color" user.color
+                    , style "margin-top" "15px"
                     ]
                     []
 
                 --TODO switch to "real" profile pic
-                , div [ class [ ChatCss.UserName ] ] [ text <| user.userName ]
+                , div [ class "rainchatUserName" ] [ text <| user.userName ]
                 , gifMessage message.body
                 ]
 
         Emotes ->
-            div [ class [ ChatCss.MessageContainer ] ]
-                [ img [ class [ ChatCss.ProfilePicture ], src user.picture, style [ ( "border-color", user.color ) ] ] [] --TODO switch to "real" profile pic
-                , div [ class [ ChatCss.UserName ] ] [ text <| user.userName ]
-                , p [ class [ ChatCss.EmoteContainer ] ] [ text message.body ]
+            div [ class "rainchatMessageContainer" ]
+                [ img [ class "rainchatProfilePicture", src user.picture, style "border-color" user.color ] [] --TODO switch to "real" profile pic
+                , div [ class "rainchatUserName" ] [ text <| user.userName ]
+                , p [ class "rainchatEmoteContainer" ] [ text message.body ]
                 ]
 
         Unknown ->
@@ -136,112 +141,116 @@ theireMessage user message =
 
 
 gifMessage url =
-    div [ class [ ChatCss.GifMessage ] ]
-        [ img [ src url, class [ ChatCss.Gif ] ] []
+    div [ class "rainchatGifMessage" ]
+        [ img [ src url, class "rainchatGif" ] []
         ]
 
 
 gifPicker =
-    div [ id [ "gifPicker" ] ]
+    div [ id "gifPicker" ]
         (List.map mapGifs gifs)
 
 
-mapGifs gif =
-    img [ class [ "previewGif" ], src gif.prev, onClick <| GifClicked gif.gif ] [ text "no gif for u" ]
+mapGifs gif gifClicked =
+    img [ class "previewGif", src gif.prev, onClick <| gifClicked gif.gif ] [ text "no gif for u" ]
 
 
-inputField model =
-    div [ style [ ( "padding", "12px" ) ], class [ ChatCss.ElevationBorder ], onDivChanged ChatMessagesChanged ]
-        [ form [ onSubmit SendMessage ]
-            [ div [ class [ ChatCss.MessageArea ] ]
-                (inputLayout model)
+inputField : newMessage -> msg -> msg -> Html msg
+inputField newMessage changeMsg submitMsg =
+    div [ style "padding" "12px", class "rainchatElevationBorder", onDivChanged changeMsg ]
+        [ form [ onSubmit submitMsg ]
+            [ div [ class "rainchatMessageArea" ]
+                [ messageArea newMessage]
             ]
         ]
 
 
-inputLayout : Model -> List (Html Msg)
-inputLayout model =
-    case model.keyboard of
-        None ->
-            [ messageArea model ]
+-- inputLayout : Model -> List (Html msg)
+-- inputLayout model =
+--     case model.keyboard of
+--         None ->
+--             [ messageArea model ]
 
-        EmojiPicker ->
-            [ messageArea model
-            , expresionGroups model
-            , emojiPicker
-            ]
+--         EmojiPicker ->
+--             [ messageArea model
+--             , expresionGroups model
+--             , emojiPicker
+--             ]
 
-        GifPicker ->
-            [ gifPicker
-            , messageArea model
-            , expresionGroups model
-            ]
+--         GifPicker ->
+--             [ gifPicker
+--             , messageArea model
+--             , expresionGroups model
+--             ]
 
 
 none =
-    div [ class [ ChatCss.EmoteSection ] ]
+    div [ class "rainchatEmoteSection" ]
         [ img [ src "ic_tag_faces_white_24px.svg", onClick <| Keyboard EmojiPicker ] []
         , img [ src "ic_gif_white_24px.svg", onClick <| Keyboard GifPicker ] []
-        , img [ id [ ChatCss.Send ], src "ic_send_white_24px.svg", onClick BackSpace ] []
+        , img [ id "rainchatSend", src "ic_send_white_24px.svg", onClick BackSpace ] []
         ]
 
 
-messageArea model =
+
+messageArea : NewMessage -> msg -> Html msg
+messageArea newMessage setNewMessage =
     div []
         [ div []
-            [ div [ style [ ( "position", "relative" ), ( "display", "flex" ), ( "align-content", "stretch" ), ( "flex-direction", "column" ) ] ]
-                [ input [ style [ ( "type", "text" ), ( "padding-top", "5px" ), ( "padding-bottom", "5px" ), ( "border-radius", "5px" ), ( "font-size", "medium" ) ], class [ ChatCss.Input ], placeholder "Say something...", onInput SetNewMessage, value model.newMessage.message ] []
+            [ div [ style "position" "relative", style "display" "flex", style "align-content" "stretch", style "flex-direction" "column" ]
+                [ input [ style "type" "text", style "padding-top" "5px", style "padding-bottom" "5px", style "border-radius" "5px", style "font-size" "medium", 
+                class "rainchatInput", placeholder "Say something...", onInput SetNewMessage, value model.newMessage.message ] []
                 ]
             ]
         ]
 
 
-expresionGroups model =
-    div [ id [ "btn-group" ] ]
-        [ button [ onClick <| Keyboard GifPicker ] [ text "Gifs" ]
-        , button [ onClick <| Keyboard EmojiPicker ] [ text "Emoji" ]
-        ]
+-- expresionGroups model =
+--     div [ id [ "btn-group" ] ]
+--         [ button [ onClick <| Keyboard GifPicker ] [ text "Gifs" ]
+--         , button [ onClick <| Keyboard EmojiPicker ] [ text "Emoji" ]
+--         ]
 
 
-emojiPicker =
-    div []
-        [ div [ id [ "emojiPanel" ] ] mapEmojiCategories
-        , div [ class [ ChatCss.EmoteSection ] ]
-            [ img [ src "ic_keyboard_hide_white_24px.svg", onClick <| Keyboard None ] []
+-- emojiPicker =
+--     div []
+--         [ div [ id"emojiPanel" ] mapEmojiCategories
+--         , div [ class "rainchatEmoteSection" ]
+--             [ img [ src "ic_keyboard_hide_white_24px.svg", onClick <| Keyboard None ] []
 
-            --TODO make this shiet mo betta
-            , div [] [ text "🕔" ]
-            , div [] [ text "😄" ]
-            , div [] [ text "🐻" ]
-            , div [] [ text "💡" ]
-            , div [] [ text "🏫" ]
-            , div [] [ text "❌" ]
-            , img [ src "ic_backspace_white_24px.svg", onClick BackSpace ] []
-            ]
-        ]
-
-
-mapEmojiCategories =
-    List.map mapCategory emojis
+--             --TODO make this shiet mo betta
+--             , div [] [ text "🕔" ]
+--             , div [] [ text "😄" ]
+--             , div [] [ text "🐻" ]
+--             , div [] [ text "💡" ]
+--             , div [] [ text "🏫" ]
+--             , div [] [ text "❌" ]
+--             , img [ src "ic_backspace_white_24px.svg", onClick BackSpace ] []
+--             ]
+--         ]
 
 
-mapCategory ( categoryTitle, emojis ) =
-    div [ class [ " intercom-emoji-picker-group-title" ] ]
-        [ text categoryTitle
-        , div
-            [ class
-                [ " intercom-emoji-picker-group" ]
-            , style [ ( "width", (ceiling (toFloat (List.length emojis) / 5) * 40 |> toString) ++ "px" ) ]
-            ]
-          <|
-            List.map mapEmoji emojis
-        ]
+-- mapEmojiCategories =
+--     List.map mapCategory emojis
 
 
-mapEmoji ( title, unicodeValue ) =
-    div
-        [ class
-            [ " intercom-emoji-picker-emoji" ]
-        , onClick <| EmojiClicked unicodeValue
-        ]
-        [ text unicodeValue ]
+-- mapCategory ( categoryTitle, emojis ) =
+--     div [ class [ " intercom-emoji-picker-group-title" ] ]
+--         [ text categoryTitle
+--         , div
+--             [ class
+--                 [ " intercom-emoji-picker-group" ]
+--             , style "width" ((ceiling (toFloat (List.length emojis) / 5) * 40 |> toString) ++ "px")
+--             ]
+--           <|
+--             List.map mapEmoji emojis
+--         ]
+
+
+-- mapEmoji ( title, unicodeValue ) =
+--     div
+--         [ class
+--             [ " intercom-emoji-picker-emoji" ]
+--         , onClick <| EmojiClicked unicodeValue
+--         ]
+--         [ text unicodeValue ]

@@ -2,7 +2,7 @@ module Chat.Emoji exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (class, id, placeholder, src, style, title, value)
-import Html.CssHelpers
+-- import Html.CssHelpers
 import Html.Events exposing (onClick, onInput, onSubmit)
 
 

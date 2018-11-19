@@ -1,14 +1,12 @@
-module Backdrop exposing (..)
-
-import Html exposing (..)
-import Html.Attributes exposing (class, id, placeholder, src, style, value)
-import Html.CssHelpers
-import Html.Events exposing (on, onClick, onInput, onSubmit)
-
+module Backdrop exposing (backdrop, showBackdrop)
 
 -- My Stuff
 
 import Data exposing (..)
+import Html exposing (..)
+import Html.Attributes exposing (class, id, placeholder, src, style, value)
+import Html.CssHelpers
+import Html.Events exposing (on, onClick, onInput, onSubmit)
 import List exposing (append)
 
 
@@ -33,5 +31,6 @@ backdrop isOpen onClickEvent =
 showBackdrop isOpen =
     if isOpen == True then
         [ ( "opacity", "0.87" ), ( "visibility", "visible" ) ]
+
     else
         [ ( "opacity", "0" ), ( "visibility", "hidden" ) ]

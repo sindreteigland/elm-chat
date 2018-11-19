@@ -1,7 +1,7 @@
-module Data exposing (..)
+module Data exposing (ChatMessage, ConversatinonType(..), Conversation, KeyboardType(..), MessageType(..), NewMessage, User, conversations, disUsr, gifs, messages, messages2, messages3, messages4, users)
 
 import Json.Encode as JE
-import Phoenix.Socket
+-- import Phoenix.Socket
 
 
 type ConversatinonType
@@ -22,22 +22,6 @@ type MessageType
     | Gif
     | Unknown
 
-
-type Msg
-    = SetNewMessage String
-    | JoinChannel
-    | PhoenixMsg (Phoenix.Socket.Msg Msg)
-    | SendMessage
-    | ReciveChatMessage JE.Value
-    | Keyboard KeyboardType
-    | ChatMessagesChanged
-    | EmojiClicked String
-    | GifClicked String
-    | BackSpace
-    | ChangeChat Conversation
-    | LeftMenuToggle
-
-
 type alias ChatMessage =
     { userId : String
     , msgType : MessageType
@@ -53,19 +37,6 @@ type alias Conversation =
     , picture : String
     , color : String
     , messages : List ChatMessage
-    }
-
-
-type alias Model =
-    { newMessage : NewMessage
-    , messages : List ChatMessage
-    , conversations : List Conversation
-    , phxSocket : Phoenix.Socket.Socket Msg
-    , userList : List User
-    , currentUser : User
-    , keyboard : KeyboardType
-    , focusedChat : Conversation
-    , leftMenuOpen : Bool
     }
 
 
@@ -200,3 +171,4 @@ gifs =
     , { prev = "https://media.tenor.com/images/eee25ace52af637d449b81fb1c7452ee/tenor.gif", gif = "https://media.tenor.com/images/c103c6bcdaa5d98f0fee4e747b161c14/tenor.gif" }
     , { prev = "https://media.tenor.com/images/cf6d2f93405d054907debe7d726feeb3/tenor.gif", gif = "https://media.tenor.com/images/5305cf820f1d3665f5281ce473b92313/tenor.gif" }
     ]
+
