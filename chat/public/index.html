@@ -212,8 +212,9 @@
   </div>
   <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript">
-    var el = document.getElementById('app');
-    var app = Elm.Main.embed(el);
+    var app = Elm.Main.init({
+      node: document.getElementById("app")
+    });
 
 
     app.ports.scrollBottom.subscribe(function () {
