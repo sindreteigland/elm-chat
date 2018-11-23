@@ -117,21 +117,11 @@ port scrollBottom : String -> Cmd msg
 --jumpToBottom
 
 
+jumpToBottom : String -> Cmd Msg
 jumpToBottom id =
-    let
-        task =
-            Dom.getViewportOf id 
-            |> Task.andThen (\info -> 
-                let
-                    doIt = Dom.setViewportOf id 0 info.scene.height
-
-                    _ = Debug.log "doing it man" info
-                in
-                    doIt
-            )
-        _ = Debug.log "task " id
-    in
-    Cmd.none
+  Dom.getViewportOf id
+    |> Task.andThen (\viewPort -> Dom.setViewportOf id 0 viewPort.scene.height)
+    |> Task.attempt (\_ -> NoOp)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
