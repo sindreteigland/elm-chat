@@ -19,9 +19,8 @@ view model =
 --module Chat exposing (Model, update, view, Msg(..), blankMessage, init, initialModel)
 
 
-port module Chat exposing (Model, init, initialModel, Msg, update, view)
+port module Chat exposing (Model, Msg, init, initialModel, update, view)
 
-import Chat.Emoji exposing (..)
 import Browser
 import Browser.Dom as Dom
 import Chat.Emoji exposing (..)
@@ -88,7 +87,7 @@ type Msg
     | BackSpace
     | ChangeChat Conversation
     | LeftMenuToggle
-   -- | NoOp
+    | NoOp
 
 
 socketServer : String
@@ -110,17 +109,37 @@ join msg =
 --TODO : make scrollable
 
 
-
 port scrollBottom : String -> Cmd msg
 
 
 
 -- fjern main, skal eksponere subscriptions, Model, Msg og update
+--jumpToBottom
+
+
+jumpToBottom id =
+    let
+        task =
+            Dom.getViewportOf id 
+            |> Task.andThen (\info -> 
+                let
+                    doIt = Dom.setViewportOf id 0 info.scene.height
+
+                    _ = Debug.log "doing it man" info
+                in
+                    doIt
+            )
+        _ = Debug.log "task " id
+    in
+    Cmd.none
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case Debug.log "Debug log: " msg of
+        NoOp ->
+            ( model, Cmd.none )
+
         SetNewMessage string ->
             ( { model | newMessage = { msgType = model.newMessage.msgType, message = string } }
             , Cmd.none
@@ -150,7 +169,7 @@ update msg model =
             ( model, Cmd.none )
 
         ChatMessagesChanged ->
-             ( model, scrollBottom "wee" )
+            ( model, jumpToBottom "awesomeID" )
 
         Keyboard keyboard ->
             ( { model | keyboard = keyboard }, Cmd.none )
@@ -255,8 +274,9 @@ chatContainer model =
 -- ChatCss.Chat doesnt exist anymore?
 
 
+chatView : Model -> Html Msg
 chatView model =
-    div [ id "1", onDivChanged ChatMessagesChanged ]
+    div [ id "thisNeedsToScrollElmStuffYeeah", onDivChanged ChatMessagesChanged ]
         (List.map viewMessage model.messages
          --|> List.reverse
         )
@@ -424,7 +444,8 @@ messageArea model =
 view : Model -> Html Msg
 view model =
     div [ style "display" "flex", style "width" "100%", style "justify-content" "center" ]
-        [ mainView model
+        [ button [ onClick ChatMessagesChanged ] [ text "Scroll to bottom" ]
+        , mainView model
         ]
 
 
@@ -454,6 +475,8 @@ appBar title =
             [ img [ src "icons/baseline-menu.svg", onClick <| LeftMenuToggle ] [] ]
         , p [] [ text title ]
         ]
+
+
 
 -- main =
 --     Browser.element

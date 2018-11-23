@@ -5,6 +5,7 @@ import Browser.Dom as Dom
 import Chat
 import Data exposing (..)
 import Html exposing (..)
+import Html.Attributes exposing (class, id)
 import Json.Decode.Extra exposing (..)
 import Json.Encode as JE
 import Task exposing (..)
@@ -21,7 +22,7 @@ type alias Model =
 
 initialModel : Model
 initialModel =
-    { chat = Chat.init
+    { chat = Chat.init -- Send settings. Maybe class name and stuff like that
     }
 
 
@@ -57,8 +58,8 @@ view : Model -> Browser.Document Msg
 view model =
     {
         title = "Chat"
-        , body = [
-            div []
+        , body = [ 
+            div [ id "terje" ]
         [ Chat.view model.chat |> Html.map ChatMessage
         ]
         ]
