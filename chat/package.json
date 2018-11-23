@@ -1,7 +1,7 @@
 {
     "scripts": {
       "start": "elm-live Main.elm --debug --output=public/app.js --pushstate --dir=public/ --open",
-      "build": "elm-make Main.elm --output=dist/app.js",
+      "build": "elm make Main.elm --output=public/app.js",
       "elm-install": "elm install"
     },
     "dependencies": {
