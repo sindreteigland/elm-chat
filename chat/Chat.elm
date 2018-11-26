@@ -1,24 +1,3 @@
-{--This will be the chat module. Use it in Main. Once it works as a standalone module, copy paste to Lykehjulet
- Needs to export at least: view, update and Msg.
- In main:
-
- type Msg
- = ChatMessage Chat.Msg
-
-update msg model =
-ChatMessage subMsg ->
- let
-     (newChat, newCmd) =
-        Chat.update subMsg model.chat
- in
-     ({ model  | chat = newModel}, Cmd.map ChatMessage newCmd) --may not directly compile
-
-view model =
-  Chat.view model.chat
---}
---module Chat exposing (Model, update, view, Msg(..), blankMessage, init, initialModel)
-
-
 port module Chat exposing (Model, Msg, init, initialModel, update, view)
 
 import Browser
@@ -81,13 +60,13 @@ type Msg
     | SendMessage
     | ReciveChatMessage JE.Value
     | Keyboard KeyboardType
-    | ChatMessagesChanged
     | EmojiClicked String
     | GifClicked String
     | BackSpace
     | ChangeChat Conversation
     | LeftMenuToggle
     | NoOp
+    | ScrollToEnd
 
 
 socketServer : String
@@ -105,25 +84,6 @@ join msg =
         |> Task.perform identity
 
 
-
---TODO : make scrollable
-
-
-port scrollBottom : String -> Cmd msg
-
-
-
--- fjern main, skal eksponere subscriptions, Model, Msg og update
---jumpToBottom
-
-
-jumpToBottom : String -> Cmd Msg
-jumpToBottom id =
-  Dom.getViewportOf id
-    |> Task.andThen (\viewPort -> Dom.setViewportOf id 0 viewPort.scene.height)
-    |> Task.attempt (\_ -> NoOp)
-
-
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case Debug.log "Debug log: " msg of
@@ -137,6 +97,17 @@ update msg model =
 
         JoinChannel ->
             ( model, Cmd.none )
+
+        ScrollToEnd ->
+            let
+                elementId = "thisNeedsToScrollElmStuffYeeah"
+                cmd =
+                    Dom.getViewportOf elementId
+                        |> Task.andThen (\viewport -> Dom.setViewportOf elementId 0 viewport.scene.height)
+                        |> Task.attempt (\_ -> NoOp)
+            in
+            ( model, cmd )
+
 
         SendMessage ->
             case isBlank model.newMessage.message of
@@ -157,9 +128,6 @@ update msg model =
 
         ReciveChatMessage raw ->
             ( model, Cmd.none )
-
-        ChatMessagesChanged ->
-            ( model, jumpToBottom "awesomeID" )
 
         Keyboard keyboard ->
             ( { model | keyboard = keyboard }, Cmd.none )
@@ -185,7 +153,7 @@ update msg model =
         ChangeChat conversation ->
             ( model, Cmd.none )
 
-        --            ( { model | focusedChat = conversation, leftMenuOpen = False, messages = conversation.messages }, Cmd.none )
+        --    ( { model | focusedChat = conversation, leftMenuOpen = False, messages = conversation.messages }, Cmd.none )
         LeftMenuToggle ->
             ( { model | leftMenuOpen = not model.leftMenuOpen }, Cmd.none )
 
@@ -266,7 +234,7 @@ chatContainer model =
 
 chatView : Model -> Html Msg
 chatView model =
-    div [ id "thisNeedsToScrollElmStuffYeeah", onDivChanged ChatMessagesChanged ]
+    div [ id "thisNeedsToScrollElmStuffYeeah", onDivChanged ScrollToEnd ]
         (List.map viewMessage model.messages
          --|> List.reverse
         )
@@ -389,7 +357,7 @@ mapGifs gif gifClicked =
 
 inputField : Model -> Html Msg
 inputField model =
-    div [ style "padding" "12px", class "rainchatElevationBorder", onDivChanged ChatMessagesChanged ]
+    div [ style "padding" "12px", class "rainchatElevationBorder", onDivChanged ScrollToEnd ]
         [ form [ onSubmit SendMessage ]
             [ div [ class "rainchatMessageArea" ]
                 [ messageArea model ]
@@ -434,7 +402,7 @@ messageArea model =
 view : Model -> Html Msg
 view model =
     div [ style "display" "flex", style "width" "100%", style "justify-content" "center" ]
-        [ button [ onClick ChatMessagesChanged ] [ text "Scroll to bottom" ]
+        [ button [ onClick ScrollToEnd ] [ text "Scroll to bottom" ]
         , mainView model
         ]
 
@@ -465,13 +433,3 @@ appBar title =
             [ img [ src "icons/baseline-menu.svg", onClick <| LeftMenuToggle ] [] ]
         , p [] [ text title ]
         ]
-
-
-
--- main =
---     Browser.element
---         { init = init
---         , update = update
---         , view = view
---         , subscriptions = \_ -> Sub.none
---         }

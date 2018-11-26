@@ -102,6 +102,426 @@ conversations =
       , picture = "0.jpg"
       , messages = messages4
       }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
+      , { conversationId = "2"
+      , conversationType = Direct
+      , color = "#25e075"
+      , users =
+            [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
+            ]
+      , conversationName = "Bob"
+      , picture = "unnamed.png"
+      , messages = messages2
+      }
+    , { conversationId = "3"
+      , conversationType = Direct
+      , color = "#2196F3"
+      , users =
+            [ { userId = "user4", userName = "Kim", color = "#2196F3", picture = "0.jpg" }
+            ]
+      , conversationName = "Jim"
+      , picture = "0.jpg"
+      , messages = messages3
+      }
+    , { conversationId = "4"
+      , conversationType = Group
+      , color = "#673AB7"
+      , users = users
+      , conversationName = "The Boyz"
+      , picture = "0.jpg"
+      , messages = messages4
+      }
     ]
 
 
@@ -145,6 +565,114 @@ messages3 =
 messages4 =
     [ { userId = "user1", msgType = Text, body = "Hello!" }
     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    , { userId = "user3", msgType = Text, body = "Waaadup!" }
+    , { userId = "user4", msgType = Text, body = "Hei 😄" }
+    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
+    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
+    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
+    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
+    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
+    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
+    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
+    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
+    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
+     , { userId = "user2", msgType = Text, body = "Eyyy" }
     , { userId = "user3", msgType = Text, body = "Waaadup!" }
     , { userId = "user4", msgType = Text, body = "Hei 😄" }
     , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
