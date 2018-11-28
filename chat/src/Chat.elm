@@ -2,7 +2,6 @@ port module Chat exposing (Model, Msg, init, initialModel, update, view)
 
 import Browser
 import Browser.Dom as Dom
-import Chat.Emoji exposing (..)
 import Data exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (class, id, placeholder, src, style, value)

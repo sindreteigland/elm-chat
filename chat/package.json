@@ -1,11 +1,15 @@
 {
-    "scripts": {
-      "start": "elm-live Main.elm --debug --output=public/app.js --pushstate --dir=public/ --open",
-      "build": "elm make Main.elm --output=public/app.js",
-      "elm-install": "elm install"
-    },
-    "dependencies": {
-      "path": "^0.12.7"
-    }
+  "name": "elm-chat",
+  "description": "Fresh chat running elm 0.19",
+  "authors": "Sindre Myrmehl Teigland and the gang",
+  "version": "0.2.0",
+  "main": "Main.elm",
+  "scripts": {
+    "start": "elm-live src/Main.elm --open --start-page=/public/index.html --   --output=public/elm.js",
+    "build": "elm make src/Main.elm --output=public/chat.js",
+    "elm-install": "elm install"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
   }
-  
+}
