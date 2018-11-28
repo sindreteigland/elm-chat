@@ -527,10 +527,10 @@ conversations =
 
 users : List User
 users =
-    [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
-    , { userId = "user2", userName = "David", color = "#D50000", picture = "486268_1433989646157_full.png" }
-    , { userId = "user3", userName = "Jelly kid", color = "#673AB7", picture = "b0ce1e9c577d40ee25fe3aeea4798561.jpg" }
-    , { userId = "user4", userName = "Jim", color = "#2196F3", picture = "0.jpg" }
+    [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "./public/images/unnamed.png" }
+    , { userId = "user2", userName = "David", color = "#D50000", picture = "./public/images/486268_1433989646157_full.png" }
+    , { userId = "user3", userName = "Jelly kid", color = "#673AB7", picture = "./public/images/b0ce1e9c577d40ee25fe3aeea4798561.jpg" }
+    , { userId = "user4", userName = "Jim", color = "#2196F3", picture = "./public/images/0.jpg" }
     ]
 
 

@@ -4649,10 +4649,10 @@ var author$project$Data$messages4 = _List_fromArray(
 	]);
 var author$project$Data$users = _List_fromArray(
 	[
-		{color: '#25e075', picture: 'unnamed.png', userId: 'user1', userName: 'Bob'},
-		{color: '#D50000', picture: '486268_1433989646157_full.png', userId: 'user2', userName: 'David'},
-		{color: '#673AB7', picture: 'b0ce1e9c577d40ee25fe3aeea4798561.jpg', userId: 'user3', userName: 'Jelly kid'},
-		{color: '#2196F3', picture: '0.jpg', userId: 'user4', userName: 'Jim'}
+		{color: '#25e075', picture: './public/images/unnamed.png', userId: 'user1', userName: 'Bob'},
+		{color: '#D50000', picture: './public/images/486268_1433989646157_full.png', userId: 'user2', userName: 'David'},
+		{color: '#673AB7', picture: './public/images/b0ce1e9c577d40ee25fe3aeea4798561.jpg', userId: 'user3', userName: 'Jelly kid'},
+		{color: '#2196F3', picture: './public/images/0.jpg', userId: 'user4', userName: 'Jim'}
 	]);
 var author$project$Data$conversations = _List_fromArray(
 	[
