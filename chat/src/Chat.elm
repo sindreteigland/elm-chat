@@ -99,14 +99,15 @@ update msg model =
 
         ScrollToEnd ->
             let
-                elementId = "thisNeedsToScrollElmStuffYeeah"
+                elementId =
+                    "messages-container"
+
                 cmd =
                     Dom.getViewportOf elementId
                         |> Task.andThen (\viewport -> Dom.setViewportOf elementId 0 viewport.scene.height)
                         |> Task.attempt (\_ -> NoOp)
             in
             ( model, cmd )
-
 
         SendMessage ->
             case isBlank model.newMessage.message of
@@ -214,17 +215,7 @@ messageTypeDecoder msgType =
 
 
 profilePicture color picture =
-    img [ class "rainchatProfilePicture", src picture, style "border-color" color ] []
-
-
-chatContainer : Model -> Html Msg
-chatContainer model =
-    div [ class "rainchatChatContainer" ]
-        [ div [ style "display" "flex", style "width" "100%", style "height" "100%", style "flex-direction" "column" ]
-            [ chatView model
-            , inputField model
-            ]
-        ]
+    img [ class "profile-picture", src picture, style "border-color" color ] []
 
 
 
@@ -233,7 +224,7 @@ chatContainer model =
 
 chatView : Model -> Html Msg
 chatView model =
-    div [ id "thisNeedsToScrollElmStuffYeeah", onDivChanged ScrollToEnd ]
+    div [ id "messages-container", onDivChanged ScrollToEnd ]
         (List.map viewMessage model.messages
          --|> List.reverse
         )
@@ -271,26 +262,27 @@ getUser users message =
         Nothing ->
             { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
 
-
+-- TODO: mye gjenbruk her... 
+-- kan nokk trekke ut message-container og chatbubble og bare sende inn classname(style for move-right)
 myMessage : ChatMessage -> Html msg
 myMessage message =
     case message.msgType of
         Text ->
-            div [ class "rainchatMessageContainer rainchatMyMessageContainer" ]
-                [ div [ class "rainchatMessage rainchatMyMessage rainchatElevationBorder" ]
-                    [ div [ class "rainchatSquare rainchatMySquare" ] []
-                    , div [ class "rainchatMessageBody" ] [ text message.body ]
+            div [ class "message-container move-right" ]
+                [ div [ class "chat-bubble fancy-border my-message" ]
+                    [ div [ class "square" ] []
+                    , p [] [ text message.body ]
                     ]
                 ]
 
         Gif ->
-            div [ class "rainchatMessageContainer rainchatMyMessageContainer" ]
+            div [ class "message-container move-right" ]
                 [ gifMessage message.body
                 ]
 
         Emotes ->
-            div [ class "rainchatMessageContainer rainchatMyMessageContainer", style "font-size" "xx-large" ]
-                [ p [ class "rainchatEmoteContainer" ] [ text message.body ]
+            div [ class "message-container move-right", style "font-size" "xx-large" ]
+                [ p [ class "just-emoji" ] [ text message.body ]
                 ]
 
         Unknown ->
@@ -305,23 +297,23 @@ theireMessage : User -> ChatMessage -> Html msg
 theireMessage user message =
     case message.msgType of
         Text ->
-            div [ class "rainchatMessageContainer" ]
-                [ div [ style "display" "flex", style "flex-direction" "row" ]
+            div [ class "message-container" ]
+                [ div [ style "display" "flex" ]
                     [ div [ style "margin-top" "15px" ] [ profilePicture user.color user.picture ]
                     , div [ style "display" "flex", style "flex-direction" "column" ]
-                        [ div [ class "rainchatUserName" ] [ text <| user.userName ]
-                        , div [ class "rainchatMessage rainchatTheireMessage rainchatElevationBorder" ]
-                            [ div [ class "rainchatSquare rainchatTheireSquare" ] []
-                            , div [ class "rainchatMessageBody" ] [ text message.body ]
+                        [ div [ class "chat-username" ] [ text <| user.userName ]
+                        , div [ class "chat-bubble fancy-border theire-message" ]
+                            [ div [ class "square" ] []
+                            , p [] [ text message.body ]
                             ]
                         ]
                     ]
                 ]
 
         Gif ->
-            div [ class "rainchatMessageContainer" ]
+            div [ class "message-container" ]
                 [ img
-                    [ class "rainchatProfilePicture"
+                    [ class "profile-picture"
                     , src user.picture
                     , style "border-color" user.color
                     , style "margin-top" "15px"
@@ -329,15 +321,15 @@ theireMessage user message =
                     []
 
                 --TODO switch to "real" profile pic
-                , div [ class "rainchatUserName" ] [ text <| user.userName ]
+                , div [ class "chat-username " ] [ text <| user.userName ]
                 , gifMessage message.body
                 ]
 
         Emotes ->
-            div [ class "rainchatMessageContainer" ]
-                [ img [ class "rainchatProfilePicture", src user.picture, style "border-color" user.color ] [] --TODO switch to "real" profile pic
-                , div [ class "rainchatUserName" ] [ text <| user.userName ]
-                , p [ class "rainchatEmoteContainer" ] [ text message.body ]
+            div [ class "message-container" ]
+                [ img [ class "profile-picture", src user.picture, style "border-color" user.color ] [] --TODO switch to "real" profile pic
+                , div [ class "chat-username" ] [ text <| user.userName ]
+                , p [ class "just-emoji" ] [ text message.body ]
                 ]
 
         Unknown ->
@@ -345,20 +337,20 @@ theireMessage user message =
 
 
 gifMessage url =
-    div [ class "rainchatGifMessage" ]
-        [ img [ src url, class "rainchatGif" ] []
+    div [ class "image-container fancy-border" ]
+        [ img [ src url] []
         ]
 
 
 mapGifs gif gifClicked =
-    img [ class "previewGif", src gif.prev, onClick <| gifClicked gif.gif ] [ text "no gif for u" ]
+    img [ class "previewGif fancy-border", src gif.prev, onClick <| gifClicked gif.gif ] [ text "no gif for u" ]
 
 
 inputField : Model -> Html Msg
 inputField model =
-    div [ style "padding" "12px", class "rainchatElevationBorder", onDivChanged ScrollToEnd ]
+    div [ style "padding" "12px", class "input-bar fancy-border", onDivChanged ScrollToEnd ]
         [ form [ onSubmit SendMessage ]
-            [ div [ class "rainchatMessageArea" ]
+            [ div [ class "chat-message-area" ]
                 [ messageArea model ]
             ]
         ]
@@ -383,7 +375,7 @@ messageArea model =
                     , style "padding-bottom" "5px"
                     , style "border-radius" "5px"
                     , style "font-size" "medium"
-                    , class "rainchatInput"
+                    , class "chat-inputbar"
                     , placeholder "Say something..."
                     , onInput SetNewMessage
                     , value model.newMessage.message
@@ -400,35 +392,17 @@ messageArea model =
 
 view : Model -> Html Msg
 view model =
-    div [ style "display" "flex", style "width" "100%", style "justify-content" "center" ]
-        [ button [ onClick ScrollToEnd ] [ text "Scroll to bottom" ]
-        , mainView model
-        ]
-
-
-mainView model =
-    div [ style "display" "flex", style "flex-direction" "column", style "width" "100%" ]
+    div [ class "chat-container" ]
         [ appBar model.focusedChat.conversationName
-        , div [ style "display" "flex", style "height" "100%" ]
-            [ chatContainer model
-
-            --, members
-            ]
+        , chatView model
+        , inputField model
+        , button [ onClick ScrollToEnd ] [ text "Scroll to bottom" ]
         ]
 
 
 appBar title =
-    div [ class "rainChatToolBar rainChatElevationBorder", style "display" "flex" ]
+    div [ class "chat-appbar fancy-border" ]
         [ --TODO: include sick hover style
-          div
-            -- (hover_
-            --     [ ( "font-size", "20px" )
-            --     , ( "font-face", "Droid Sans Mono" )
-            --     , ( "margin", "15px" )
-            --     ]
-            --     [ ( "cursor", "", "pointer" ) ]
-            -- )
-            []
-            [ img [ src "icons/baseline-menu.svg", onClick <| LeftMenuToggle ] [] ]
-        , p [] [ text title ]
+        --   div [] [ img [ src "./public/icons/baseline-menu.svg", onClick <| LeftMenuToggle ] [] ]
+        h1 [] [ text title ] 
         ]

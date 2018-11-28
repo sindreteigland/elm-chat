@@ -56,22 +56,23 @@ update msg model =
 
 view : Model -> Browser.Document Msg
 view model =
-    {
-        title = "Chat"
-        , body = [ 
-            div [ id "terje" ]
-        [ Chat.view model.chat |> Html.map ChatMessage
-        ]
+    { title = "Chat"
+    , body =
+        [ div [ id "main-container" ]
+            [ Chat.view model.chat |> Html.map ChatMessage
+            ]
         ]
     }
+
 
 
 -- MAIN
 
 
 main =
-    Browser.document { init = init
-    , update = update
-    , view = view
-    , subscriptions = \_ -> Sub.none
-    }
+    Browser.document
+        { init = init
+        , update = update
+        , view = view
+        , subscriptions = \_ -> Sub.none
+        }

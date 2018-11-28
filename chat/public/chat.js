@@ -5916,7 +5916,7 @@ var author$project$Chat$update = F2(
 			case 'JoinChannel':
 				return _Utils_Tuple2(model, elm$core$Platform$Cmd$none);
 			case 'ScrollToEnd':
-				var elementId = 'thisNeedsToScrollElmStuffYeeah';
+				var elementId = 'messages-container';
 				var cmd = A2(
 					elm$core$Task$attempt,
 					function (_n1) {
@@ -6020,10 +6020,8 @@ var author$project$Main$update = F2(
 			A2(elm$core$Platform$Cmd$map, author$project$Main$ChatMessage, newCmd));
 	});
 var author$project$Chat$ScrollToEnd = {$: 'ScrollToEnd'};
-var author$project$Chat$LeftMenuToggle = {$: 'LeftMenuToggle'};
 var elm$html$Html$div = _VirtualDom_node('div');
-var elm$html$Html$img = _VirtualDom_node('img');
-var elm$html$Html$p = _VirtualDom_node('p');
+var elm$html$Html$h1 = _VirtualDom_node('h1');
 var elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var elm$html$Html$text = elm$virtual_dom$VirtualDom$text;
 var elm$json$Json$Encode$string = _Json_wrap;
@@ -6035,14 +6033,27 @@ var elm$html$Html$Attributes$stringProperty = F2(
 			elm$json$Json$Encode$string(string));
 	});
 var elm$html$Html$Attributes$class = elm$html$Html$Attributes$stringProperty('className');
-var elm$html$Html$Attributes$src = function (url) {
-	return A2(
-		elm$html$Html$Attributes$stringProperty,
-		'src',
-		_VirtualDom_noJavaScriptOrHtmlUri(url));
-};
 var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
 var elm$html$Html$Attributes$style = elm$virtual_dom$VirtualDom$style;
+var author$project$Chat$appBar = function (title) {
+	return A2(
+		elm$html$Html$div,
+		_List_fromArray(
+			[
+				elm$html$Html$Attributes$class('chat-appbar fancy-border'),
+				A2(elm$html$Html$Attributes$style, 'display', 'flex')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				elm$html$Html$h1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						elm$html$Html$text(title)
+					]))
+			]));
+};
 var elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
 };
@@ -6054,45 +6065,6 @@ var elm$html$Html$Events$on = F2(
 			event,
 			elm$virtual_dom$VirtualDom$Normal(decoder));
 	});
-var elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		elm$html$Html$Events$on,
-		'click',
-		elm$json$Json$Decode$succeed(msg));
-};
-var author$project$Chat$appBar = function (title) {
-	return A2(
-		elm$html$Html$div,
-		_List_fromArray(
-			[
-				elm$html$Html$Attributes$class('rainChatToolBar rainChatElevationBorder'),
-				A2(elm$html$Html$Attributes$style, 'display', 'flex')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				elm$html$Html$div,
-				_List_Nil,
-				_List_fromArray(
-					[
-						A2(
-						elm$html$Html$img,
-						_List_fromArray(
-							[
-								elm$html$Html$Attributes$src('icons/baseline-menu.svg'),
-								elm$html$Html$Events$onClick(author$project$Chat$LeftMenuToggle)
-							]),
-						_List_Nil)
-					])),
-				A2(
-				elm$html$Html$p,
-				_List_Nil,
-				_List_fromArray(
-					[
-						elm$html$Html$text(title)
-					]))
-			]));
-};
 var author$project$Chat$onDivChanged = function (msg) {
 	return A2(
 		elm$html$Html$Events$on,
@@ -6138,12 +6110,19 @@ var author$project$Chat$getUser = F2(
 			return {color: '#25e075', picture: 'unnamed.png', userId: 'user1', userName: 'Bob'};
 		}
 	});
+var elm$html$Html$img = _VirtualDom_node('img');
+var elm$html$Html$Attributes$src = function (url) {
+	return A2(
+		elm$html$Html$Attributes$stringProperty,
+		'src',
+		_VirtualDom_noJavaScriptOrHtmlUri(url));
+};
 var author$project$Chat$gifMessage = function (url) {
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$class('rainchatGifMessage')
+				elm$html$Html$Attributes$class('image-container fancy-border')
 			]),
 		_List_fromArray(
 			[
@@ -6151,12 +6130,12 @@ var author$project$Chat$gifMessage = function (url) {
 				elm$html$Html$img,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$src(url),
-						elm$html$Html$Attributes$class('rainchatGif')
+						elm$html$Html$Attributes$src(url)
 					]),
 				_List_Nil)
 			]));
 };
+var elm$html$Html$p = _VirtualDom_node('p');
 var author$project$Chat$myMessage = function (message) {
 	var _n0 = message.msgType;
 	switch (_n0.$) {
@@ -6165,7 +6144,7 @@ var author$project$Chat$myMessage = function (message) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('rainchatMessageContainer rainchatMyMessageContainer')
+						elm$html$Html$Attributes$class('message-container move-right')
 					]),
 				_List_fromArray(
 					[
@@ -6173,7 +6152,7 @@ var author$project$Chat$myMessage = function (message) {
 						elm$html$Html$div,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$class('rainchatMessage rainchatMyMessage rainchatElevationBorder')
+								elm$html$Html$Attributes$class('chat-bubble fancy-border my-message')
 							]),
 						_List_fromArray(
 							[
@@ -6181,15 +6160,12 @@ var author$project$Chat$myMessage = function (message) {
 								elm$html$Html$div,
 								_List_fromArray(
 									[
-										elm$html$Html$Attributes$class('rainchatSquare rainchatMySquare')
+										elm$html$Html$Attributes$class('square')
 									]),
 								_List_Nil),
 								A2(
-								elm$html$Html$div,
-								_List_fromArray(
-									[
-										elm$html$Html$Attributes$class('rainchatMessageBody')
-									]),
+								elm$html$Html$p,
+								_List_Nil,
 								_List_fromArray(
 									[
 										elm$html$Html$text(message.body)
@@ -6201,7 +6177,7 @@ var author$project$Chat$myMessage = function (message) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('rainchatMessageContainer rainchatMyMessageContainer')
+						elm$html$Html$Attributes$class('message-container move-right')
 					]),
 				_List_fromArray(
 					[
@@ -6212,7 +6188,7 @@ var author$project$Chat$myMessage = function (message) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$class('rainchatMessageContainer rainchatMyMessageContainer'),
+						elm$html$Html$Attributes$class('message-container move-right'),
 						A2(elm$html$Html$Attributes$style, 'font-size', 'xx-large')
 					]),
 				_List_fromArray(
@@ -6221,7 +6197,7 @@ var author$project$Chat$myMessage = function (message) {
 						elm$html$Html$p,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$class('rainchatEmoteContainer')
+								elm$html$Html$Attributes$class('just-emoji')
 							]),
 						_List_fromArray(
 							[
@@ -6238,7 +6214,7 @@ var author$project$Chat$profilePicture = F2(
 			elm$html$Html$img,
 			_List_fromArray(
 				[
-					elm$html$Html$Attributes$class('rainchatProfilePicture'),
+					elm$html$Html$Attributes$class('profile-picture'),
 					elm$html$Html$Attributes$src(picture),
 					A2(elm$html$Html$Attributes$style, 'border-color', color)
 				]),
@@ -6253,7 +6229,7 @@ var author$project$Chat$theireMessage = F2(
 					elm$html$Html$div,
 					_List_fromArray(
 						[
-							elm$html$Html$Attributes$class('rainchatMessageContainer')
+							elm$html$Html$Attributes$class('message-container')
 						]),
 					_List_fromArray(
 						[
@@ -6261,8 +6237,7 @@ var author$project$Chat$theireMessage = F2(
 							elm$html$Html$div,
 							_List_fromArray(
 								[
-									A2(elm$html$Html$Attributes$style, 'display', 'flex'),
-									A2(elm$html$Html$Attributes$style, 'flex-direction', 'row')
+									A2(elm$html$Html$Attributes$style, 'display', 'flex')
 								]),
 							_List_fromArray(
 								[
@@ -6289,7 +6264,7 @@ var author$project$Chat$theireMessage = F2(
 											elm$html$Html$div,
 											_List_fromArray(
 												[
-													elm$html$Html$Attributes$class('rainchatUserName')
+													elm$html$Html$Attributes$class('chat-username')
 												]),
 											_List_fromArray(
 												[
@@ -6299,7 +6274,7 @@ var author$project$Chat$theireMessage = F2(
 											elm$html$Html$div,
 											_List_fromArray(
 												[
-													elm$html$Html$Attributes$class('rainchatMessage rainchatTheireMessage rainchatElevationBorder')
+													elm$html$Html$Attributes$class('chat-bubble fancy-border theire-message')
 												]),
 											_List_fromArray(
 												[
@@ -6307,15 +6282,12 @@ var author$project$Chat$theireMessage = F2(
 													elm$html$Html$div,
 													_List_fromArray(
 														[
-															elm$html$Html$Attributes$class('rainchatSquare rainchatTheireSquare')
+															elm$html$Html$Attributes$class('square')
 														]),
 													_List_Nil),
 													A2(
-													elm$html$Html$div,
-													_List_fromArray(
-														[
-															elm$html$Html$Attributes$class('rainchatMessageBody')
-														]),
+													elm$html$Html$p,
+													_List_Nil,
 													_List_fromArray(
 														[
 															elm$html$Html$text(message.body)
@@ -6329,7 +6301,7 @@ var author$project$Chat$theireMessage = F2(
 					elm$html$Html$div,
 					_List_fromArray(
 						[
-							elm$html$Html$Attributes$class('rainchatMessageContainer')
+							elm$html$Html$Attributes$class('message-container')
 						]),
 					_List_fromArray(
 						[
@@ -6337,7 +6309,7 @@ var author$project$Chat$theireMessage = F2(
 							elm$html$Html$img,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('rainchatProfilePicture'),
+									elm$html$Html$Attributes$class('profile-picture'),
 									elm$html$Html$Attributes$src(user.picture),
 									A2(elm$html$Html$Attributes$style, 'border-color', user.color),
 									A2(elm$html$Html$Attributes$style, 'margin-top', '15px')
@@ -6347,7 +6319,7 @@ var author$project$Chat$theireMessage = F2(
 							elm$html$Html$div,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('rainchatUserName')
+									elm$html$Html$Attributes$class('chat-username ')
 								]),
 							_List_fromArray(
 								[
@@ -6360,7 +6332,7 @@ var author$project$Chat$theireMessage = F2(
 					elm$html$Html$div,
 					_List_fromArray(
 						[
-							elm$html$Html$Attributes$class('rainchatMessageContainer')
+							elm$html$Html$Attributes$class('message-container')
 						]),
 					_List_fromArray(
 						[
@@ -6368,7 +6340,7 @@ var author$project$Chat$theireMessage = F2(
 							elm$html$Html$img,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('rainchatProfilePicture'),
+									elm$html$Html$Attributes$class('profile-picture'),
 									elm$html$Html$Attributes$src(user.picture),
 									A2(elm$html$Html$Attributes$style, 'border-color', user.color)
 								]),
@@ -6377,7 +6349,7 @@ var author$project$Chat$theireMessage = F2(
 							elm$html$Html$div,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('rainchatUserName')
+									elm$html$Html$Attributes$class('chat-username')
 								]),
 							_List_fromArray(
 								[
@@ -6387,7 +6359,7 @@ var author$project$Chat$theireMessage = F2(
 							elm$html$Html$p,
 							_List_fromArray(
 								[
-									elm$html$Html$Attributes$class('rainchatEmoteContainer')
+									elm$html$Html$Attributes$class('just-emoji')
 								]),
 							_List_fromArray(
 								[
@@ -6409,7 +6381,7 @@ var author$project$Chat$chatView = function (model) {
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				elm$html$Html$Attributes$id('thisNeedsToScrollElmStuffYeeah'),
+				elm$html$Html$Attributes$id('messages-container'),
 				author$project$Chat$onDivChanged(author$project$Chat$ScrollToEnd)
 			]),
 		A2(elm$core$List$map, author$project$Chat$viewMessage, model.messages));
@@ -6484,7 +6456,7 @@ var author$project$Chat$messageArea = function (model) {
 										A2(elm$html$Html$Attributes$style, 'padding-bottom', '5px'),
 										A2(elm$html$Html$Attributes$style, 'border-radius', '5px'),
 										A2(elm$html$Html$Attributes$style, 'font-size', 'medium'),
-										elm$html$Html$Attributes$class('rainchatInput'),
+										elm$html$Html$Attributes$class('chat-inputbar'),
 										elm$html$Html$Attributes$placeholder('Say something...'),
 										elm$html$Html$Events$onInput(author$project$Chat$SetNewMessage),
 										elm$html$Html$Attributes$value(model.newMessage.message)
@@ -6523,7 +6495,7 @@ var author$project$Chat$inputField = function (model) {
 		_List_fromArray(
 			[
 				A2(elm$html$Html$Attributes$style, 'padding', '12px'),
-				elm$html$Html$Attributes$class('rainchatElevationBorder'),
+				elm$html$Html$Attributes$class('input-bar fancy-border'),
 				author$project$Chat$onDivChanged(author$project$Chat$ScrollToEnd)
 			]),
 		_List_fromArray(
@@ -6540,7 +6512,7 @@ var author$project$Chat$inputField = function (model) {
 						elm$html$Html$div,
 						_List_fromArray(
 							[
-								elm$html$Html$Attributes$class('rainchatMessageArea')
+								elm$html$Html$Attributes$class('chat-message-area')
 							]),
 						_List_fromArray(
 							[
@@ -6549,68 +6521,25 @@ var author$project$Chat$inputField = function (model) {
 					]))
 			]));
 };
-var author$project$Chat$chatContainer = function (model) {
-	return A2(
-		elm$html$Html$div,
-		_List_fromArray(
-			[
-				elm$html$Html$Attributes$class('rainchatChatContainer')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				elm$html$Html$div,
-				_List_fromArray(
-					[
-						A2(elm$html$Html$Attributes$style, 'display', 'flex'),
-						A2(elm$html$Html$Attributes$style, 'width', '100%'),
-						A2(elm$html$Html$Attributes$style, 'height', '100%'),
-						A2(elm$html$Html$Attributes$style, 'flex-direction', 'column')
-					]),
-				_List_fromArray(
-					[
-						author$project$Chat$chatView(model),
-						author$project$Chat$inputField(model)
-					]))
-			]));
-};
-var author$project$Chat$mainView = function (model) {
-	return A2(
-		elm$html$Html$div,
-		_List_fromArray(
-			[
-				A2(elm$html$Html$Attributes$style, 'display', 'flex'),
-				A2(elm$html$Html$Attributes$style, 'flex-direction', 'column'),
-				A2(elm$html$Html$Attributes$style, 'width', '100%')
-			]),
-		_List_fromArray(
-			[
-				author$project$Chat$appBar(model.focusedChat.conversationName),
-				A2(
-				elm$html$Html$div,
-				_List_fromArray(
-					[
-						A2(elm$html$Html$Attributes$style, 'display', 'flex'),
-						A2(elm$html$Html$Attributes$style, 'height', '100%')
-					]),
-				_List_fromArray(
-					[
-						author$project$Chat$chatContainer(model)
-					]))
-			]));
-};
 var elm$html$Html$button = _VirtualDom_node('button');
+var elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		elm$html$Html$Events$on,
+		'click',
+		elm$json$Json$Decode$succeed(msg));
+};
 var author$project$Chat$view = function (model) {
 	return A2(
 		elm$html$Html$div,
 		_List_fromArray(
 			[
-				A2(elm$html$Html$Attributes$style, 'display', 'flex'),
-				A2(elm$html$Html$Attributes$style, 'width', '100%'),
-				A2(elm$html$Html$Attributes$style, 'justify-content', 'center')
+				elm$html$Html$Attributes$class('chat-container')
 			]),
 		_List_fromArray(
 			[
+				author$project$Chat$appBar(model.focusedChat.conversationName),
+				author$project$Chat$chatView(model),
+				author$project$Chat$inputField(model),
 				A2(
 				elm$html$Html$button,
 				_List_fromArray(
@@ -6620,8 +6549,7 @@ var author$project$Chat$view = function (model) {
 				_List_fromArray(
 					[
 						elm$html$Html$text('Scroll to bottom')
-					])),
-				author$project$Chat$mainView(model)
+					]))
 			]));
 };
 var elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
@@ -6634,7 +6562,7 @@ var author$project$Main$view = function (model) {
 				elm$html$Html$div,
 				_List_fromArray(
 					[
-						elm$html$Html$Attributes$id('terje')
+						elm$html$Html$Attributes$id('main-container')
 					]),
 				_List_fromArray(
 					[

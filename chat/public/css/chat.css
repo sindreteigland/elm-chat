@@ -1,205 +1,216 @@
-.rainchatChatContainer {
-    display: flex;
-    flex-direction: column;
-    background-color: #212121;
-    color: #fff;
-    width: 100%;
-    height: 100%;
-    border-radius: 2px;
-    justify-content: space-between;
-    /* overflow-y: scroll; */
-    /* overflow: scroll; */
-    max-height: 75%;
+:root {
+  --primary-color: #006cb7;
+  --accent-color: #9ac933;
+  --theme-color: #212121;
+  --theme-appbar: #424242;
+  --theme-bottombar: #303030;
+  --shadow-e1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-e2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-e3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  --shadow-e4: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  --shadow-e5: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
-#thisNeedsToScrollElmStuffYeeah {
-    overflow: scroll;
-    max-height: 1000px;
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--theme-color);
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  justify-content: space-between;
 }
 
-.rainchatToolBar {
-    background-color: #424242;
-    color: #fff;
-    font-size: large;
-    width: 100%;
-    border-radius: 2px 2px 0px 0px;
-    box-shadow: 0 0 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,0.24);
-    z-index: 2;
+.chat-appbar {
+  background-color: var(--theme-appbar);
+  color: #fff;
+  font-size: large;
+  width: 100%;
+  border-radius: 2px 2px 0px 0px;
+  box-shadow: var(--shadow-e1);
+  z-index: 999;
+  height: 56px;
+  display: flex;
+  align-items: center;
 }
 
-#Chat {
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    flex-direction: column;
-    height: 100%;
+.chat-appbar > h1 {
+  margin: 5px;
+  font-size: 1.1em;
+  font-weight: 400;
 }
 
-.rainchatMessageContainer {
-    padding: 5px 10px 5px 10px;
+#messages-container {
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.rainchatMyMessageContainer {
-    display: flex;
-    justify-content: flex-end;
-    padding-top: 15px;
-    padding-bottom: 15px;
+.message-container {
+  padding: 10px;
 }
 
-.rainchatProfilePicture {
-    float: left;
-    margin-right: 10px;
-    width: 35px;
-    height: 35px;
-    border: 3px;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: #006cb7;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+.chat-username {
+  font-size: 10pt;
 }
 
-.rainchatUserName {
-    font-size: 10pt;
+.move-right {
+  align-self: flex-end;
 }
 
-.rainchatSquare {
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    border-radius: 2px;
-    margin-top: 7px;
+.my-message {
+  background-color: var(--accent-color);
+  color: #000;
 }
 
-.rainchatTheireSquare {
-    background-color: #2665D7;
-    margin-left: -8.5px;
+.square {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  border-radius: 2px;
+  margin-top: 7px;
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+}
+.my-message > .square {
+  background-color: var(--accent-color);
+  right: 0px;
+  margin-right: -3px;
 }
 
-.rainchatMySquare {
-    background-color: #9ac933;
-    right: 0px;
-    margin-right: -3px;
+.theire-message > .square {
+  background-color: var(--primary-color);
+  margin-left: -8.5px;
 }
 
-.rainchatMessage {
-    position: relative;
-    border-radius: 2px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    padding: 5px;
-    display: inline-block;
-    max-width: 700px;
+.chat-bubble {
+  position: relative;
+  border-radius: 2px;
+  box-shadow: var(--shadow-e2);
+  padding: 5px;
+  display: inline-block;
+  max-width: 700px;
 }
 
-.rainchatGifMessage {
-    position: relative;
-    display: inline-block;
+.chat-bubble > p {
+  display: block;
+  overflow: auto;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+  font-size: medium;
+  margin: 0px;
 }
 
-.rainchatTheireMessage {
-    background-color: #2665D7;
-    color: #fff;
+.theire-message {
+  background-color: var(--primary-color);
+  color: #fff;
 }
 
-.rainchatMyMessage {
-    background-color: #9ac933;
-    color: #000;
+.just-emoji {
+  font-size: xx-large;
+  margin: 0px;
 }
 
-.rainchatMessageBody {
-    display: block;
-    overflow: auto;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    padding: 5px;
-    font-size: medium;
-    margin: 0px;
+.fancy-border {
+  border: 1px;
+  border-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.1);
+  border-right-color: transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-left-color: transparent;
 }
 
-.rainchatInputContainer {
-    background-color: #303030;
-    color: #fff;
-    height: auto;
-    padding: 10px;
-    border-radius: 0px 0px 2px 2px;
-    box-shadow: 0 0 0 rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,0.24);
-    border: 1px;
-    border-style: solid;
-    border-top-color: #3c3c3c;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
+.profile-picture {
+  float: left;
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  border: 3px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-e2);
 }
 
-.rainchatInput {
-    border: 0px;
-    padding: 5px;
-    background-color: #303030;
-    color: #fff;
+.image-container {
+  display: inline-flex;
+  box-shadow: var(--shadow-e2);
+}
+
+.image-container > img {
+  height: 100%;
+  width: 100%;
+  border-radius: 2px;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.chat-inputbar {
+  border: 0px;
+  padding: 5px;
+  background: white no-repeat;
+  background-color: var(--theme-bottombar);
+  color: #fff;
+  background-image: linear-gradient(to bottom, #9ac933, #9ac933),
+    linear-gradient(to bottom, silver, silver);
+  background-size: 0 2px, 100% 1px;
+  background-position: 50% 100%, 50% 100%;
+  transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.chat-inputbar:focus {
+  background-size: 100% 2px, 100% 1px;
+  outline: none;
+}
+
+.chat-inputbar[type="text"] {
+  font-size: 30px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-.rainchatMyPicture {
-    margin-top: 0px;
+.chat-message-area {
+  display: flex;
+  flex-direction: column;
 }
 
-.rainchatInputField {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.rainchatInputField > .rainchatUserName {
-    padding-left: 5px;
-}
-
-.rainchatMessageArea {
-    display: flex;
-    flex-direction: column;
-}
-
-.rainchatEmoteSection {
-    display: flex;
-    flex-direction: row;
-    margin: 10px 0px 0px 5px;
-    justify-content: space-between;
-}
-
-#Send {
-    margin-left: 15px;
-    margin-top: 14px;
-    width: 30px;
-}
-
-#SmileyEmote {
-    position: absolute;
-    top: -1px;
-    right: 15px;
-}
-
-.rainchatGif {
+/*TODO NEED TO FIX THIS*/
+@media only screen and (max-width: 500px) {
+  body {
     height: 100%;
-    width: 100%;
-    border-radius: 2px;
-    max-width: 200px;
-    max-height: 200px;
+  }
+
+  .just-emoji {
+    font-size: -webkit-xxx-large;
+  }
 }
 
-.rainchatEmoteContainer {
-    font-size: xx-large;
-    margin: 0px;
+@media only screen and (max-width: 330px) {
+  .rainchatMessage {
+    max-width: 220px;
+  }
 }
 
-.rainchatElevationBorder {
-    border: 1px;
-    border-style: solid;
-    border-top-color: rgba(255, 255, 255, 0.1);
-    border-right-color: transparent;
-    border-bottom-color: rgba(38, 50, 56, 0.2);
-    border-left-color: transparent;
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
 }
 
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(33, 196, 74, 0.3);
+}

@@ -17,11 +17,10 @@
     />
 
     <link rel="stylesheet" href="./public/css/chat.css" />
+    <link rel="stylesheet" href="./public/css/main.css" />
 
     <style>
       body {
-        background: #717171;
-        /* background: white; */
         font-family: "Roboto", sans-serif;
         margin: 0px;
         position: fixed;
@@ -30,188 +29,10 @@
         display: flex;
         justify-content: center;
       }
-
-      #app {
-        height: 100%;
-        display: flex;
-        width: 100%;
-        -webkit-overflow-scrolling: touch;
-        overflow: scroll;
-      }
-
-      #emojiPanel {
-        width: 100%;
-        height: 200px;
-        overflow-y: hidden;
-        overflow-x: scroll;
-        display: flex;
-      }
-
-      #gifPanel {
-        width: 100%;
-      }
-
-      #btn-group {
-        display: flex;
-        justify-content: center;
-        margin-top: 10px;
-      }
-
-      #btn-group button:first-child {
-        border-radius: 5px 0px 0px 5px;
-      }
-
-      #btn-group button:last-child {
-        border-radius: 0px 5px 5px 0px;
-      }
-
-      #btn-group button {
-        background-color: transparent;
-        /* Green background */
-        border: 1px solid white;
-        /* Green border */
-        opacity: 0.7;
-        color: white;
-        /* White text */
-        padding: 5px 24px;
-        /* Some padding */
-        width: 50%;
-        cursor: pointer;
-        /* Pointer/hand icon */
-        float: left;
-        /* Float the buttons side by side */
-      }
-
-      /* Clear floats (clearfix hack) */
-
-      #btn-group:after {
-        content: "";
-        clear: both;
-        display: table;
-      }
-
-      #btn-group button:not(:last-child) {
-        border-right: none;
-        /* Prevent double borders */
-      }
-
-      /* Add a background color on hover */
-
-      #btn-group button:focus,
-      #btn-group button:hover {
-        background-color: white;
-        color: black;
-      }
-
-      #gifPicker {
-        display: flex;
-        overflow-x: auto;
-        margin-bottom: 10px;
-      }
-
-      .rainchatpreviewGif {
-        height: 100px;
-        margin: 2px;
-      }
-
-      @media only screen and (max-width: 500px) {
-        #app {
-          width: 100%;
-        }
-        body {
-          height: 100%;
-        }
-
-        .rainchatEmoteContainer {
-          font-size: -webkit-xxx-large;
-        }
-      }
-
-      @media only screen and (max-width: 330px) {
-        .rainchatMessage {
-          max-width: 220px;
-        }
-      }
-
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 0px;
-      }
-
-      ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
-        border-radius: 8px;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background-color: rgba(33, 196, 74, 0.3);
-      }
-
-      input {
-        background: white no-repeat;
-        background-image: linear-gradient(to bottom, #9ac933, #9ac933),
-          linear-gradient(to bottom, silver, silver);
-        background-size: 0 2px, 100% 1px;
-        background-position: 50% 100%, 50% 100%;
-        transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-      }
-
-      input:focus {
-        background-size: 100% 2px, 100% 1px;
-        outline: none;
-      }
-
-      input[type="text"] {
-        font-size: 30px;
-      }
-
-      .rainchatSquare {
-        -ms-transform: rotate(45deg);
-        /* IE 9 */
-        -webkit-transform: rotate(45deg);
-        /* Chrome, Safari, Opera */
-        transform: rotate(45deg);
-      }
-
-      .rainchatEmoteSection > img {
-        opacity: 0.7;
-        margin-right: 10px;
-      }
-
-      .rainchat-intercom-emoji-picker-group {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 25px;
-      }
-
-      .rainchat-intercom-emoji-picker-group-title {
-        color: #b8c3ca;
-        font-weight: 400;
-        font-size: 13px;
-        margin: 5px;
-        margin-top: 10px;
-        white-space: nowrap;
-        height: 100%;
-      }
-
-      .rainchat-intercom-emoji-picker-emoji {
-        cursor: pointer;
-        font-size: 1.9em;
-        width: 40px;
-        transition: -webkit-transform 60ms ease-out;
-        transition: transform 60ms ease-out;
-        transition: transform 60ms ease-out, -webkit-transform 60ms ease-out;
-        transition-delay: 60ms;
-        font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji,
-          Segoe UI Symbol, Android Emoji, EmojiSymbols;
-      }
-
-      .rainchat-intercom-emoji-picker-emoji:hover {
-        transition-delay: 0ms;
-        -webkit-transform: scale(1.4);
-        -ms-transform: scale(1.4);
-        transform: scale(1.4);
+      /*Use main-container to adjust chat size*/
+      #main-container {
+        width: 80%;
+        height: 90%;
       }
     </style>
     <title>Chat Core</title>
