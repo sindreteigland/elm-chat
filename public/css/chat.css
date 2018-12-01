@@ -42,7 +42,8 @@
 }
 
 #messages-container {
-  overflow: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   height: 100%;
