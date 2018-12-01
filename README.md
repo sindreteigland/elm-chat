@@ -1,6 +1,4 @@
-# elm-chat
-Playing around with elm and phoenix framework
+#comming soon
 
-### TODOS
-
-[ ] Refactor to be a module
+elm-live Main.elm --output=public/app.js --pushstate --dir=public/ --open
+elm-live Main.elm --output=public/app.js --pushstate --dir=public/ --before-build=BuildCss.bat --open
