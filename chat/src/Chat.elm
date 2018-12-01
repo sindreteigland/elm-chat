@@ -21,7 +21,6 @@ type alias Model =
     , conversations : List Conversation
     , userList : List User
     , currentUser : User
-    , keyboard : KeyboardType
     , focusedChat : Conversation
     , leftMenuOpen : Bool
     }
@@ -34,7 +33,6 @@ initialModel =
     , conversations = conversations
     , userList = users
     , currentUser = { userId = "user3", userName = "Jelly kid", color = "#673AB7", picture = "b0ce1e9c577d40ee25fe3aeea4798561.jpg" }
-    , keyboard = None
     , focusedChat =
         { conversationId = "4"
         , conversationType = Group
@@ -58,19 +56,8 @@ type Msg
     | JoinChannel
     | SendMessage
     | ReciveChatMessage JE.Value
-    | Keyboard KeyboardType
-    | EmojiClicked String
-    | GifClicked String
-    | BackSpace
-    | ChangeChat Conversation
-    | LeftMenuToggle
     | NoOp
     | ScrollToEnd
-
-
-socketServer : String
-socketServer =
-    "ws://127.0.0.1:4000/socket/websocket"
 
 
 blankMessage =
@@ -121,7 +108,6 @@ update msg model =
                     in
                     ( { model
                         | newMessage = blankMessage
-                        , keyboard = None
                       }
                     , Cmd.none
                     )
@@ -129,33 +115,9 @@ update msg model =
         ReciveChatMessage raw ->
             ( model, Cmd.none )
 
-        Keyboard keyboard ->
-            ( { model | keyboard = keyboard }, Cmd.none )
 
-        EmojiClicked emoji ->
-            ( { model | newMessage = { msgType = model.newMessage.msgType, message = model.newMessage.message ++ emoji } }, Cmd.none )
 
-        GifClicked gifUrl ->
-            { model | newMessage = { msgType = Gif, message = gifUrl } } |> update SendMessage
-
-        BackSpace ->
-            let
-                --String.dropRight only works on UTF8 chars. Thats a problem with emotes.
-                shave =
-                    toCodePoints model.newMessage.message
-                        |> List.reverse
-                        |> List.drop 1
-                        |> List.reverse
-                        |> fromCodePoints
-            in
-            ( { model | newMessage = { msgType = model.newMessage.msgType, message = shave } }, Cmd.none )
-
-        ChangeChat conversation ->
-            ( model, Cmd.none )
-
-        --    ( { model | focusedChat = conversation, leftMenuOpen = False, messages = conversation.messages }, Cmd.none )
-        LeftMenuToggle ->
-            ( { model | leftMenuOpen = not model.leftMenuOpen }, Cmd.none )
+--    ( { model | focusedChat = conversation, leftMenuOpen = False, messages = conversation.messages }, Cmd.none )
 
 
 getMessageType msg =
@@ -259,21 +221,45 @@ getUser users message =
         Just u ->
             u
 
+        --  TODO: this needs to handle unknown user and not just give  you Bob
         Nothing ->
             { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
 
--- TODO: mye gjenbruk her... 
--- kan nokk trekke ut message-container og chatbubble og bare sende inn classname(style for move-right)
+
+theireMessageContainer user content =
+    div [ class "message-container" ]
+        [ div [ style "display" "flex" ]
+            [ div [ style "margin-top" "15px" ]
+                [ profilePicture user.color user.picture ]
+            , div [ style "display" "flex", style "flex-direction" "column" ]
+                [ div [ class "chat-username" ] [ text <| user.userName ]
+                , content
+                ]
+            ]
+        ]
+
+chatMessage message cssClass =
+    div [ class <| "chat-bubble fancy-border " ++ cssClass ]
+        [ div [ class "square" ] []
+        , p [] [ text message ]
+        ]
+
+
+gifMessage url =
+    div [ class "image-container fancy-border" ]
+        [ img [ src url ] []
+        ]
+
+emojiMessage message =
+    p [ class "just-emoji" ] [ text message ]
+
+
 myMessage : ChatMessage -> Html msg
 myMessage message =
     case message.msgType of
         Text ->
             div [ class "message-container move-right" ]
-                [ div [ class "chat-bubble fancy-border my-message" ]
-                    [ div [ class "square" ] []
-                    , p [] [ text message.body ]
-                    ]
-                ]
+                [ chatMessage message.body "my-message" ]
 
         Gif ->
             div [ class "message-container move-right" ]
@@ -282,68 +268,26 @@ myMessage message =
 
         Emotes ->
             div [ class "message-container move-right", style "font-size" "xx-large" ]
-                [ p [ class "just-emoji" ] [ text message.body ]
-                ]
+                [ emojiMessage message.body ]
 
         Unknown ->
             Html.text ""
-
-
-
---TODO Refactor shiet
 
 
 theireMessage : User -> ChatMessage -> Html msg
 theireMessage user message =
     case message.msgType of
         Text ->
-            div [ class "message-container" ]
-                [ div [ style "display" "flex" ]
-                    [ div [ style "margin-top" "15px" ] [ profilePicture user.color user.picture ]
-                    , div [ style "display" "flex", style "flex-direction" "column" ]
-                        [ div [ class "chat-username" ] [ text <| user.userName ]
-                        , div [ class "chat-bubble fancy-border theire-message" ]
-                            [ div [ class "square" ] []
-                            , p [] [ text message.body ]
-                            ]
-                        ]
-                    ]
-                ]
+            theireMessageContainer user (chatMessage message.body "theire-message")
 
         Gif ->
-            div [ class "message-container" ]
-                [ img
-                    [ class "profile-picture"
-                    , src user.picture
-                    , style "border-color" user.color
-                    , style "margin-top" "15px"
-                    ]
-                    []
-
-                --TODO switch to "real" profile pic
-                , div [ class "chat-username " ] [ text <| user.userName ]
-                , gifMessage message.body
-                ]
+            theireMessageContainer user (gifMessage message.body)
 
         Emotes ->
-            div [ class "message-container" ]
-                [ img [ class "profile-picture", src user.picture, style "border-color" user.color ] [] --TODO switch to "real" profile pic
-                , div [ class "chat-username" ] [ text <| user.userName ]
-                , p [ class "just-emoji" ] [ text message.body ]
-                ]
+            theireMessageContainer user (emojiMessage message.body)
 
         Unknown ->
             Html.text ""
-
-
-gifMessage url =
-    div [ class "image-container fancy-border" ]
-        [ img [ src url] []
-        ]
-
-
-mapGifs gif gifClicked =
-    img [ class "previewGif fancy-border", src gif.prev, onClick <| gifClicked gif.gif ] [ text "no gif for u" ]
 
 
 inputField : Model -> Html Msg
@@ -353,14 +297,6 @@ inputField model =
             [ div [ class "chat-message-area" ]
                 [ messageArea model ]
             ]
-        ]
-
-
-none =
-    div [ class "rainchatEmoteSection" ]
-        [ img [ src "ic_tag_faces_white_24px.svg", onClick <| Keyboard EmojiPicker ] []
-        , img [ src "ic_gif_white_24px.svg", onClick <| Keyboard GifPicker ] []
-        , img [ id "rainchatSend", src "ic_send_white_24px.svg", onClick BackSpace ] []
         ]
 
 
@@ -402,7 +338,5 @@ view model =
 
 appBar title =
     div [ class "chat-appbar fancy-border" ]
-        [ --TODO: include sick hover style
-        --   div [] [ img [ src "./public/icons/baseline-menu.svg", onClick <| LeftMenuToggle ] [] ]
-        h1 [] [ text title ] 
+        [ h1 [] [ text title ]
         ]
