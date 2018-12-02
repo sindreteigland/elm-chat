@@ -123,8 +123,6 @@ update msg model =
             ( { model | theme = newTheme }, Cmd.none )
 
 
-
-
 getMessageType msg =
     case isEmotes msg of
         True ->
@@ -233,7 +231,7 @@ getUser users message =
 
 theireMessageContainer user content =
     div [ class "message-container" ]
-        [ div [ style "display" "flex" ]
+        [ div [ ]
             [ div [ style "margin-top" "15px" ]
                 [ profilePicture user.color user.picture ]
             , div [ style "display" "flex", style "flex-direction" "column" ]
@@ -297,49 +295,35 @@ theireMessage user message =
             Html.text ""
 
 
-inputField : Model -> Html Msg
-inputField model =
-    div [ style "padding" "12px", class "input-bar fancy-border", onDivChanged ScrollToEnd ]
-        [ form [ onSubmit SendMessage ]
-            [ div [ class "chat-message-area" ]
-                [ messageArea model ]
-            ]
-        ]
-
-
 messageArea : Model -> Html Msg
 messageArea model =
-    div [ ]
-        [ div []
-            [ div [ style "position" "relative", style "display" "flex", style "align-content" "stretch", style "flex-direction" "column" ]
-                [ input
-                    [ style "type" "text"
-                    , style "padding-top" "5px"
-                    , style "padding-bottom" "5px"
-                    , style "border-radius" "5px"
-                    , style "font-size" "medium"
-                    , class "chat-inputbar"
-                    , placeholder "Say something..."
-                    , onInput SetNewMessage
-                    , value model.newMessage.message
-                    ]
-                    []
-                ]
+    div [ class "input-bar fancy-border", onDivChanged ScrollToEnd ]
+        [ form [ onSubmit SendMessage ]
+            [ div [ class "chat-message-area" ]
+                [ inputField model ]
             ]
         ]
 
 
-
--- /FROM CHATCOINTER
+inputField : Model -> Html Msg
+inputField model =
+    input
+        [ class "chat-inputbar"
+        , placeholder "Say something..."
+        , onInput SetNewMessage
+        , value model.newMessage.message
+        ]
+        []
 
 
 view : Model -> Html Msg
 view model =
     div [ class "chat-container", getTheme model.theme ]
         [ --appBar model.focusedChat.conversationName
-        themeBar
+          themeBar
         , chatView model
-        , inputField model
+        , messageArea model
+
         --, button [ onClick <| ColorHack Theme.defaultTheme ] [ text "Scroll to bottom" ]
         ]
 
