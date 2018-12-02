@@ -176,22 +176,14 @@ messageTypeDecoder msgType =
 
 
 
--- FROM CHATCONTAINER
-
-
 profilePicture color picture =
     img [ class "profile-picture", src picture, style "border-color" color ] []
-
-
-
--- ChatCss.Chat doesnt exist anymore?
 
 
 chatView : Model -> Html Msg
 chatView model =
     div [ id "messages-container", onDivChanged ScrollToEnd ]
         (List.map viewMessage model.messages
-         --|> List.reverse
         )
 
 
@@ -205,7 +197,6 @@ viewMessage message =
             getUser users message
     in
     if user.userId == disUsr then
-        --TODO use a real user and not this
         myMessage message
 
     else
