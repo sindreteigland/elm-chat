@@ -123,19 +123,6 @@ update msg model =
             ( { model | theme = newTheme }, Cmd.none )
 
 
-setCssCustomProperties =
-    attribute "class" "hest"
-
-
-
---    ( { model | focusedChat = conversation, leftMenuOpen = False, messages = conversation.messages }, Cmd.none )
-
-
-type alias RGB =
-    { red : Int
-    , green : Int
-    , blue : Int
-    }
 
 
 getMessageType msg =
@@ -322,7 +309,7 @@ inputField model =
 
 messageArea : Model -> Html Msg
 messageArea model =
-    div [ setCssCustomProperties ]
+    div [ ]
         [ div []
             [ div [ style "position" "relative", style "display" "flex", style "align-content" "stretch", style "flex-direction" "column" ]
                 [ input
