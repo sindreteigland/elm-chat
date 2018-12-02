@@ -4,7 +4,7 @@ import Browser
 import Browser.Dom as Dom
 import Data exposing (..)
 import Html exposing (..)
-import Html.Attributes exposing (class, id, placeholder, src, style, value)
+import Html.Attributes exposing (attribute, class, id, placeholder, src, style, value)
 import Html.Events exposing (on, onClick, onInput, onSubmit)
 import Json.Decode as JD exposing (Decoder, field, float, int, maybe, string, succeed)
 import Json.Decode.Extra exposing (..)
@@ -13,6 +13,7 @@ import List exposing (append)
 import List.Extra exposing (find)
 import String.Extra exposing (fromCodePoints, isBlank, toCodePoints)
 import Task exposing (..)
+import Theme exposing (..)
 
 
 type alias Model =
@@ -23,6 +24,7 @@ type alias Model =
     , currentUser : User
     , focusedChat : Conversation
     , leftMenuOpen : Bool
+    , theme : List ( String, String )
     }
 
 
@@ -43,6 +45,7 @@ initialModel =
         , messages = messages4
         }
     , leftMenuOpen = False
+    , theme = Theme.chill
     }
 
 
@@ -58,6 +61,7 @@ type Msg
     | ReciveChatMessage JE.Value
     | NoOp
     | ScrollToEnd
+    | ColorHack (List ( String, String ))
 
 
 blankMessage =
@@ -115,9 +119,23 @@ update msg model =
         ReciveChatMessage raw ->
             ( model, Cmd.none )
 
+        ColorHack newTheme ->
+            ( { model | theme = newTheme }, Cmd.none )
+
+
+setCssCustomProperties =
+    attribute "class" "hest"
+
 
 
 --    ( { model | focusedChat = conversation, leftMenuOpen = False, messages = conversation.messages }, Cmd.none )
+
+
+type alias RGB =
+    { red : Int
+    , green : Int
+    , blue : Int
+    }
 
 
 getMessageType msg =
@@ -238,6 +256,7 @@ theireMessageContainer user content =
             ]
         ]
 
+
 chatMessage message cssClass =
     div [ class <| "chat-bubble fancy-border " ++ cssClass ]
         [ div [ class "square" ] []
@@ -249,6 +268,7 @@ gifMessage url =
     div [ class "image-container fancy-border" ]
         [ img [ src url ] []
         ]
+
 
 emojiMessage message =
     p [ class "just-emoji" ] [ text message ]
@@ -302,7 +322,7 @@ inputField model =
 
 messageArea : Model -> Html Msg
 messageArea model =
-    div []
+    div [ setCssCustomProperties ]
         [ div []
             [ div [ style "position" "relative", style "display" "flex", style "align-content" "stretch", style "flex-direction" "column" ]
                 [ input
@@ -328,15 +348,24 @@ messageArea model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "chat-container" ]
-        [ appBar model.focusedChat.conversationName
+    div [ class "chat-container", customCssProperties model.theme ]
+        [ --appBar model.focusedChat.conversationName
+        themeBar
         , chatView model
         , inputField model
-        , button [ onClick ScrollToEnd ] [ text "Scroll to bottom" ]
+        --, button [ onClick <| ColorHack Theme.defaultTheme ] [ text "Scroll to bottom" ]
+        ]
+
+
+themeBar =
+    div [ class "temp" ]
+        [ button [ onClick <| ColorHack Theme.defaultTheme ] [ text "Default" ]
+        , button [ onClick <| ColorHack Theme.bobafett ] [ text "Boba Fett" ]
+        , button [ onClick <| ColorHack Theme.chill ] [ text "Chill" ]
         ]
 
 
 appBar title =
-    div [ class "chat-appbar fancy-border" ]
+    div [ class "chat-appbar" ]
         [ h1 [] [ text title ]
         ]

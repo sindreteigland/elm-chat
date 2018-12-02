@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "main": "Main.elm",
   "scripts": {
-    "start": "elm-live src/Main.elm --open --start-page=/public/index.html --   --output=public/chat.js",
+    "start": "elm-live src/Main.elm -h=0.0.0.0 --open --start-page=/public/index.html --   --output=public/chat.js",
     "build": "elm make src/Main.elm --output=public/chat.js",
     "elm-install": "elm install"
   },
