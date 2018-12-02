@@ -24,7 +24,7 @@ type alias Model =
     , currentUser : User
     , focusedChat : Conversation
     , leftMenuOpen : Bool
-    , theme : List ( String, String )
+    , theme : Theme
     }
 
 
@@ -45,7 +45,7 @@ initialModel =
         , messages = messages4
         }
     , leftMenuOpen = False
-    , theme = Theme.chill
+    , theme = Default
     }
 
 
@@ -61,7 +61,7 @@ type Msg
     | ReciveChatMessage JE.Value
     | NoOp
     | ScrollToEnd
-    | ColorHack (List ( String, String ))
+    | ColorHack Theme.Theme
 
 
 blankMessage =
@@ -335,7 +335,7 @@ messageArea model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "chat-container", customCssProperties model.theme ]
+    div [ class "chat-container", getTheme model.theme ]
         [ --appBar model.focusedChat.conversationName
         themeBar
         , chatView model
@@ -346,9 +346,9 @@ view model =
 
 themeBar =
     div [ class "temp" ]
-        [ button [ onClick <| ColorHack Theme.defaultTheme ] [ text "Default" ]
-        , button [ onClick <| ColorHack Theme.bobafett ] [ text "Boba Fett" ]
-        , button [ onClick <| ColorHack Theme.chill ] [ text "Chill" ]
+        [ button [ onClick <| ColorHack Default ] [ text "Default" ]
+        , button [ onClick <| ColorHack BobaFett ] [ text "Boba Fett" ]
+        , button [ onClick <| ColorHack Chill ] [ text "Chill" ]
         ]
 
 

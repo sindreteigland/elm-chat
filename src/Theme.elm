@@ -1,53 +1,84 @@
-module Theme exposing (RGB, bobafett, chill, customCssProperties, defaultTheme, fromString, fromStringHelp, hexToRgb, intToRgb, rgbToContrastColor)
+module Theme exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (attribute)
 import Regex
 
+ 
+type alias ThemeRecord =
+    { primaryColor : String
+    , accentColor : String
+    , themeColor : String
+    , appBarColor : String
+    , inputBar : String
+    , inputField : String
+    }
 
-defaultTheme =
-    [ ( "primary-color", "#006cb7" )
-    , ( "primary-text-color", "#fff" )
-    , ( "accent-color", "#9ac933" )
-    , ( "accent-text-color", "#000" )
-    , ( "theme-color", "#212121" )
-    , ( "theme-text-color", "#fff" )
-    , ( "theme-appbar", "#424242" )
-    , ( "theme-appbar-text", "#fff" )
-    , ( "theme-input-bar", "#212121" )
-    , ( "theme-input-field", "#303030" )
-    , ( "theme-input-field-text", "#fff" )
+type Theme 
+ = BobaFett
+ | Default
+ | Chill
+ | Custom ThemeRecord
+
+setTheme: ThemeRecord -> List (String, String)
+setTheme theme =
+    [ ( "primary-color", theme.primaryColor )
+    , ( "primary-text-color", createContextColor theme.primaryColor)
+    , ( "accent-color", theme.accentColor )
+    , ( "accent-text-color", createContextColor theme.accentColor)
+    , ( "theme-color", theme.themeColor )
+    , ( "theme-text-color", createContextColor theme.themeColor)
+    , ( "theme-appbar", theme.appBarColor )
+    , ( "theme-appbar-text", createContextColor theme.appBarColor)
+    , ( "theme-input-bar", theme.inputBar )
+    , ( "theme-input-field", theme.inputField )
+    , ( "theme-input-field-text", createContextColor theme.inputField)
     ]
+    
 
+getTheme : Theme -> Attribute msg
+getTheme theme =
+ case theme of
+    BobaFett ->
+        setTheme bobafett |> customCssProperties
+
+    Default ->
+        setTheme default |> customCssProperties
+
+    Chill ->
+        setTheme chill |> customCssProperties
+
+    Custom themeRecord ->
+        setTheme themeRecord |> customCssProperties
+
+
+default =
+    { primaryColor = "#006cb7" 
+    , accentColor = "#9ac933"
+    , themeColor = "#212121"
+    , appBarColor = "#424242"
+    , inputBar = "#212121" 
+    , inputField = "#303030"
+    }
 
 bobafett =
-    [ ( "primary-color", "#71262D" )
-    , ( "primary-text-color", createContextColor "71262D" )
-    , ( "accent-color", "#F3C72A" )
-    , ( "accent-text-color", "#000" )
-    , ( "theme-color", "#A19AA1" )
-    , ( "theme-text-color", createContextColor "#A19AA1" )
-    , ( "theme-appbar", "#5E6E63" )
-    , ( "theme-appbar-text", "#fff" )
-    , ( "theme-input-bar", "#5E6E63" )
-    , ( "theme-input-field", "#123A31" )
-    , ( "theme-input-field-text", "#fff" )
-    ]
+    { primaryColor = "#71262D" 
+    , accentColor = "#F3C72A"
+    , themeColor = "#A19AA1"
+    , appBarColor = "#5E6E63"
+    , inputBar = "#5E6E63"
+    , inputField = "#123A31"
+    }
 
 
 chill =
-    [ ( "primary-color", "#1d2730" )
-    , ( "primary-text-color", "#fff" )
-    , ( "accent-color", "#ec8439" )
-    , ( "accent-text-color", "#000" )
-    , ( "theme-color", "#0f2d4c" )
-    , ( "theme-text-color", "#fff" )
-    , ( "theme-appbar", "#424242" )
-    , ( "theme-appbar-text", "#fff" )
-    , ( "theme-input-bar", "#1d2730" )
-    , ( "theme-input-field", "#303030" )
-    , ( "theme-input-field-text", "#fff" )
-    ]
+    { primaryColor = "#1d2730" 
+    , accentColor = "#ec8439" 
+    , themeColor = "#0f2d4c"
+    , appBarColor = "#424242"
+    , inputBar = "#1d2730"
+    , inputField = "#303030"
+    }
 
 
 type alias RGB =
