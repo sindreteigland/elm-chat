@@ -1,4 +1,4 @@
-module Main exposing (Model, Msg(..), init, initialModel, main, update, view)
+module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
 import Browser.Dom as Dom
@@ -20,15 +20,16 @@ type alias Model =
     }
 
 
-initialModel : Model
-initialModel =
-    { chat = Chat.init -- Send settings. Maybe class name and stuff like that
-    }
-
-
 init : () -> ( Model, Cmd Msg )
 init _ =
-    ( initialModel, Cmd.none )
+    let
+        ( chatModel, chatCmd ) =
+            Chat.init
+
+        _ =
+            Debug.log "Got it" ( chatModel, chatCmd )
+    in
+    ( Model chatModel, Cmd.map ChatMessage chatCmd )
 
 
 type Msg
