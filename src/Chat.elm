@@ -17,35 +17,21 @@ import Theme exposing (..)
 
 
 type alias Model =
-    { newMessage : NewMessage
+    { currentUser : User
     , messages : List ChatMessage
-    , conversations : List Conversation
-    , userList : List User
-    , currentUser : User
-    , focusedChat : Conversation
-    , leftMenuOpen : Bool
+    , newMessage : NewMessage
     , theme : Theme
+    , users : List User
     }
 
 
 initialModel : Model
 initialModel =
-    { newMessage = blankMessage
+    { currentUser = { userId = "user3", userName = "Jelly kid", color = "#673AB7", picture = "b0ce1e9c577d40ee25fe3aeea4798561.jpg" }
     , messages = messages4
-    , conversations = conversations
-    , userList = users
-    , currentUser = { userId = "user3", userName = "Jelly kid", color = "#673AB7", picture = "b0ce1e9c577d40ee25fe3aeea4798561.jpg" }
-    , focusedChat =
-        { conversationId = "4"
-        , conversationType = Group
-        , color = "#673AB7"
-        , users = users
-        , conversationName = "The Boyz"
-        , picture = "0.jpg"
-        , messages = messages4
-        }
-    , leftMenuOpen = False
+    , newMessage = blankMessage
     , theme = Default
+    , users = users
     }
 
 
@@ -55,13 +41,13 @@ init =
 
 
 type Msg
-    = SetNewMessage String
+    = ColorHack Theme.Theme
     | JoinChannel
-    | SendMessage
-    | ReciveChatMessage JE.Value
     | NoOp
+    | ReciveChatMessage JE.Value
     | ScrollToEnd
-    | ColorHack Theme.Theme
+    | SendMessage
+    | SetNewMessage String
 
 
 blankMessage =
@@ -86,6 +72,7 @@ update msg model =
             )
 
         JoinChannel ->
+            --maybe not needed if chat doesnt handle socket stuff
             ( model, Cmd.none )
 
         ScrollToEnd ->
@@ -106,6 +93,7 @@ update msg model =
                     ( { model | newMessage = blankMessage }, Cmd.none )
 
                 False ->
+                    -- sett payload and send it to the handler, then clean newMessage
                     let
                         payload =
                             "json payload here"
@@ -117,6 +105,7 @@ update msg model =
                     )
 
         ReciveChatMessage raw ->
+            --decode raw from json to a message 
             ( model, Cmd.none )
 
         ColorHack newTheme ->
@@ -310,12 +299,9 @@ inputField model =
 view : Model -> Html Msg
 view model =
     div [ class "chat-container", getTheme model.theme ]
-        [ --appBar model.focusedChat.conversationName
-          themeBar
+        [ themeBar
         , chatView model
         , messageArea model
-
-        --, button [ onClick <| ColorHack Theme.defaultTheme ] [ text "Scroll to bottom" ]
         ]
 
 

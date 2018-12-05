@@ -2,7 +2,6 @@ module Theme exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (attribute)
-import Regex
 
  
 type alias ThemeRecord =
@@ -93,7 +92,6 @@ createContextColor hexString =
 
 
 rgbToContrastColor rgbColor =
-    --Not in use yet, but would be nice to automate text coloring based on background
     let
         yiq =
             toFloat ((rgbColor.red * 299) + (rgbColor.green * 587) + (rgbColor.blue * 114)) / 1000
@@ -122,7 +120,7 @@ customCssProperties styles =
 
 --This is not that robust, but its a start
 
-
+hexToRgb : String -> RGB
 hexToRgb hexString =
     let
         intValue =
@@ -191,10 +189,6 @@ fromStringHelp position chars accumulated =
             Ok accumulated
 
         char :: rest ->
-            -- NOTE: It's important to have this call `fromStringHelp` directly.
-            -- Previously this called a helper function, but that meant this
-            -- was not tail-call optimized; it did not compile to a `while` loop
-            -- the way it does now. See 240c3d5aa4f97463b924728935d2989621e9fd6b
             case char of
                 '0' ->
                     fromStringHelp (position - 1) rest accumulated
