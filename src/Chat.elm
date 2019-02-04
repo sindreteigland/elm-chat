@@ -37,7 +37,7 @@ initialModel =
 
 init : ( Model, Cmd Msg)
 init =
-    ( initialModel, Cmd.none )
+    ( initialModel, scrollToEnd  )
 
 
 type Msg
@@ -60,6 +60,15 @@ join msg =
         |> Task.perform identity
 
 
+elementId = "messages-container"
+
+scrollToEnd : Cmd Msg
+scrollToEnd =
+    Dom.getViewportOf elementId
+        |> Task.andThen (\viewport -> Dom.setViewportOf elementId 0 viewport.scene.height)
+        |> Task.attempt (\_ -> NoOp)
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case Debug.log "Debug log: " msg of
@@ -76,16 +85,7 @@ update msg model =
             ( model, Cmd.none )
 
         ScrollToEnd ->
-            let
-                elementId =
-                    "messages-container"
-
-                cmd =
-                    Dom.getViewportOf elementId
-                        |> Task.andThen (\viewport -> Dom.setViewportOf elementId 0 viewport.scene.height)
-                        |> Task.attempt (\_ -> NoOp)
-            in
-            ( model, cmd )
+            ( model, scrollToEnd )
 
         SendMessage ->
             case isBlank model.newMessage.message of
@@ -171,14 +171,9 @@ profilePicture color picture =
 
 chatView : Model -> Html Msg
 chatView model =
-    div [ id "messages-container", onDivChanged ScrollToEnd ]
+    div [ id "messages-container"]
         (List.map viewMessage model.messages
         )
-
-
-onDivChanged msg =
-    on "DOMSubtreeModified" (JD.succeed msg)
-
 
 viewMessage message =
     let
@@ -277,7 +272,7 @@ theireMessage user message =
 
 messageArea : Model -> Html Msg
 messageArea model =
-    div [ class "input-bar fancy-border", onDivChanged ScrollToEnd ]
+    div [ class "input-bar fancy-border" ]
         [ form [ onSubmit SendMessage ]
             [ div [ class "chat-message-area" ]
                 [ inputField model ]
