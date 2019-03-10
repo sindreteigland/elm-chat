@@ -72,7 +72,7 @@ bobafett =
 
 chill =
     { primaryColor = "#1d2730" 
-    , accentColor = "#ec8439" 
+    , accentColor = "#53127d" 
     , themeColor = "#0f2d4c"
     , appBarColor = "#424242"
     , inputBar = "#1d2730"
