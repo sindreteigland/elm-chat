@@ -219,8 +219,7 @@ theireMessageContainer user content =
 
 chatMessage message cssClass =
     div [ class <| "chat-bubble fancy-border " ++ cssClass ]
-        [ div [ class "square" ] []
-        , p [] [ text message ]
+        [ p [] [ text message ]
         ]
 
 
@@ -294,8 +293,7 @@ inputField model =
 view : Model -> Html Msg
 view model =
     div [ class "chat-container", getTheme model.theme ]
-        [ themeBar
-        , chatView model
+        [ chatView model
         , messageArea model
         ]
 
