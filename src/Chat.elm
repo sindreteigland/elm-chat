@@ -298,14 +298,6 @@ view model =
         ]
 
 
-themeBar =
-    div [ class "temp" ]
-        [ button [ onClick <| ColorHack Default ] [ text "Default" ]
-        , button [ onClick <| ColorHack BobaFett ] [ text "Boba Fett" ]
-        , button [ onClick <| ColorHack Chill ] [ text "Chill" ]
-        ]
-
-
 appBar title =
     div [ class "chat-appbar" ]
         [ h1 [] [ text title ]
