@@ -30,18 +30,18 @@ initialModel =
     { currentUser = { userId = "user3", userName = "Jelly kid", color = "#673AB7", picture = "b0ce1e9c577d40ee25fe3aeea4798561.jpg" }
     , messages = messages4
     , newMessage = blankMessage
-    , theme = Default
+    , theme = Chill
     , users = users
     }
 
 
-init : ( Model, Cmd Msg)
+init : ( Model, Cmd Msg )
 init =
-    ( initialModel, scrollToEnd  )
+    ( initialModel, scrollToEnd )
 
 
 type Msg
-    = ColorHack Theme.Theme
+    = SetTheme Theme.Theme
     | JoinChannel
     | NoOp
     | ReciveChatMessage JE.Value
@@ -50,23 +50,92 @@ type Msg
     | SetNewMessage String
 
 
+elementId =
+    "messages-container"
+
+
 blankMessage =
     { msgType = Unknown, message = "" }
+    
+
+getMessageType msg =
+    case isEmotes msg of
+        True ->
+            Emotes
+
+        False ->
+            case Debug.log "url me" (isUrl msg) of
+                True ->
+                    Gif
+
+                False ->
+                    Text
 
 
-join : Msg -> Cmd Msg
-join msg =
-    Task.succeed msg
-        |> Task.perform identity
+isEmotes string =
+    if (toCodePoints string |> List.length) <= 5 then
+        string
+            |> toCodePoints
+            |> List.all (\num -> num >= 65533)
+
+    else
+        False
 
 
-elementId = "messages-container"
+
+--TODO fix url parser
+
+
+isUrl string =
+    homeMadeRetardUrlParser string
+
+
+homeMadeRetardUrlParser string =
+    String.contains "http" string
+
+
+chatMessageDecoder =
+    "json"
+
+
+messageTypeDecoder msgType =
+    JD.succeed <|
+        case msgType of
+            "Text" ->
+                Text
+
+            "Emotes" ->
+                Emotes
+
+            "Gif" ->
+                Gif
+
+            _ ->
+                Unknown
+
 
 scrollToEnd : Cmd Msg
 scrollToEnd =
     Dom.getViewportOf elementId
         |> Task.andThen (\viewport -> Dom.setViewportOf elementId 0 viewport.scene.height)
         |> Task.attempt (\_ -> NoOp)
+
+
+getUser : List User -> ChatMessage -> User
+getUser users message =
+    let
+        user =
+            users
+                |> List.filter (.userId >> (==) message.userId)
+                |> List.head
+    in
+    case user of
+        Just u ->
+            u
+
+        --  TODO: this needs to handle unknown user and not just give  you Bob
+        Nothing ->
+            { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -105,116 +174,16 @@ update msg model =
                     )
 
         ReciveChatMessage raw ->
-            --decode raw from json to a message 
+            --decode raw from json to a message
             ( model, Cmd.none )
 
-        ColorHack newTheme ->
+        SetTheme newTheme ->
             ( { model | theme = newTheme }, Cmd.none )
 
 
-getMessageType msg =
-    case isEmotes msg of
-        True ->
-            Emotes
-
-        False ->
-            case Debug.log "url me" (isUrl msg) of
-                True ->
-                    Gif
-
-                False ->
-                    Text
-
-
-isEmotes string =
-    if (toCodePoints string |> List.length) <= 5 then
-        string
-            |> toCodePoints
-            |> List.all (\num -> num >= 65533)
-
-    else
-        False
-
-
-isUrl string =
-    homeMadeRetardUrlParser string
-
-
-homeMadeRetardUrlParser string =
-    String.contains "http" string
-
-
-chatMessageDecoder =
-    "json"
-
-
-messageTypeDecoder msgType =
-    JD.succeed <|
-        case msgType of
-            "Text" ->
-                Text
-
-            "Emotes" ->
-                Emotes
-
-            "Gif" ->
-                Gif
-
-            _ ->
-                Unknown
-
-
-
-profilePicture color picture =
-    img [ class "profile-picture", src picture, style "border-color" color ] []
-
-
-chatView : Model -> Html Msg
-chatView model =
-    div [ id "messages-container"]
-        (List.map viewMessage model.messages
-        )
-
-viewMessage message =
-    let
-        user =
-            getUser users message
-    in
-    if user.userId == disUsr then
-        myMessage message
-
-    else
-        theireMessage user message
-
-
-getUser : List User -> ChatMessage -> User
-getUser users message =
-    let
-        user =
-            users
-                |> List.filter (.userId >> (==) message.userId)
-                |> List.head
-    in
-    case user of
-        Just u ->
-            u
-
-        --  TODO: this needs to handle unknown user and not just give  you Bob
-        Nothing ->
-            { userId = "user1", userName = "Bob", color = "#25e075", picture = "unnamed.png" }
-
-
-theireMessageContainer user content =
-    div [ class "message-container" ]
-        [ div [ ]
-            [ div [ style "margin-top" "15px" ]
-                [ profilePicture user.color user.picture ]
-            , div [ style "display" "flex", style "flex-direction" "column" ]
-                [ div [ class "chat-username" ] [ text <| user.userName ]
-                , content
-                ]
-            ]
-        ]
+myMessageConatiner _ content =
+    div [ class "message-container move-right" ]
+        [ content ]
 
 
 chatMessage message cssClass =
@@ -229,54 +198,58 @@ gifMessage url =
         ]
 
 
+profilePicture color picture =
+    img [ class "profile-picture", src picture, style "border-color" color ] []
+
+
+theireMessageContainer user content =
+    div [ class "message-container" ]
+        [ div []
+            [ div [ style "margin-top" "15px" ]
+                [ profilePicture user.color user.picture ]
+            , div [ style "display" "flex", style "flex-direction" "column" ]
+                [ div [ class "chat-username" ] [ text <| user.userName ]
+                , content
+                ]
+            ]
+        ]
+
+
 emojiMessage message =
     p [ class "just-emoji" ] [ text message ]
 
 
-myMessage : ChatMessage -> Html msg
-myMessage message =
+createMsgContainer container user message msgClass =
     case message.msgType of
         Text ->
-            div [ class "message-container move-right" ]
-                [ chatMessage message.body "my-message" ]
+            container user (chatMessage message.body msgClass)
 
         Gif ->
-            div [ class "message-container move-right" ]
-                [ gifMessage message.body
-                ]
+            container user (gifMessage message.body)
 
         Emotes ->
-            div [ class "message-container move-right", style "font-size" "xx-large" ]
-                [ emojiMessage message.body ]
+            container user (emojiMessage message.body)
 
         Unknown ->
             Html.text ""
 
 
-theireMessage : User -> ChatMessage -> Html msg
-theireMessage user message =
-    case message.msgType of
-        Text ->
-            theireMessageContainer user (chatMessage message.body "theire-message")
+viewMessage message =
+    let
+        user =
+            getUser users message
+    in
+    if user.userId == disUsr then
+        createMsgContainer myMessageConatiner user message "my-message"
 
-        Gif ->
-            theireMessageContainer user (gifMessage message.body)
-
-        Emotes ->
-            theireMessageContainer user (emojiMessage message.body)
-
-        Unknown ->
-            Html.text ""
+    else
+        createMsgContainer theireMessageContainer user message "theire-message"
 
 
 messageArea : Model -> Html Msg
 messageArea model =
-    div [ class "input-bar fancy-border" ]
-        [ form [ onSubmit SendMessage ]
-            [ div [ class "chat-message-area" ]
-                [ inputField model ]
-            ]
-        ]
+    div [ id "messages-container" ]
+        (List.map viewMessage model.messages)
 
 
 inputField : Model -> Html Msg
@@ -290,15 +263,19 @@ inputField model =
         []
 
 
-view : Model -> Html Msg
-view model =
-    div [ class "chat-container", getTheme model.theme ]
-        [ chatView model
-        , messageArea model
+inputArea : Model -> Html Msg
+inputArea model =
+    div [ class "input-area fancy-border" ]
+        [ form [ onSubmit SendMessage ]
+            [ div [ class "chat-message-area" ]
+                [ inputField model ]
+            ]
         ]
 
 
-appBar title =
-    div [ class "chat-appbar" ]
-        [ h1 [] [ text title ]
+view : Model -> Html Msg
+view model =
+    div [ class "chat-container", getTheme model.theme ]
+        [ messageArea model
+        , inputArea model
         ]

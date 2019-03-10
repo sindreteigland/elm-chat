@@ -2,7 +2,6 @@
   --primary-color: #006cb7;
   --accent-color: #9ac933;
   --theme-color: #212121;
-  --theme-appbar: #424242;
   --theme-bottombar: #303030;
   --shadow-e1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   --shadow-e2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -21,26 +20,6 @@
   height: 100%;
   border-radius: 2px;
   justify-content: space-between;
-}
-
-.chat-appbar {
-  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  background-color: var(--theme-appbar);
-  color: var(--theme-appbar-text);
-  font-size: large;
-  width: 100%;
-  border-radius: 2px 2px 0px 0px;
-  box-shadow: var(--shadow-e1);
-  z-index: 999;
-  height: 56px;
-  display: flex;
-  align-items: center;
-}
-
-.chat-appbar > h1 {
-  margin: 5px;
-  font-size: 1.1em;
-  font-weight: 400;
 }
 
 #messages-container {
@@ -163,7 +142,7 @@
   max-height: 200px;
 }
 
-.input-bar {
+.input-area {
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   background-color: var(--theme-input-bar);
 }
