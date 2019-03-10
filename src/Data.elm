@@ -1,21 +1,5 @@
 module Data exposing (..)
 
-import Json.Encode as JE
--- import Phoenix.Socket
-
-
-type ConversatinonType
-    = Direct
-    | Group
-    | Channel
-
-
-type KeyboardType
-    = None
-    | EmojiPicker
-    | GifPicker
-
-
 type MessageType
     = Text
     | Emotes
@@ -28,16 +12,6 @@ type alias ChatMessage =
     , body : String
     }
 
-
-type alias Conversation =
-    { conversationId : String
-    , conversationType : ConversatinonType
-    , color : String
-    , users : List User
-    , conversationName : String
-    , picture : String
-    , messages : List ChatMessage
-    }
 
 
 type alias NewMessage =
@@ -62,20 +36,6 @@ disUsr =
     "user3"
 
 
-conversations : List Conversation
-conversations =
-    [ 
-      { conversationId = "4"
-      , conversationType = Group
-      , color = "#673AB7"
-      , users = users
-      , conversationName = "The Boyz"
-      , picture = "0.jpg"
-      , messages = messages4
-      }
-    ]
-
-
 users : List User
 users =
     [ { userId = "user1", userName = "Bob", color = "#25e075", picture = "./public/images/unnamed.png" }
@@ -85,44 +45,7 @@ users =
     ]
 
 messages4 =
-    [ { userId = "user1", msgType = Text, body = "Hello!" }
-    , { userId = "user2", msgType = Text, body = "Eyyy" }
-    , { userId = "user3", msgType = Text, body = "Waaadup!" }
-    , { userId = "user4", msgType = Text, body = "Hei 😄" }
-    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
-    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
-    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
-    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
-    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
-    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
-    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
-    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
-    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
-     , { userId = "user2", msgType = Text, body = "Eyyy" }
-    , { userId = "user3", msgType = Text, body = "Waaadup!" }
-    , { userId = "user4", msgType = Text, body = "Hei 😄" }
-    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
-    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
-    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
-    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
-    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
-    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
-    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
-    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
-    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
-     , { userId = "user2", msgType = Text, body = "Eyyy" }
-    , { userId = "user3", msgType = Text, body = "Waaadup!" }
-    , { userId = "user4", msgType = Text, body = "Hei 😄" }
-    , { userId = "user1", msgType = Text, body = "Er det noe liv?" }
-    , { userId = "user4", msgType = Text, body = "Vi bare tester ut denne rå chatten, funker som et fly" }
-    , { userId = "user3", msgType = Text, body = "Sykt kult. er den skrevet i JQuery?" }
-    , { userId = "user2", msgType = Text, body = "Lol, har du slått deg. Dette er Elm baby!" }
-    , { userId = "user3", msgType = Gif, body = "https://media.tenor.com/images/65b3da99d3626f98e84f014f01d62b31/tenor.gif" }
-    , { userId = "user4", msgType = Emotes, body = "😂😂😂" }
-    , { userId = "user3", msgType = Emotes, body = "👌👌👌👌👌" }
-    , { userId = "user4", msgType = Gif, body = "https://media2.giphy.com/media/z1FzPhvrIZXTa/giphy.gif" }
-    , { userId = "user2", msgType = Text, body = "hei, Jeg skriver dcenne meldingern fordi ejeg kjører noen tester. hvor mye tekst kan jeg skrive før ting går gale. Altså hvor lang kan teksten være og vil det se bra ut??? dette kan bare gudene vite og vi vil aldri forstå hvordan det henger sammen" }
-     , { userId = "user2", msgType = Text, body = "Eyyy" }
+    [ { userId = "user2", msgType = Text, body = "Eyyy" }
     , { userId = "user3", msgType = Text, body = "Waaadup!" }
     , { userId = "user4", msgType = Text, body = "Hei 😄" }
     , { userId = "user1", msgType = Text, body = "Er det noe liv?" }

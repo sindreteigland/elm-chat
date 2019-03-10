@@ -1,8 +1,4 @@
 :root {
-  --primary-color: #006cb7;
-  --accent-color: #9ac933;
-  --theme-color: #212121;
-  --theme-bottombar: #303030;
   --shadow-e1: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   --shadow-e2: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   --shadow-e3: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
