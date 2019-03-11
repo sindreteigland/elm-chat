@@ -56,7 +56,7 @@ elementId =
 
 blankMessage =
     { msgType = Unknown, message = "" }
-    
+
 
 getMessageType msg =
     case isEmotes msg of
@@ -181,11 +181,6 @@ update msg model =
             ( { model | theme = newTheme }, Cmd.none )
 
 
-myMessageConatiner _ content =
-    div [ class "message-container move-right" ]
-        [ content ]
-
-
 chatMessage message cssClass =
     div [ class <| "chat-bubble fancy-border " ++ cssClass ]
         [ p [] [ text message ]
@@ -198,8 +193,17 @@ gifMessage url =
         ]
 
 
+emojiMessage message =
+    p [ class "just-emoji" ] [ text message ]
+
+
 profilePicture color picture =
     img [ class "profile-picture", src picture, style "border-color" color ] []
+
+
+myMessageConatiner _ content =
+    div [ class "message-container move-right" ]
+        [ content ]
 
 
 theireMessageContainer user content =
@@ -213,10 +217,6 @@ theireMessageContainer user content =
                 ]
             ]
         ]
-
-
-emojiMessage message =
-    p [ class "just-emoji" ] [ text message ]
 
 
 createMsgContainer container user message msgClass =
